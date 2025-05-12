@@ -1,0 +1,87 @@
+/* Custom styles beyond Tailwind */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Snake game container styling */
+.game-container {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #8B5CF6;
+    border-radius: 8px;
+    display: none;
+    margin: 0 auto;
+}
+
+.hover-trigger:hover .game-container {
+    display: block;
+}
+
+/* Disable game on mobile */
+@media (max-width: 768px) {
+    .hover-trigger:hover .game-container {
+        display: none;
+    }
+}
+
+/* Project card hover effect */
+.project-card {
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Skill icon hover effect */
+.skill-icon {
+    transition: transform 0.2s ease;
+    opacity: 0.8;
+}
+
+.skill-icon:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Custom cursor for interactive elements */
+.interactive {
+    cursor: pointer;
+}
+
+/* Typography enhancements */
+.gradient-text {
+    background: linear-gradient(90deg, #8B5CF6, #EC4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Gallery image styling */
+#gallery .grid > div {
+    background-color: #1F2937;
+    padding: 10px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gallery img {
+    max-height: 280px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+} 
