@@ -60,5 +60,3 @@ That's it! No build process or server needed for local development.
 This website can be deployed to GitHub Pages, Netlify, or any static site hosting platform without any build process.
 
 ## License
-
-MIT
