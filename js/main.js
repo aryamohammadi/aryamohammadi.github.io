@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize smooth scrolling for navigation links
     initSmoothScrolling();
-    
-    // Initialize scroll animations after components are loaded
-    setTimeout(initScrollAnimations, 800);
 });
 
 // Function to load all HTML components
@@ -81,86 +78,6 @@ function initSmoothScrolling() {
                 }
             }
         });
-    });
-}
-
-// Function to initialize scroll animations
-function initScrollAnimations() {
-    // Add animation classes to section headings
-    document.querySelectorAll('section h2').forEach(heading => {
-        heading.classList.add('animate-on-scroll');
-        heading.dataset.animation = 'animate-fade-up';
-    });
-    
-    // Add animation classes to section descriptions
-    document.querySelectorAll('section p:first-of-type').forEach(paragraph => {
-        paragraph.classList.add('animate-on-scroll');
-        paragraph.dataset.animation = 'animate-fade-up';
-        paragraph.dataset.delay = 'delay-100';
-    });
-    
-    // Add animations to about section content
-    const aboutSection = document.querySelector('#about');
-    if (aboutSection) {
-        const aboutImage = aboutSection.querySelector('.rounded-full');
-        const aboutContent = aboutSection.querySelector('.md\\:pl-8');
-        
-        if (aboutImage) {
-            aboutImage.classList.add('animate-on-scroll');
-            aboutImage.dataset.animation = 'animate-fade-left';
-        }
-        
-        if (aboutContent) {
-            aboutContent.classList.add('animate-on-scroll');
-            aboutContent.dataset.animation = 'animate-fade-right';
-            aboutContent.dataset.delay = 'delay-100';
-        }
-    }
-    
-    // Add animations to project cards
-    document.querySelectorAll('.project-card').forEach((card, index) => {
-        card.classList.add('animate-on-scroll');
-        card.dataset.animation = 'animate-fade-up';
-        card.dataset.delay = `delay-${(index % 3) * 100}`;
-    });
-    
-    // Add animations to skill icons
-    document.querySelectorAll('.skill-icon').forEach((icon, index) => {
-        icon.classList.add('animate-on-scroll');
-        icon.dataset.animation = 'animate-fade-up';
-        icon.dataset.delay = `delay-${(index % 6) * 100}`;
-    });
-    
-    // Add animations to gallery images
-    document.querySelectorAll('#gallery .grid > div').forEach((image, index) => {
-        image.classList.add('animate-on-scroll');
-        image.dataset.animation = 'animate-fade-up';
-        image.dataset.delay = `delay-${(index % 3) * 100}`;
-    });
-    
-    // Set up the Intersection Observer to trigger animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                const animation = element.dataset.animation;
-                const delay = element.dataset.delay || '';
-                
-                if (animation) {
-                    element.classList.add(animation);
-                    if (delay) {
-                        element.classList.add(delay);
-                    }
-                }
-                
-                observer.unobserve(element);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    
-    // Observe all elements with animation classes
-    document.querySelectorAll('.animate-on-scroll').forEach(element => {
-        observer.observe(element);
     });
 }
 
