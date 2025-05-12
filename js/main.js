@@ -19,7 +19,6 @@ async function loadComponents() {
         { id: 'about', file: 'about.html' },
         { id: 'projects', file: 'projects.html' },
         { id: 'skills', file: 'skills.html' },
-        { id: 'fun', file: 'fun.html' },
         { id: 'contact', file: 'contact.html' },
         { id: 'gallery', file: 'gallery.html' },
         { id: 'footer', file: 'footer.html' }

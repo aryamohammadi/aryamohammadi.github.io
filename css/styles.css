@@ -15,27 +15,6 @@ html {
     animation: fadeIn 1s ease-in;
 }
 
-/* Snake game container styling */
-.game-container {
-    width: 300px;
-    height: 300px;
-    border: 2px solid #8B5CF6;
-    border-radius: 8px;
-    display: none;
-    margin: 0 auto;
-}
-
-.hover-trigger:hover .game-container {
-    display: block;
-}
-
-/* Disable game on mobile */
-@media (max-width: 768px) {
-    .hover-trigger:hover .game-container {
-        display: none;
-    }
-}
-
 /* Project card hover effect */
 .project-card {
     transition: transform 0.3s ease;
