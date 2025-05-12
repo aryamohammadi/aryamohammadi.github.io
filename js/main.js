@@ -17,11 +17,11 @@ async function loadComponents() {
         { id: 'header', file: 'header.html' },
         { id: 'hero', file: 'hero.html' },
         { id: 'about', file: 'about.html' },
-        { id: 'gallery', file: 'gallery.html' },
-        { id: 'fun', file: 'fun.html' },
         { id: 'projects', file: 'projects.html' },
         { id: 'skills', file: 'skills.html' },
+        { id: 'fun', file: 'fun.html' },
         { id: 'contact', file: 'contact.html' },
+        { id: 'gallery', file: 'gallery.html' },
         { id: 'footer', file: 'footer.html' }
     ];
     
