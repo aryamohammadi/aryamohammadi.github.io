@@ -1,0 +1,103 @@
+.terminal-window {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.terminal-line {
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.5;
+}
+
+.terminal-input {
+    position: relative;
+}
+
+#terminal-input-field {
+    caret-color: #fff;
+    font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* Terminal animations */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.terminal-input::after {
+    content: '█';
+    position: absolute;
+    right: 0;
+    color: #fff;
+    animation: blink 1s infinite;
+}
+
+/* Konami code animation */
+@keyframes konami {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Matrix effect */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Terminal scrollbar */
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Terminal selection */
+.terminal-content ::selection {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Terminal focus styles */
+#terminal-input-field:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Terminal window drag handle */
+.terminal-header {
+    cursor: move;
+    user-select: none;
+}
+
+/* Terminal window resize handle */
+.terminal-window {
+    resize: both;
+    overflow: hidden;
+    min-height: 300px;
+    min-width: 400px;
+} 
