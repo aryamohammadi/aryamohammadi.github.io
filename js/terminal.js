@@ -337,7 +337,7 @@ Shell: /bin/zsh
 
         const fileContents = {
             'about.txt': `Name: Arya M
-Education: Mathematics-Computer Science @ UCLA
+Education: Mathematics-Computer Science @ UCSD
 Location: California
 Interests: AI, Software Development, Problem Solving
 
@@ -365,7 +365,7 @@ CORE CONCEPTS:
 • Agile Development Methodologies`,
             
             'projects.txt': `1. UCR HOUSINGCONNECT (April 2025 - Present)
-   Full-stack housing platform for UC students
+   Full-stack housing platform for UC Riverside students
    
    Features:
    • Map-based housing search with geolocation

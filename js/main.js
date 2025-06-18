@@ -69,7 +69,7 @@ function initTypingEffect() {
         new Typed(typingElement, {
             strings: [
                 "Hi, I'm Arya",
-                "Mathematics and Computer Science Student @ UCLA",
+                "Mathematics and Computer Science Student @ UCSD",
                 "Building creative, fun AI projects"
             ],
             typeSpeed: 50,
