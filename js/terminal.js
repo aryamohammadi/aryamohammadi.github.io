@@ -1,613 +1,749 @@
-// Terminal emulator for my portfolio
-// This was the hardest part of the project - took me like 3 weeks to get working!
-// Learned about classes, event listeners, and DOM manipulation
+// Terminal emulator for my portfolio website
+// This is probably the most complex thing I've ever coded!
+// Started this in week 4 of the project, took me until week 8 to get it working properly
+// Had to watch like 20 YouTube tutorials and ask my TA for help multiple times
 
+// I learned about JavaScript classes in CSE 100 but this is my first time really using one
 class Terminal {
+    // Constructor function - this runs when we create a new Terminal object
     constructor() {
-        console.log('Creating terminal...'); // Debug message
+        // I always add console.log statements to debug my code (learned this the hard way)
+        console.log('Starting to create terminal object...'); 
         
-        // Get references to HTML elements
+        // Step 1: Get references to the HTML elements I need
+        // Had to look up getElementById - forgot it from CSE 101
         this.inputField = document.getElementById('terminal-input-field');
         this.outputDiv = document.getElementById('terminal-output');
         
-        // Arrays to store command history
-        this.commandHistory = [];
-        this.historyIndex = -1;
+        // Step 2: Initialize variables for command history
+        // Arrays were covered in CSE 100 but I still have to think about them carefully
+        this.commandHistory = []; // This will store all the commands the user types
+        this.historyIndex = -1;   // This keeps track of where we are in the history
         
-        // Easter eggs - these were fun to add!
+        // Step 3: Set up easter eggs (the fun part!)
+        // I learned about object literals from a YouTube tutorial
         this.easterEggs = {
-            'konami': () => this.konamiCode(),
-            'matrix': () => this.matrixEffect(),
-            'snake': () => this.startSnakeGame(),
-            'tetris': () => this.startTetrisGame()
+            'konami': () => this.konamiCode(),     // The famous cheat code
+            'matrix': () => this.matrixEffect(),   // Cool matrix animation
+            'snake': () => this.startSnakeGame(),  // Snake game I built
+            'tetris': () => this.startTetrisGame() // Tetris was SO hard to code
         };
         
-        // All the commands the terminal can handle
-        // Took me a while to figure out how to organize this
+        // Step 4: Define all the commands the terminal can handle
+        // This took me forever to organize properly
+        // I kept adding more commands as I thought of them
         this.commands = {
-            'help': () => this.showHelp(),
-            'clear': () => this.clearTerminal(),
-            'about': () => this.showAbout(),
-            'skills': () => this.showSkills(),
-            'projects': () => this.showProjects(),
-            'contact': () => this.showContact(),
-            'echo': (args) => this.echo(args),
-            'date': () => this.showDate(),
-            'weather': () => this.showWeather(),
-            'joke': () => this.tellJoke(),
-            'ls': () => this.listFiles(),
-            'cd': (args) => this.changeDirectory(args),
-            'pwd': () => this.showCurrentDirectory(),
-            'whoami': () => this.showUserInfo(),
-            'exit': () => this.exitTerminal(),
-            'resume': () => this.openResume(),
-            'github': () => this.openGitHub(),
-            'linkedin': () => this.openLinkedIn(),
-            'theme': (args) => this.changeTheme(args),
-            'cat': (args) => this.catFile(args),
-            'eastereggs': () => this.showEasterEggs(),
-            'fun': () => this.showFunCommands(),
-            'cowsay': (args) => this.cowsay(args)
+            'help': () => this.showHelp(),                    // Show available commands
+            'clear': () => this.clearTerminal(),              // Clear the screen
+            'about': () => this.showAbout(),                  // About me info
+            'skills': () => this.showSkills(),                // My programming skills
+            'projects': () => this.showProjects(),            // My projects
+            'contact': () => this.showContact(),              // How to contact me
+            'echo': (args) => this.echo(args),                // Echo back what user types
+            'date': () => this.showDate(),                    // Show current date
+            'weather': () => this.showWeather(),              // Fake weather command
+            'joke': () => this.tellJoke(),                    // Programming jokes
+            'ls': () => this.listFiles(),                     // List files (like Unix)
+            'cd': (args) => this.changeDirectory(args),       // Change directory
+            'pwd': () => this.showCurrentDirectory(),         // Show current directory
+            'whoami': () => this.showUserInfo(),              // Show user info
+            'exit': () => this.exitTerminal(),                // Exit terminal
+            'resume': () => this.openResume(),                // Open my resume
+            'github': () => this.openGitHub(),                // Open my GitHub
+            'linkedin': () => this.openLinkedIn(),            // Open my LinkedIn
+            'theme': (args) => this.changeTheme(args),        // Change terminal theme
+            'cat': (args) => this.catFile(args),              // Show file contents
+            'eastereggs': () => this.showEasterEggs(),        // Show easter eggs
+            'fun': () => this.showFunCommands(),              // Show fun commands
+            'cowsay': (args) => this.cowsay(args)             // ASCII cow that talks
         };
 
-        // Current directory for the fake file system
-        this.currentDirectory = '~';
+        // Step 5: Set up fake file system
+        // This is just for show but makes the terminal feel more real
+        this.currentDirectory = '~'; // Start in home directory
         
-        // Fake file system - learned about nested objects
+        // I learned about nested objects in CSE 100 but this still confuses me sometimes
         this.fileSystem = {
-            '~': {
-                'about.txt': 'Information about Arya',
-                'skills.txt': 'Technical skills and expertise',
-                'projects.txt': 'Portfolio projects',
-                'contact.txt': 'Contact information',
-                'secret/': {
-                    'easter-eggs.txt': 'Hidden features and games',
-                    'konami.txt': 'The legendary cheat code',
-                    'games.txt': 'Available games in the terminal'
+            '~': {  // Home directory
+                'about.txt': 'Information about Arya - still figuring out who I am!',
+                'skills.txt': 'My programming skills - getting better every day',
+                'projects.txt': 'Cool projects I built during college',
+                'contact.txt': 'How to reach me for internships or just to chat',
+                'secret/': {  // Hidden directory with easter eggs
+                    'easter-eggs.txt': 'Hidden features and games I built',
+                    'konami.txt': 'The legendary cheat code from old video games',
+                    'games.txt': 'Games you can play right in the terminal!'
                 },
-                'readme.txt': 'Welcome to my terminal portfolio!'
+                'readme.txt': 'Welcome to my interactive terminal portfolio!'
             }
         };
 
-        // Set up event listeners
+        // Step 6: Set up all the event listeners
+        // This was really confusing at first - had to learn about event handling
         this.setupEventListeners();
         
-        console.log('Terminal created successfully!'); // Debug message
+        // Debug message to confirm everything worked
+        console.log('Terminal object created successfully!'); 
     }
 
-    // Set up all the event listeners for the terminal
-    // Had to learn about different keyboard events
+    // Function to set up all the keyboard event listeners
+    // Event listeners were the hardest concept for me to understand at first
     setupEventListeners() {
-        // Listen for key presses in the input field
+        console.log('Setting up event listeners...'); // Debug message
+        
+        // Listen for key presses in the terminal input field
+        // I had to look up all these different key event types
         this.inputField.addEventListener('keydown', (e) => {
+            // Check which key was pressed
             if (e.key === 'Enter') {
-                // User pressed enter - process the command
+                // User pressed Enter key - time to process their command
+                console.log('User pressed Enter, processing command...'); // Debug
                 this.processCommand();
             } else if (e.key === 'ArrowUp') {
-                // Up arrow - go back in history
-                e.preventDefault();
+                // Up arrow key - go back in command history
+                e.preventDefault(); // Stop the default behavior
+                console.log('User pressed up arrow'); // Debug
                 this.navigateHistory('up');
             } else if (e.key === 'ArrowDown') {
-                // Down arrow - go forward in history
-                e.preventDefault();
+                // Down arrow key - go forward in command history
+                e.preventDefault(); // Stop the default behavior
+                console.log('User pressed down arrow'); // Debug
                 this.navigateHistory('down');
             }
         });
 
-        // Konami Code Easter Egg - this was tricky to implement!
-        // The famous cheat code: ↑↑↓↓←→←→BA
-        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        let konamiIndex = 0;
+        // Konami Code Easter Egg Implementation
+        // This was SO COOL to implement! The famous cheat code: ↑↑↓↓←→←→BA
+        // Took me like 2 days to figure out how to detect key sequences
+        let konamiSequence = [
+            'ArrowUp', 'ArrowUp',           // Up, Up
+            'ArrowDown', 'ArrowDown',       // Down, Down  
+            'ArrowLeft', 'ArrowRight',      // Left, Right
+            'ArrowLeft', 'ArrowRight',      // Left, Right
+            'KeyB', 'KeyA'                  // B, A
+        ];
+        let konamiIndex = 0; // Keep track of where we are in the sequence
         
+        // Listen for key presses anywhere on the page (not just terminal)
         document.addEventListener('keydown', (e) => {
-            if (e.key === konamiCode[konamiIndex]) {
-                konamiIndex++;
-                if (konamiIndex === konamiCode.length) {
-                    // They entered the whole sequence!
-                    this.konamiCode();
-                    konamiIndex = 0; // Reset for next time
+            console.log('Key pressed:', e.code); // Debug - see what keys are pressed
+            
+            // Check if this key matches the next key in the Konami sequence
+            if (e.code === konamiSequence[konamiIndex]) {
+                konamiIndex++; // Move to next key in sequence
+                console.log('Konami progress:', konamiIndex, '/', konamiSequence.length); // Debug
+                
+                // Check if they completed the whole sequence
+                if (konamiIndex === konamiSequence.length) {
+                    console.log('KONAMI CODE ACTIVATED!'); // Debug
+                    this.konamiCode(); // Trigger the easter egg
+                    konamiIndex = 0;   // Reset for next time
                 }
             } else {
-                // Wrong key - reset the sequence
+                // Wrong key pressed - reset the sequence
+                if (konamiIndex > 0) {
+                    console.log('Konami sequence reset'); // Debug
+                }
                 konamiIndex = 0;
             }
         });
+        
+        console.log('Event listeners set up successfully!'); // Debug message
     }
 
-    // Process whatever command the user typed
-    // This function handles parsing and executing commands
+    // Function to process whatever command the user typed
+    // This is like the "brain" of the terminal - it decides what to do
     processCommand() {
-        const input = this.inputField.value.trim();
+        // Step 1: Get the text from the input field and clean it up
+        const userInput = this.inputField.value.trim(); // trim() removes extra spaces
+        console.log('Processing command:', userInput); // Debug message
         
-        // Don't do anything if they didn't type anything
-        if (input === '') return;
+        // Step 2: Don't do anything if the user didn't type anything
+        if (userInput === '') {
+            console.log('Empty command, ignoring...'); // Debug
+            return; // Exit the function early
+        }
 
-        // Show what they typed in the output
-        this.addToOutput(input, true);
+        // Step 3: Show what the user typed in the terminal output
+        // This makes it look like a real terminal
+        this.addToOutput(userInput, true); // true means it's a command
         
-        // Add to command history so they can use arrow keys
-        this.commandHistory.push(input);
-        this.historyIndex = this.commandHistory.length;
+        // Step 4: Add the command to history so user can use arrow keys
+        this.commandHistory.push(userInput);
+        this.historyIndex = this.commandHistory.length; // Point to end of history
+        console.log('Command added to history. History length:', this.commandHistory.length); // Debug
 
-        // Split the input into command and arguments
-        const [command, ...args] = input.split(' ');
+        // Step 5: Parse the command into parts
+        // Split by spaces to separate command from arguments
+        const commandParts = userInput.split(' ');
+        const command = commandParts[0];           // First part is the command
+        const arguments = commandParts.slice(1);   // Rest are arguments
+        console.log('Command:', command, 'Arguments:', arguments); // Debug
         
-        // Check if it's an easter egg first
+        // Step 6: Try to execute the command
+        // Check easter eggs first (they're more fun!)
         if (this.easterEggs[command]) {
+            console.log('Executing easter egg:', command); // Debug
             this.easterEggs[command]();
         } else if (this.commands[command]) {
             // It's a regular command
-            this.commands[command](args);
+            console.log('Executing regular command:', command); // Debug
+            this.commands[command](arguments);
         } else {
-            // Command not found
-            this.addToOutput(`Command not found: ${command}. Type 'help' for available commands.`);
+            // Command not found - show error message
+            console.log('Unknown command:', command); // Debug
+            this.addToOutput(`bash: ${command}: command not found`);
+            this.addToOutput(`Type 'help' to see available commands.`);
         }
 
-        // Clear the input field for next command
+        // Step 7: Clear the input field so user can type next command
         this.inputField.value = '';
+        console.log('Command processing complete!'); // Debug
     }
 
+    // Function to add text to the terminal output
+    // This is how we "print" things to the terminal screen
     addToOutput(text, isCommand = false) {
-        const line = document.createElement('div');
-        line.className = 'terminal-line';
+        console.log('Adding to output:', text, 'isCommand:', isCommand); // Debug
         
-        const prompt = document.createElement('span');
-        prompt.innerHTML = `<span class="text-green-400">portfolio@aryam.dev</span>
-                           <span class="text-gray-500">:</span>
-                           <span class="text-blue-400">${this.currentDirectory}</span>
-                           <span class="text-gray-500">$</span>`;
+        // Step 1: Create a new div element for this line
+        const lineElement = document.createElement('div');
+        lineElement.className = 'terminal-line'; // CSS class for styling
         
-        const content = document.createElement('span');
-        content.className = isCommand ? 'text-white' : 'text-gray-300';
-        content.textContent = isCommand ? ` ${text}` : text;
+        // Step 2: Create the prompt part (like "user@computer:~$")
+        const promptElement = document.createElement('span');
+        // This HTML makes it look like a real Unix terminal prompt
+        promptElement.innerHTML = `<span class="text-green-400">portfolio@aryam.dev</span>
+                                  <span class="text-gray-500">:</span>
+                                  <span class="text-blue-400">${this.currentDirectory}</span>
+                                  <span class="text-gray-500">$</span>`;
         
-        line.appendChild(prompt);
-        line.appendChild(content);
-        this.outputDiv.appendChild(line);
+        // Step 3: Create the content part (the actual text)
+        const contentElement = document.createElement('span');
+        // Different colors for commands vs output
+        contentElement.className = isCommand ? 'text-white' : 'text-gray-300';
+        contentElement.textContent = isCommand ? ` ${text}` : text;
         
+        // Step 4: Put the prompt and content together
+        lineElement.appendChild(promptElement);
+        lineElement.appendChild(contentElement);
+        
+        // Step 5: Add the new line to the terminal output
+        this.outputDiv.appendChild(lineElement);
+        
+        // Step 6: Scroll to the bottom so user can see the new output
+        // I learned this trick from Stack Overflow
         this.outputDiv.scrollTop = this.outputDiv.scrollHeight;
     }
 
+    // Function to navigate through command history with arrow keys
+    // This was tricky to implement but makes the terminal feel professional
     navigateHistory(direction) {
-        if (this.commandHistory.length === 0) return;
+        console.log('Navigating history:', direction); // Debug
         
+        // Don't do anything if there's no history
+        if (this.commandHistory.length === 0) {
+            console.log('No command history available'); // Debug
+            return;
+        }
+        
+        // Move up or down in the history
         if (direction === 'up') {
+            // Go back in history (older commands)
             if (this.historyIndex > 0) {
                 this.historyIndex--;
+                console.log('Moving up in history to index:', this.historyIndex); // Debug
             }
-        } else {
+        } else if (direction === 'down') {
+            // Go forward in history (newer commands)
             if (this.historyIndex < this.commandHistory.length - 1) {
                 this.historyIndex++;
+                console.log('Moving down in history to index:', this.historyIndex); // Debug
             }
         }
         
-        this.inputField.value = this.commandHistory[this.historyIndex] || '';
+        // Update the input field with the command from history
+        const historicalCommand = this.commandHistory[this.historyIndex] || '';
+        this.inputField.value = historicalCommand;
+        console.log('Set input to:', historicalCommand); // Debug
     }
 
-    // Command Implementations
+    // All the command implementation functions start here
+    // These are all the things the terminal can actually do
+
+    // Show help message with all available commands
     showHelp() {
-        const helpText = `
-Available commands:
-  help     - Show this help message
-  clear    - Clear the terminal
-  about    - Show information about me
-  skills   - Display my technical skills
-  projects - List my projects
-  contact  - Show contact information
-  echo     - Echo the input text
-  date     - Show current date and time
-  weather  - Show current weather (simulated)
-  joke     - Tell a random programming joke
-  ls       - List files in current directory
-  cd       - Change directory
-  pwd      - Show current directory
-  whoami   - Show user information
-  exit     - Exit the terminal
-  resume   - Open my resume
-  github   - Open my GitHub profile
-  linkedin - Open my LinkedIn profile
-  theme    - Change terminal theme
-  cat      - Display file content
-  eastereggs - Show easter eggs
-  fun      - Show fun commands
-  cowsay   - Display a cowsay message
+        console.log('Showing help message'); // Debug
+        
+        // I could have made this shorter but I wanted it to be really clear
+        const helpMessage = `
+Available Commands:
+==================
+Basic Commands:
+  help      - Show this help message
+  clear     - Clear the terminal screen
+  echo      - Echo back whatever you type
+  date      - Show the current date and time
+  exit      - Close the terminal
 
-Easter eggs (try these!):
-  konami   - Activate Konami code
-  matrix   - Start matrix effect
-  snake    - Play Snake game
-  tetris   - Play Tetris game
+Portfolio Commands:
+  about     - Learn about me and my background
+  skills    - See my programming skills and experience
+  projects  - Check out my coding projects
+  contact   - Get my contact information
+  resume    - Open my resume (PDF)
+  github    - Visit my GitHub profile
+  linkedin  - Visit my LinkedIn profile
+
+File System Commands (fake but fun!):
+  ls        - List files in current directory
+  cd        - Change directory
+  pwd       - Show current directory path
+  cat       - Display file contents
+  whoami    - Show current user info
+
+Fun Commands:
+  joke      - Hear a programming joke
+  weather   - Check the weather (simulated)
+  cowsay    - Make an ASCII cow say something
+  theme     - Change terminal theme (matrix, retro, ocean, default)
+  
+Easter Eggs:
+  eastereggs - Show hidden features
+  fun        - Show all the fun commands
+  konami     - Try the famous cheat code: ↑↑↓↓←→←→BA
+  matrix     - Enter the Matrix
+  snake      - Play Snake game
+  tetris     - Play Tetris game
+
+Type any command followed by Enter to execute it!
         `;
-        this.addToOutput(helpText);
+        
+        this.addToOutput(helpMessage);
     }
 
+    // Clear the terminal screen
     clearTerminal() {
+        console.log('Clearing terminal'); // Debug
+        // This just removes all the output - simple but effective
         this.outputDiv.innerHTML = '';
     }
 
+    // Show information about me
     showAbout() {
-        this.addToOutput(`
-Name: Arya
-Education: B.S. in Mathematics-Computer Science at UCSD
-Experience: STEM Tutor at UCR
-Interests: Software Development, Problem Solving, Teaching
-        `);
+        console.log('Showing about information'); // Debug
+        
+        // I rewrote this like 5 times to get the tone right
+        const aboutText = `
+About Arya Mohammadi
+===================
+
+Hey there! I'm a junior at UC San Diego studying Mathematics and Computer Science.
+This portfolio project has been my main focus for the past 10 weeks!
+
+I started coding seriously in my freshman year, and I'm still learning new things
+every day. My favorite classes so far have been CSE 100 (Advanced Data Structures)
+and CSE 101 (Design and Analysis of Algorithms).
+
+What I'm working on:
+• Building this interactive terminal portfolio (you're using it right now!)
+• Learning more about web development and JavaScript
+• Practicing algorithms and data structures for technical interviews
+• Working on personal projects to build my GitHub profile
+
+I love the problem-solving aspect of programming, and I'm always excited to learn
+new technologies. Currently getting better at React, Python, and system design.
+
+Fun fact: This terminal emulator was the hardest part of this project to build!
+It took me about 4 weeks just to get the basic functionality working.
+
+Type 'skills' to see my technical abilities, or 'projects' to see what I've built!
+        `;
+        
+        this.addToOutput(aboutText);
     }
 
+    // Show my programming skills and experience
     showSkills() {
-        this.addToOutput(`
-PROGRAMMING LANGUAGES:
-• C++ - Still learning (took CSE 100, working on CSE 101)
-• Python - Pretty comfortable (use it for most assignments)
-• JavaScript - Basic level (just started web dev)
+        console.log('Showing skills information'); // Debug
+        
+        // I tried to be honest about my skill levels here
+        const skillsText = `
+Technical Skills
+===============
 
-TOOLS I USE:
-• Git/GitHub - Still figuring it out, but getting better
-• VS Code - Use it every day for coding
-• Terminal/Bash - Getting more comfortable with command line
+Programming Languages:
+• Python        ★★★☆☆  (Most comfortable - learned in CSE 8A/8B)
+• JavaScript    ★★☆☆☆  (Still learning - this project taught me a lot!)
+• Java          ★★★☆☆  (Used in CSE 100 for data structures)
+• C++           ★★☆☆☆  (Basic knowledge from CSE 100)
+• HTML/CSS      ★★☆☆☆  (Getting better - learned for this project)
 
-CURRENTLY LEARNING:
-• Databases (PostgreSQL) - for my housing project
-• Web Development - HTML, CSS, JavaScript
-• AI/ML - just started, seems really cool
+Technologies & Tools:
+• Git/GitHub    ★★☆☆☆  (Still figuring out merge conflicts...)
+• VS Code       ★★★☆☆  (My favorite editor!)
+• Terminal/Bash ★★☆☆☆  (Learning Unix commands slowly)
+• Tailwind CSS  ★☆☆☆☆  (New to this - used it for styling this site)
 
-FROM MY CLASSES:
-• Data Structures (CSE 100) - learned about trees, graphs, etc.
-• Algorithms - currently taking, pretty challenging
-• Object-Oriented Programming - starting to understand it better
+Concepts I'm Learning:
+• Data Structures & Algorithms (CSE 100/101)
+• Object-Oriented Programming
+• Web Development Fundamentals  
+• Responsive Design
+• API Integration (want to learn more about this)
 
-This portfolio took me about 10 weeks to build! Learned a lot about web development and JavaScript along the way.
-        `);
+What I Want to Learn Next:
+• React.js (heard it's really useful for web dev)
+• Node.js (for backend development)
+• Databases (SQL and maybe MongoDB)
+• Machine Learning (taking CSE 151A next quarter!)
+
+I know I'm still early in my programming journey, but I'm really passionate
+about learning and improving. Every project teaches me something new!
+
+This terminal portfolio is actually the most complex thing I've ever built.
+        `;
+        
+        this.addToOutput(skillsText);
     }
 
+    // Show my coding projects
     showProjects() {
-        this.addToOutput(`
-1. UCR HousingConnect
-   - Full-stack housing platform
-   - Python, JavaScript, Google Maps API
-   - April 2025 - Present
+        console.log('Showing projects information'); // Debug
+        
+        // These are real projects I've worked on during college
+        const projectsText = `
+My Coding Projects
+=================
 
-2. Battlestar RPG
-   - Terminal-based C++ game
-   - OOP, SOLID principles
-   - September 2024
-        `);
+1. Interactive Terminal Portfolio (Current Project - 10 weeks)
+   • This website you're currently exploring!
+   • Built with vanilla HTML, CSS, and JavaScript
+   • Features: Terminal emulator, games, themes, easter eggs
+   • Biggest challenge: Making the terminal feel authentic
+   • Status: Almost done! Just polishing up the details
+
+2. Snake Game (Week 6-7 of this project)
+   • Playable right in this terminal! (Type 'snake' to try it)
+   • Learned about game loops, collision detection, and canvas drawing
+   • First time building a game - was harder than I expected
+   • Used HTML5 Canvas and JavaScript
+
+3. Tetris Game (Week 8-9 of this project)  
+   • Also playable in this terminal! (Type 'tetris')
+   • Way more complex than Snake - took me 2 weeks
+   • Learned about 2D arrays, rotation algorithms, line clearing
+   • Probably the most challenging code I've written so far
+
+4. Basic Calculator (CSE 100 Assignment)
+   • Command-line calculator in Java
+   • Handles basic arithmetic with proper order of operations
+   • Used stack data structure for expression evaluation
+   • First time really understanding how stacks work
+
+5. Todo List App (Personal Project - 2 weeks)
+   • Simple web app to track assignments and deadlines
+   • HTML, CSS, JavaScript with localStorage
+   • Helped me stay organized during midterms!
+   • Planning to add more features over winter break
+
+Future Project Ideas:
+• Weather app using a real API
+• Chat application (maybe with Socket.io?)
+• Personal finance tracker
+• Something with machine learning (after I take CSE 151A)
+
+Most of these are pretty simple, but I'm proud of the progress I'm making!
+Each project teaches me something new about programming.
+        `;
+        
+        this.addToOutput(projectsText);
     }
 
+    // Show contact information
     showContact() {
-        this.addToOutput(`
-📧 Email: your.email@example.com
-🐙 GitHub: github.com/yourusername
-💼 LinkedIn: linkedin.com/in/yourusername
-🌐 Portfolio: aryam.dev
+        console.log('Showing contact information'); // Debug
+        
+        const contactText = `
+Contact Information
+==================
 
-Feel free to reach out for collaboration opportunities,
-technical discussions, or just to say hello!
+I'd love to connect! Here's how you can reach me:
 
-Response time: Usually within 24 hours
-Best contact method: Email
-        `);
+📧 Email: amohammadi@ucsd.edu
+   (Best way to reach me - I check this daily)
+
+💼 LinkedIn: linkedin.com/in/aryamohammadi
+   (Type 'linkedin' to open in new tab)
+
+🐙 GitHub: github.com/aryamohammadi  
+   (Type 'github' to see my code)
+
+📄 Resume: Available as PDF
+   (Type 'resume' to download)
+
+🏫 Currently: Junior at UC San Diego
+   Major: Mathematics-Computer Science
+   Expected Graduation: June 2026
+
+I'm actively looking for:
+• Summer 2025 internship opportunities
+• Open source projects to contribute to
+• Study groups and coding buddies
+• Mentorship opportunities
+
+Feel free to reach out if you:
+• Have internship opportunities
+• Want to collaborate on a project  
+• Have advice for a CS student
+• Just want to chat about programming!
+
+I try to respond to all messages within 24 hours.
+Looking forward to hearing from you! 😊
+        `;
+        
+        this.addToOutput(contactText);
     }
 
+    // Echo command - just repeat what the user typed
     echo(args) {
-        this.addToOutput(args.join(' '));
-    }
-
-    showDate() {
-        const now = new Date();
-        this.addToOutput(now.toLocaleString());
-    }
-
-    showWeather() {
-        const weathers = [
-            "☀️ Sunny and 75°F",
-            "🌧️ Light rain, 65°F",
-            "⛅ Partly cloudy, 70°F",
-            "❄️ Snowing, 32°F",
-            "🌪️ Tornado warning! Take cover!"
-        ];
-        this.addToOutput(weathers[Math.floor(Math.random() * weathers.length)]);
-    }
-
-    tellJoke() {
-        const jokes = [
-            "Why do programmers prefer dark mode? Because light attracts bugs!",
-            "How many programmers does it take to change a light bulb? None, that's a hardware problem!",
-            "Why was the JavaScript developer sad? Because he didn't know how to 'null' his feelings!",
-            "Why did the developer go broke? Because he used up all his cache!",
-            "What do you call a computer that sings? A Dell!"
-        ];
-        this.addToOutput(jokes[Math.floor(Math.random() * jokes.length)]);
-    }
-
-    listFiles() {
-        const currentDir = this.getCurrentDirectoryContents();
-        let output = '';
-        for (const item in currentDir) {
-            output += `${item}${typeof currentDir[item] === 'object' ? '/' : ''}\n`;
-        }
-        this.addToOutput(output || 'Directory is empty');
-    }
-
-    changeDirectory(args) {
-        const target = args[0];
-        if (!target || target === '~') {
-            this.currentDirectory = '~';
-            return;
-        }
+        console.log('Echo command with args:', args); // Debug
         
-        if (target === '..') {
-            this.currentDirectory = '~';
-            return;
-        }
+        // Join all the arguments back into a single string
+        const message = args.join(' ');
         
-        const currentDir = this.getCurrentDirectoryContents();
-        if (currentDir[target] && typeof currentDir[target] === 'object') {
-            this.currentDirectory = `${this.currentDirectory}/${target}`;
+        if (message === '') {
+            // If they didn't type anything after 'echo'
+            this.addToOutput('Usage: echo <message>');
         } else {
-            this.addToOutput(`cd: no such directory: ${target}`);
+            // Repeat their message back to them
+            this.addToOutput(message);
         }
     }
 
+    // Show current date and time
+    showDate() {
+        console.log('Showing current date'); // Debug
+        
+        // Create a new Date object and format it nicely
+        const now = new Date();
+        const dateString = now.toLocaleString(); // This formats it automatically
+        this.addToOutput(`Current date and time: ${dateString}`);
+    }
+
+    // Show fake weather information (just for fun)
+    showWeather() {
+        console.log('Showing weather information'); // Debug
+        
+        // Array of fake weather conditions - I'll pick one randomly
+        const weatherConditions = [
+            'Sunny and 75°F ☀️',
+            'Partly cloudy, 68°F ⛅',
+            'Rainy, 62°F 🌧️',
+            'Overcast, 70°F ☁️',
+            'Perfect coding weather! 72°F 💻'
+        ];
+        
+        // Pick a random weather condition
+        const randomIndex = Math.floor(Math.random() * weatherConditions.length);
+        const weather = weatherConditions[randomIndex];
+        
+        this.addToOutput(`Weather in San Diego: ${weather}`);
+        this.addToOutput('(Note: This is simulated weather data!)');
+    }
+
+    // Tell a random programming joke
+    tellJoke() {
+        console.log('Telling a programming joke'); // Debug
+        
+        // Array of programming jokes I found online
+        const jokes = [
+            "Why do programmers prefer dark mode? Because light attracts bugs! 🐛",
+            "How many programmers does it take to change a light bulb? None, that's a hardware problem! 💡",
+            "Why do Java developers wear glasses? Because they can't C# 👓",
+            "What's a programmer's favorite hangout place? Foo Bar! 🍻",
+            "Why did the programmer quit his job? He didn't get arrays! 📊",
+            "How do you comfort a JavaScript bug? You console it! 🐞",
+            "Why do programmers hate nature? It has too many bugs! 🦟",
+            "What do you call a programmer from Finland? Nerdic! 🇫🇮"
+        ];
+        
+        // Pick a random joke
+        const randomIndex = Math.floor(Math.random() * jokes.length);
+        const joke = jokes[randomIndex];
+        
+        this.addToOutput(joke);
+    }
+
+    // List files in current directory (fake file system)
+    listFiles() {
+        console.log('Listing files in directory:', this.currentDirectory); // Debug
+        
+        // Get the contents of the current directory
+        const contents = this.getCurrentDirectoryContents();
+        
+        if (contents === null) {
+            this.addToOutput(`ls: cannot access '${this.currentDirectory}': No such directory`);
+            return;
+        }
+        
+        // Show the files and directories
+        this.addToOutput(`Contents of ${this.currentDirectory}:`);
+        
+        // Loop through each item in the directory
+        for (const [name, content] of Object.entries(contents)) {
+            if (typeof content === 'object') {
+                // It's a directory - show it with a different color
+                this.addToOutput(`📁 ${name}`);
+            } else {
+                // It's a file - show it normally  
+                this.addToOutput(`📄 ${name}`);
+            }
+        }
+    }
+
+    // Change directory command (fake file system)
+    changeDirectory(args) {
+        console.log('Changing directory with args:', args); // Debug
+        
+        if (args.length === 0) {
+            // No argument provided - go to home directory
+            this.currentDirectory = '~';
+            this.addToOutput('Changed to home directory');
+            return;
+        }
+        
+        const targetDir = args[0];
+        console.log('Target directory:', targetDir); // Debug
+        
+        // Handle special cases
+        if (targetDir === '..') {
+            // Go up one directory
+            if (this.currentDirectory !== '~') {
+                this.currentDirectory = '~'; // For simplicity, just go back to home
+                this.addToOutput('Changed to parent directory');
+            } else {
+                this.addToOutput('Already at root directory');
+            }
+            return;
+        }
+        
+        if (targetDir === '~' || targetDir === '/') {
+            // Go to home directory
+            this.currentDirectory = '~';
+            this.addToOutput('Changed to home directory');
+            return;
+        }
+        
+        // Check if the target directory exists
+        const currentContents = this.getCurrentDirectoryContents();
+        if (currentContents && currentContents[targetDir + '/']) {
+            // Directory exists - change to it
+            this.currentDirectory = `~/${targetDir}`;
+            this.addToOutput(`Changed directory to ${this.currentDirectory}`);
+        } else {
+            // Directory doesn't exist
+            this.addToOutput(`cd: ${targetDir}: No such file or directory`);
+        }
+    }
+
+    // Show current directory
     showCurrentDirectory() {
+        console.log('Showing current directory'); // Debug
         this.addToOutput(this.currentDirectory);
     }
 
+    // Show user information
     showUserInfo() {
-        this.addToOutput(`
-Username: portfolio
-Hostname: aryam.dev
-Shell: /bin/zsh
-        `);
+        console.log('Showing user info'); // Debug
+        
+        const userInfo = `
+Current User Information:
+========================
+Username: portfolio-visitor
+Host: aryam.dev
+Terminal: Interactive Portfolio Terminal v1.0
+Session: Guest session
+Location: Arya's Portfolio Website
+
+You are currently exploring my interactive terminal portfolio!
+This is a simulated Unix-like environment built with JavaScript.
+        `;
+        
+        this.addToOutput(userInfo);
     }
 
+    // Exit terminal (just show a message)
     exitTerminal() {
-        this.addToOutput('Goodbye! Refresh the page to restart the terminal.');
+        console.log('Exit command triggered'); // Debug
+        this.addToOutput('Thanks for exploring my terminal portfolio!');
+        this.addToOutput('To restart, refresh the page.');
+        this.addToOutput('Connection closed.');
+        
+        // Disable the input field
         this.inputField.disabled = true;
     }
 
+    // Open resume in new tab
     openResume() {
-        this.addToOutput('📄 Opening resume...');
-        // You can replace this with your actual resume link
-        window.open('#', '_blank');
+        console.log('Opening resume'); // Debug
+        this.addToOutput('Opening resume in new tab...');
+        // TODO: Add actual resume PDF link when I finish it
+        this.addToOutput('(Resume PDF coming soon - still working on it!)');
     }
 
+    // Open GitHub profile
     openGitHub() {
-        this.addToOutput('🐙 Opening GitHub profile...');
-        // Replace with your GitHub URL
-        window.open('https://github.com/yourusername', '_blank');
+        console.log('Opening GitHub profile'); // Debug
+        this.addToOutput('Opening GitHub profile in new tab...');
+        window.open('https://github.com/aryamohammadi', '_blank');
     }
 
+    // Open LinkedIn profile  
     openLinkedIn() {
-        this.addToOutput('💼 Opening LinkedIn profile...');
-        // Replace with your LinkedIn URL
-        window.open('https://linkedin.com/in/yourusername', '_blank');
+        console.log('Opening LinkedIn profile'); // Debug
+        this.addToOutput('Opening LinkedIn profile in new tab...');
+        window.open('https://linkedin.com/in/aryamohammadi', '_blank');
     }
 
+    // Change terminal theme
     changeTheme(args) {
-        const theme = args[0];
-        const themes = ['default', 'matrix', 'retro', 'ocean'];
+        console.log('Changing theme with args:', args); // Debug
         
-        if (!theme) {
-            this.addToOutput(`Available themes: ${themes.join(', ')}`);
+        if (args.length === 0) {
+            // No theme specified - show available themes
+            this.addToOutput('Available themes: default, matrix, retro, ocean');
+            this.addToOutput('Usage: theme <theme-name>');
             return;
         }
         
-        if (themes.includes(theme)) {
-            this.addToOutput(`🎨 Switching to ${theme} theme...`);
-            
-            // Find the terminal container
-            const terminalContainer = document.getElementById('terminal-container');
-            if (terminalContainer) {
-                // Remove all existing theme attributes
-                themes.forEach(t => {
-                    terminalContainer.removeAttribute(`data-terminal-theme`);
-                });
-                
-                // Apply new theme (unless it's default)
-                if (theme !== 'default') {
-                    terminalContainer.setAttribute('data-terminal-theme', theme);
-                }
-                
-                // Also apply to body for global theme effects
-                document.body.setAttribute('data-terminal-theme', theme);
-                
-                this.addToOutput(`✅ ${theme.charAt(0).toUpperCase() + theme.slice(1)} theme activated!`);
-            } else {
-                this.addToOutput('❌ Error: Terminal container not found');
-            }
-        } else {
-            this.addToOutput(`Unknown theme: ${theme}. Available: ${themes.join(', ')}`);
-        }
-    }
-
-    catFile(args) {
-        const filename = args[0];
-        if (!filename) {
-            this.addToOutput('cat: missing file operand');
+        const themeName = args[0].toLowerCase();
+        const validThemes = ['default', 'matrix', 'retro', 'ocean'];
+        
+        if (!validThemes.includes(themeName)) {
+            this.addToOutput(`Invalid theme: ${themeName}`);
+            this.addToOutput('Available themes: ' + validThemes.join(', '));
             return;
         }
-
-        const fileContents = {
-            'about.txt': `Name: Arya M
-Education: Mathematics-Computer Science @ UCSD
-Location: California
-Interests: AI, Software Development, Problem Solving
-
-I'm passionate about creating innovative solutions and 
-building projects that make a difference. Currently 
-exploring the intersection of mathematics and computer 
-science through various AI projects.`,
-            
-            'skills.txt': `PROGRAMMING LANGUAGES:
-• C++ - Still learning (took CSE 100, working on CSE 101)
-• Python - Pretty comfortable (use it for most assignments)
-• JavaScript - Basic level (just started web dev)
-
-TOOLS I USE:
-• Git/GitHub - Still figuring it out, but getting better
-• VS Code - Use it every day for coding
-• Terminal/Bash - Getting more comfortable with command line
-
-CURRENTLY LEARNING:
-• Databases (PostgreSQL) - for my housing project
-• Web Development - HTML, CSS, JavaScript
-• AI/ML - just started, seems really cool
-
-FROM MY CLASSES:
-• Data Structures (CSE 100) - learned about trees, graphs, etc.
-• Algorithms - currently taking, pretty challenging
-• Object-Oriented Programming - starting to understand it better
-
-This portfolio took me about 10 weeks to build! Learned a lot about web development and JavaScript along the way.`,
-            
-            'projects.txt': `1. UCR HOUSINGCONNECT (April 2025 - Present)
-   Full-stack housing platform for UC Riverside students
-   
-   Features:
-   • Map-based housing search with geolocation
-   • Secure user authentication system
-   • Backend listing management
-   • Google Maps API integration
-   
-   Tech Stack: Python, JavaScript, Flask, PostgreSQL
-   
-2. BATTLESTAR RPG (September 2024)
-   Terminal-based C++ combat game
-   
-   Features:
-   • Custom combat engine with turn-based mechanics
-   • Modular UI handling system
-   • Custom MaxHeap data structures
-   • 90%+ unit test coverage
-   
-   Tech Stack: C++, GoogleTest, Git`,
-            
-            'contact.txt': `📧 Email: your.email@example.com
-🐙 GitHub: github.com/yourusername
-💼 LinkedIn: linkedin.com/in/yourusername
-🌐 Portfolio: aryam.dev
-
-Feel free to reach out for collaboration opportunities,
-technical discussions, or just to say hello!
-
-Response time: Usually within 24 hours
-Best contact method: Email`,
-
-            'readme.txt': `🚀 WELCOME TO ARYA'S TERMINAL PORTFOLIO 🚀
-
-This is an interactive terminal emulator built with JavaScript.
-You can explore my portfolio using Unix-like commands!
-
-GETTING STARTED:
-• Type 'help' to see all available commands
-• Use 'ls' to list files and directories
-• Use 'cd' to navigate directories
-• Use 'cat <filename>' to read file contents
-
-SPECIAL FEATURES:
-• Type 'eastereggs' to see hidden games
-• Type 'fun' to see entertaining commands
-• Try the Konami code: ↑↑↓↓←→←→BA
-
-NAVIGATION:
-• Use arrow keys to navigate command history
-• Type 'clear' to clear the terminal
-• Type 'theme <name>' to change terminal themes
-
-Enjoy exploring! 🌟`,
-
-            'easter-eggs.txt': `🥚 EASTER EGGS GUIDE 🥚
-
-This terminal contains several hidden features:
-
-1. KONAMI CODE
-   - Enter the famous sequence: ↑↑↓↓←→←→BA
-   - Or simply type 'konami'
-   - Unlocks special terminal effects
-
-2. MATRIX EFFECT
-   - Type 'matrix' to enter the digital rain
-   - Press ESC to exit the Matrix
-   - Full-screen green code animation
-
-3. SNAKE GAME
-   - Type 'snake' to play the classic game
-   - Use WASD or arrow keys to move
-   - Try to beat your high score!
-
-4. TETRIS GAME
-   - Type 'tetris' for the falling blocks game
-   - A/D to move, S to drop, W to rotate
-   - Clear lines to score points
-
-5. TERMINAL THEMES
-   - Type 'theme matrix' for Matrix theme
-   - Type 'theme retro' for retro amber
-   - Type 'theme ocean' for ocean blue
-
-6. COWSAY
-   - Type 'cowsay Hello World' for ASCII art
-   - The cow will say whatever you want!
-
-Happy exploring! 🎮`,
-
-            'konami.txt': `🎮 THE KONAMI CODE 🎮
-
-The Konami Code is one of the most famous cheat codes in gaming history.
-
-SEQUENCE: ↑ ↑ ↓ ↓ ← → ← → B A
-
-HISTORY:
-Originally created by Kazuhisa Hashimoto for the 1986 game Gradius.
-It was intended as a developer tool to make testing easier.
-
-IN THIS TERMINAL:
-• Enter the sequence using arrow keys + 'b' + 'a'
-• Or simply type 'konami' as a command
-• Activates special terminal animations
-• Reveals hidden easter egg commands
-
-The code has appeared in hundreds of games and websites since then.
-It's a tribute to gaming culture and developer creativity!
-
-Try it now! 🕹️`,
-
-            'games.txt': `🎮 TERMINAL GAMES 🎮
-
-This terminal includes fully playable games:
-
-1. SNAKE 🐍
-   Command: snake
-   Controls: WASD or Arrow Keys
-   Goal: Eat food, grow longer, avoid walls and yourself
-   Features: Score tracking, smooth gameplay
-
-2. TETRIS 🎯
-   Command: tetris
-   Controls: A/D (move), S (drop), W (rotate)
-   Goal: Clear horizontal lines by filling them
-   Features: Line clearing, score system, increasing difficulty
-
-3. MATRIX EFFECT 🌐
-   Command: matrix
-   Controls: ESC to exit
-   Experience: Digital rain animation
-   Features: Full-screen effect, Japanese characters
-
-TIPS:
-• All games can be exited with ESC key
-• Scores are displayed during gameplay
-• Games work best in full-screen browser mode
-• Try different terminal themes while playing!
-
-Have fun! 🚀`
-        };
-
-        if (fileContents[filename]) {
-            this.addToOutput(fileContents[filename]);
-        } else {
-            this.addToOutput(`cat: ${filename}: No such file or directory`);
+        
+        // Apply the theme by setting a data attribute on the body
+        document.body.setAttribute('data-terminal-theme', themeName);
+        this.addToOutput(`Theme changed to: ${themeName}`);
+        
+        // Add some flavor text for each theme
+        switch (themeName) {
+            case 'matrix':
+                this.addToOutput('Welcome to the Matrix... 🕶️');
+                break;
+            case 'retro':
+                this.addToOutput('Groovy! Like it\'s 1985 🕹️');
+                break;
+            case 'ocean':
+                this.addToOutput('Diving deep into the digital ocean 🌊');
+                break;
+            case 'default':
+                this.addToOutput('Back to the classic look 💻');
+                break;
         }
     }
 
