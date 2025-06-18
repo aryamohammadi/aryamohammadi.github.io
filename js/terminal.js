@@ -337,8 +337,27 @@ Shell: /bin/zsh
         
         if (themes.includes(theme)) {
             this.addToOutput(`🎨 Switching to ${theme} theme...`);
-            // Theme switching logic would go here
-            document.body.setAttribute('data-terminal-theme', theme);
+            
+            // Find the terminal container
+            const terminalContainer = document.getElementById('terminal-container');
+            if (terminalContainer) {
+                // Remove all existing theme attributes
+                themes.forEach(t => {
+                    terminalContainer.removeAttribute(`data-terminal-theme`);
+                });
+                
+                // Apply new theme (unless it's default)
+                if (theme !== 'default') {
+                    terminalContainer.setAttribute('data-terminal-theme', theme);
+                }
+                
+                // Also apply to body for global theme effects
+                document.body.setAttribute('data-terminal-theme', theme);
+                
+                this.addToOutput(`✅ ${theme.charAt(0).toUpperCase() + theme.slice(1)} theme activated!`);
+            } else {
+                this.addToOutput('❌ Error: Terminal container not found');
+            }
         } else {
             this.addToOutput(`Unknown theme: ${theme}. Available: ${themes.join(', ')}`);
         }

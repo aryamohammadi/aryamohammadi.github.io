@@ -114,7 +114,20 @@
     background: #001100;
 }
 
+[data-terminal-theme="matrix"] .terminal-content {
+    background-color: rgba(0, 20, 0, 0.9);
+}
+
 [data-terminal-theme="matrix"] .text-green-400 {
+    color: #00ff00 !important;
+}
+
+[data-terminal-theme="matrix"] .text-gray-300,
+[data-terminal-theme="matrix"] .text-white {
+    color: #00ff00 !important;
+}
+
+[data-terminal-theme="matrix"] #terminal-input-field {
     color: #00ff00 !important;
 }
 
@@ -128,7 +141,20 @@
     background: #1a0f08;
 }
 
+[data-terminal-theme="retro"] .terminal-content {
+    background-color: rgba(42, 24, 16, 0.9);
+}
+
 [data-terminal-theme="retro"] .text-green-400 {
+    color: #ffb000 !important;
+}
+
+[data-terminal-theme="retro"] .text-gray-300,
+[data-terminal-theme="retro"] .text-white {
+    color: #ffb000 !important;
+}
+
+[data-terminal-theme="retro"] #terminal-input-field {
     color: #ffb000 !important;
 }
 
@@ -141,6 +167,33 @@
     background: #000a11;
 }
 
+[data-terminal-theme="ocean"] .terminal-content {
+    background-color: rgba(0, 17, 34, 0.9);
+}
+
 [data-terminal-theme="ocean"] .text-green-400 {
     color: #4dd0e1 !important;
+}
+
+[data-terminal-theme="ocean"] .text-gray-300,
+[data-terminal-theme="ocean"] .text-white {
+    color: #4dd0e1 !important;
+}
+
+[data-terminal-theme="ocean"] #terminal-input-field {
+    color: #4dd0e1 !important;
+}
+
+/* Default theme reset */
+[data-terminal-theme="default"] .terminal-window {
+    background: #374151;
+    color: #fff;
+}
+
+[data-terminal-theme="default"] .terminal-header {
+    background: #374151;
+}
+
+[data-terminal-theme="default"] .terminal-content {
+    background-color: rgba(0, 0, 0, 0.8);
 } 
