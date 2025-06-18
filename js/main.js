@@ -21,7 +21,8 @@ async function loadComponents() {
         { id: 'skills', file: 'skills.html' },
         { id: 'contact', file: 'contact.html' },
         { id: 'gallery', file: 'gallery.html' },
-        { id: 'footer', file: 'footer.html' }
+        { id: 'footer', file: 'footer.html' },
+        { id: 'terminal-container', file: 'terminal.html' }
     ];
     
     // Add loading skeleton to each component
@@ -59,6 +60,11 @@ async function loadComponents() {
     
     // Wait for all components to load
     await Promise.all(loadPromises);
+    
+    // Initialize terminal after all components are loaded
+    if (typeof Terminal !== 'undefined') {
+        new Terminal();
+    }
 }
 
 // Function to initialize the Typed.js effect

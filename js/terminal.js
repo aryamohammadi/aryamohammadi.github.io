@@ -992,7 +992,4 @@ Have fun! 🚀`
     }
 }
 
-// Initialize terminal when the DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const terminal = new Terminal();
-}); 
+// Terminal will be initialized from main.js after components are loaded 
