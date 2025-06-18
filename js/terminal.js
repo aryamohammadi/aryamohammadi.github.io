@@ -26,7 +26,12 @@ class Terminal {
             'cd': (args) => this.changeDirectory(args),
             'pwd': () => this.showCurrentDirectory(),
             'whoami': () => this.showUserInfo(),
-            'exit': () => this.exitTerminal()
+            'exit': () => this.exitTerminal(),
+            'resume': () => this.openResume(),
+            'github': () => this.openGitHub(),
+            'linkedin': () => this.openLinkedIn(),
+            'theme': (args) => this.changeTheme(args),
+            'cat': (args) => this.catFile(args)
         };
 
         this.currentDirectory = '~';
@@ -151,6 +156,11 @@ Available commands:
   pwd      - Show current directory
   whoami   - Show user information
   exit     - Exit the terminal
+  resume   - Open my resume
+  github   - Open my GitHub profile
+  linkedin - Open my LinkedIn profile
+  theme    - Change terminal theme
+  cat      - Display file content
 
 Easter eggs (try these!):
   konami   - Activate Konami code
@@ -280,6 +290,119 @@ Shell: /bin/zsh
     exitTerminal() {
         this.addToOutput('Goodbye! Refresh the page to restart the terminal.');
         this.inputField.disabled = true;
+    }
+
+    openResume() {
+        this.addToOutput('📄 Opening resume...');
+        // You can replace this with your actual resume link
+        window.open('#', '_blank');
+    }
+
+    openGitHub() {
+        this.addToOutput('🐙 Opening GitHub profile...');
+        // Replace with your GitHub URL
+        window.open('https://github.com/yourusername', '_blank');
+    }
+
+    openLinkedIn() {
+        this.addToOutput('💼 Opening LinkedIn profile...');
+        // Replace with your LinkedIn URL
+        window.open('https://linkedin.com/in/yourusername', '_blank');
+    }
+
+    changeTheme(args) {
+        const theme = args[0];
+        const themes = ['default', 'matrix', 'retro', 'ocean'];
+        
+        if (!theme) {
+            this.addToOutput(`Available themes: ${themes.join(', ')}`);
+            return;
+        }
+        
+        if (themes.includes(theme)) {
+            this.addToOutput(`🎨 Switching to ${theme} theme...`);
+            // Theme switching logic would go here
+            document.body.setAttribute('data-terminal-theme', theme);
+        } else {
+            this.addToOutput(`Unknown theme: ${theme}. Available: ${themes.join(', ')}`);
+        }
+    }
+
+    catFile(args) {
+        const filename = args[0];
+        if (!filename) {
+            this.addToOutput('cat: missing file operand');
+            return;
+        }
+
+        const fileContents = {
+            'about.txt': `Name: Arya M
+Education: Mathematics-Computer Science @ UCLA
+Location: California
+Interests: AI, Software Development, Problem Solving
+
+I'm passionate about creating innovative solutions and 
+building projects that make a difference. Currently 
+exploring the intersection of mathematics and computer 
+science through various AI projects.`,
+            
+            'skills.txt': `PROGRAMMING LANGUAGES:
+• C++ - Advanced (OOP, SOLID principles, memory management)
+• Python - Advanced (Flask, data structures, algorithms)
+• JavaScript - Intermediate (ES6+, DOM manipulation)
+• Bash - Intermediate (shell scripting, automation)
+
+TOOLS & TECHNOLOGIES:
+• Git/GitHub - Version control and collaboration
+• VS Code - Primary development environment
+• PostgreSQL - Database design and management
+• Google Maps API - Location-based services
+
+CORE CONCEPTS:
+• Object-Oriented Programming & SOLID principles
+• Software Architecture and Design Patterns
+• Unit Testing and Test-Driven Development
+• Agile Development Methodologies`,
+            
+            'projects.txt': `1. UCR HOUSINGCONNECT (April 2025 - Present)
+   Full-stack housing platform for UC students
+   
+   Features:
+   • Map-based housing search with geolocation
+   • Secure user authentication system
+   • Backend listing management
+   • Google Maps API integration
+   
+   Tech Stack: Python, JavaScript, Flask, PostgreSQL
+   
+2. BATTLESTAR RPG (September 2024)
+   Terminal-based C++ combat game
+   
+   Features:
+   • Custom combat engine with turn-based mechanics
+   • Modular UI handling system
+   • Custom MaxHeap data structures
+   • 90%+ unit test coverage
+   
+   Tech Stack: C++, GoogleTest, Git`,
+            
+            'contact.txt': `📧 Email: your.email@example.com
+🐙 GitHub: github.com/yourusername
+💼 LinkedIn: linkedin.com/in/yourusername
+🌐 Portfolio: aryam.dev
+
+Feel free to reach out for collaboration opportunities,
+technical discussions, or just to say hello!
+
+Response time: Usually within 24 hours
+Best contact method: Email`
+        };
+
+        if (fileContents[filename]) {
+            this.addToOutput(fileContents[filename]);
+        } else {
+            this.addToOutput(`cat: ${filename}: No such file or directory`);
+        }
     }
 
     // Helper Methods

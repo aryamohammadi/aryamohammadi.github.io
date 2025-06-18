@@ -24,15 +24,41 @@ async function loadComponents() {
         { id: 'footer', file: 'footer.html' }
     ];
     
-    for (const component of components) {
+    // Add loading skeleton to each component
+    components.forEach(component => {
+        const element = document.getElementById(component.id);
+        if (element) {
+            element.innerHTML = `
+                <div class="animate-pulse bg-gray-800 rounded-lg p-6 m-4">
+                    <div class="h-4 bg-gray-700 rounded w-3/4 mb-4"></div>
+                    <div class="h-4 bg-gray-700 rounded w-1/2 mb-2"></div>
+                    <div class="h-4 bg-gray-700 rounded w-2/3"></div>
+                </div>
+            `;
+        }
+    });
+    
+    // Load components with error handling
+    const loadPromises = components.map(async (component) => {
         try {
             const response = await fetch(`components/${component.file}`);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
             const html = await response.text();
             document.getElementById(component.id).innerHTML = html;
         } catch (error) {
             console.error(`Failed to load component: ${component.file}`, error);
+            document.getElementById(component.id).innerHTML = `
+                <div class="bg-red-900 border border-red-700 text-red-100 px-4 py-3 rounded m-4">
+                    <strong>Error:</strong> Failed to load ${component.file}
+                </div>
+            `;
         }
-    }
+    });
+    
+    // Wait for all components to load
+    await Promise.all(loadPromises);
 }
 
 // Function to initialize the Typed.js effect

@@ -2,6 +2,7 @@
     height: 500px;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .terminal-content {
@@ -92,6 +93,7 @@
 .terminal-header {
     cursor: move;
     user-select: none;
+    transition: background-color 0.3s ease;
 }
 
 /* Terminal window resize handle */
@@ -100,4 +102,45 @@
     overflow: hidden;
     min-height: 300px;
     min-width: 400px;
+}
+
+/* Terminal themes */
+[data-terminal-theme="matrix"] .terminal-window {
+    background: #000;
+    color: #00ff00;
+}
+
+[data-terminal-theme="matrix"] .terminal-header {
+    background: #001100;
+}
+
+[data-terminal-theme="matrix"] .text-green-400 {
+    color: #00ff00 !important;
+}
+
+[data-terminal-theme="retro"] .terminal-window {
+    background: #2a1810;
+    color: #ffb000;
+    font-family: 'Courier New', monospace;
+}
+
+[data-terminal-theme="retro"] .terminal-header {
+    background: #1a0f08;
+}
+
+[data-terminal-theme="retro"] .text-green-400 {
+    color: #ffb000 !important;
+}
+
+[data-terminal-theme="ocean"] .terminal-window {
+    background: #001122;
+    color: #4dd0e1;
+}
+
+[data-terminal-theme="ocean"] .terminal-header {
+    background: #000a11;
+}
+
+[data-terminal-theme="ocean"] .text-green-400 {
+    color: #4dd0e1 !important;
 } 
