@@ -338,26 +338,30 @@ Type any command followed by Enter to execute it!
 About Arya Mohammadi
 ===================
 
-Hey there! I'm a junior at UC San Diego studying Mathematics and Computer Science.
-This portfolio project has been my main focus for the past 10 weeks!
+I'm a Mathematics-Computer Science student at UC San Diego with a passion for 
+building innovative solutions at the intersection of mathematics and technology.
 
-I started coding seriously in my freshman year, and I'm still learning new things
-every day. My favorite classes so far have been CSE 100 (Advanced Data Structures)
-and CSE 101 (Design and Analysis of Algorithms).
+Currently advancing my expertise in advanced data structures and algorithm design 
+through rigorous coursework and hands-on projects. I'm particularly interested in 
+software architecture, performance optimization, and the mathematical foundations 
+underlying computer science.
 
-What I'm working on:
-• Building this interactive terminal portfolio (you're using it right now!)
-• Learning more about web development and JavaScript
-• Practicing algorithms and data structures for technical interviews
-• Working on personal projects to build my GitHub profile
+Current Focus Areas:
+• Advanced Data Structures & Algorithm Design
+• Software Engineering & System Architecture  
+• Web Development & Interactive Applications
+• Mathematical Modeling & Computational Methods
 
-I love the problem-solving aspect of programming, and I'm always excited to learn
-new technologies. Currently getting better at React, Python, and system design.
+Technical Interests:
+• Performance optimization and algorithmic efficiency
+• Software design patterns and scalable architectures
+• Artificial intelligence and machine learning applications
+• Mathematical computing and numerical methods
 
-Fun fact: This terminal emulator was the hardest part of this project to build!
-It took me about 4 weeks just to get the basic functionality working.
+Beyond academics, I contribute to my community as a STEM tutor, helping students 
+master challenging concepts in mathematics and computer science.
 
-Type 'skills' to see my technical abilities, or 'projects' to see what I've built!
+Type 'skills' to see my technical expertise, or 'projects' to explore my work!
         `;
         
         this.addToOutput(aboutText);
@@ -369,39 +373,37 @@ Type 'skills' to see my technical abilities, or 'projects' to see what I've buil
         
         // I tried to be honest about my skill levels here
         const skillsText = `
-Technical Skills
-===============
+Technical Skills & Expertise
+===========================
 
 Programming Languages:
-• Python        ★★★☆☆  (Most comfortable - learned in CSE 8A/8B)
-• JavaScript    ★★☆☆☆  (Still learning - this project taught me a lot!)
-• Java          ★★★☆☆  (Used in CSE 100 for data structures)
-• C++           ★★☆☆☆  (Basic knowledge from CSE 100)
-• HTML/CSS      ★★☆☆☆  (Getting better - learned for this project)
+• Python        ★★★★☆  (Advanced - Primary language for algorithms & data analysis)
+• C++           ★★★★☆  (Proficient - Systems programming & competitive programming)
+• JavaScript    ★★★☆☆  (Intermediate - Web development & interactive applications)
+• Java          ★★★☆☆  (Proficient - Object-oriented design & data structures)
+• HTML/CSS      ★★★☆☆  (Intermediate - Modern web standards & responsive design)
 
-Technologies & Tools:
-• Git/GitHub    ★★☆☆☆  (Still figuring out merge conflicts...)
-• VS Code       ★★★☆☆  (My favorite editor!)
-• Terminal/Bash ★★☆☆☆  (Learning Unix commands slowly)
-• Tailwind CSS  ★☆☆☆☆  (New to this - used it for styling this site)
+Development Tools & Technologies:
+• Git/GitHub    ★★★★☆  (Proficient - Version control & collaborative development)
+• VS Code       ★★★★★  (Expert - Primary development environment)
+• Unix/Linux    ★★★☆☆  (Intermediate - Command line proficiency & shell scripting)
+• PostgreSQL    ★★★☆☆  (Intermediate - Database design & optimization)
 
-Concepts I'm Learning:
-• Data Structures & Algorithms (CSE 100/101)
-• Object-Oriented Programming
-• Web Development Fundamentals  
-• Responsive Design
-• API Integration (want to learn more about this)
+Core Competencies:
+• Data Structures & Algorithms    ★★★★☆  (Advanced coursework & practical application)
+• Software Engineering Principles ★★★☆☆  (Design patterns & system architecture)
+• Mathematical Computing          ★★★★☆  (Numerical methods & computational mathematics)
+• Performance Optimization        ★★★☆☆  (Algorithm analysis & system efficiency)
 
-What I Want to Learn Next:
-• React.js (heard it's really useful for web dev)
-• Node.js (for backend development)
-• Databases (SQL and maybe MongoDB)
-• Machine Learning (taking CSE 151A next quarter!)
+Areas of Exploration:
+• Artificial Intelligence & Machine Learning
+• Distributed Systems & Cloud Computing
+• Advanced Database Systems
+• Computational Mathematics & Scientific Computing
 
-I know I'm still early in my programming journey, but I'm really passionate
-about learning and improving. Every project teaches me something new!
-
-This terminal portfolio is actually the most complex thing I've ever built.
+Technical Philosophy:
+Focus on writing clean, efficient, and maintainable code while continuously 
+expanding knowledge through challenging projects and rigorous problem-solving.
         `;
         
         this.addToOutput(skillsText);
@@ -413,48 +415,49 @@ This terminal portfolio is actually the most complex thing I've ever built.
         
         // These are real projects I've worked on during college
         const projectsText = `
-My Coding Projects
-=================
+Software Development Projects
+============================
 
-1. Interactive Terminal Portfolio (Current Project - 10 weeks)
-   • This website you're currently exploring!
-   • Built with vanilla HTML, CSS, and JavaScript
-   • Features: Terminal emulator, games, themes, easter eggs
-   • Biggest challenge: Making the terminal feel authentic
-   • Status: Almost done! Just polishing up the details
+1. Interactive Terminal Portfolio
+   • Full-featured terminal emulator with command processing
+   • Built with vanilla JavaScript, HTML5, and CSS3
+   • Features: File system simulation, theme switching, embedded games
+   • Technical challenges: Event handling, state management, responsive design
+   • Live demo: You're using it right now!
 
-2. Snake Game (Week 6-7 of this project)
-   • Playable right in this terminal! (Type 'snake' to try it)
-   • Learned about game loops, collision detection, and canvas drawing
-   • First time building a game - was harder than I expected
-   • Used HTML5 Canvas and JavaScript
+2. UCR HousingConnect Platform
+   • Full-stack housing platform for university students
+   • Python backend with Flask framework and PostgreSQL database
+   • Google Maps API integration for geolocation services
+   • Secure user authentication and session management
+   • Focus: Scalable architecture and user experience
 
-3. Tetris Game (Week 8-9 of this project)  
-   • Also playable in this terminal! (Type 'tetris')
-   • Way more complex than Snake - took me 2 weeks
-   • Learned about 2D arrays, rotation algorithms, line clearing
-   • Probably the most challenging code I've written so far
+3. Battlestar RPG Engine
+   • Object-oriented C++ game engine with modular design
+   • Custom combat system with turn-based mechanics
+   • Advanced data structures including custom heap implementations
+   • Comprehensive unit testing with 90%+ code coverage
+   • Emphasis: Performance optimization and memory management
 
-4. Basic Calculator (CSE 100 Assignment)
-   • Command-line calculator in Java
-   • Handles basic arithmetic with proper order of operations
-   • Used stack data structure for expression evaluation
-   • First time really understanding how stacks work
+4. Embedded Game Suite
+   • Snake: Real-time game loop with collision detection algorithms
+   • Tetris: Complex state management with rotation matrices
+   • Both games feature: Score tracking, progressive difficulty, smooth controls
+   • Technical focus: Game state management and efficient rendering
 
-5. Todo List App (Personal Project - 2 weeks)
-   • Simple web app to track assignments and deadlines
-   • HTML, CSS, JavaScript with localStorage
-   • Helped me stay organized during midterms!
-   • Planning to add more features over winter break
+5. Algorithm Visualization Tools
+   • Interactive demonstrations of sorting and graph algorithms
+   • Real-time complexity analysis and performance metrics
+   • Educational focus with step-by-step execution visualization
+   • Built for teaching and learning algorithm concepts
 
-Future Project Ideas:
-• Weather app using a real API
-• Chat application (maybe with Socket.io?)
-• Personal finance tracker
-• Something with machine learning (after I take CSE 151A)
+Current Development:
+• Exploring machine learning applications in computational mathematics
+• Investigating distributed systems and cloud architecture patterns
+• Contributing to open-source projects in the algorithms community
 
-Most of these are pretty simple, but I'm proud of the progress I'm making!
-Each project teaches me something new about programming.
+Each project emphasizes clean code architecture, performance optimization,
+and practical application of computer science principles.
         `;
         
         this.addToOutput(projectsText);
@@ -468,38 +471,42 @@ Each project teaches me something new about programming.
 Contact Information
 ==================
 
-I'd love to connect! Here's how you can reach me:
+Professional Contact:
 
 📧 Email: amohammadi@ucsd.edu
-   (Best way to reach me - I check this daily)
+   Primary contact for professional inquiries
 
 💼 LinkedIn: linkedin.com/in/aryamohammadi
-   (Type 'linkedin' to open in new tab)
+   (Type 'linkedin' to open profile)
 
 🐙 GitHub: github.com/aryamohammadi  
-   (Type 'github' to see my code)
+   (Type 'github' to view repositories)
 
-📄 Resume: Available as PDF
-   (Type 'resume' to download)
+📄 Resume: Available upon request
+   (Type 'resume' to access)
 
-🏫 Currently: Junior at UC San Diego
-   Major: Mathematics-Computer Science
+🎓 Academic Status:
+   University of California San Diego
+   B.S. Mathematics-Computer Science
    Expected Graduation: June 2026
+   Current GPA: 3.77/4.00
 
-I'm actively looking for:
-• Summer 2025 internship opportunities
-• Open source projects to contribute to
-• Study groups and coding buddies
-• Mentorship opportunities
+Professional Interests:
+• Software engineering internship opportunities
+• Research collaborations in computational mathematics
+• Open source contributions to algorithms and data structures
+• Technical mentorship and knowledge sharing
 
-Feel free to reach out if you:
-• Have internship opportunities
-• Want to collaborate on a project  
-• Have advice for a CS student
-• Just want to chat about programming!
+Areas of Collaboration:
+• Algorithm design and optimization projects
+• Mathematical modeling and computational solutions
+• Full-stack development initiatives
+• Educational technology and tutoring platforms
 
-I try to respond to all messages within 24 hours.
-Looking forward to hearing from you! 😊
+I welcome discussions about technology, mathematics, software engineering,
+and opportunities for professional growth and collaboration.
+
+Response time: Typically within 24 hours for professional inquiries.
         `;
         
         this.addToOutput(contactText);
