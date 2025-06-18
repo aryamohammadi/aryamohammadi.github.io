@@ -31,7 +31,10 @@ class Terminal {
             'github': () => this.openGitHub(),
             'linkedin': () => this.openLinkedIn(),
             'theme': (args) => this.changeTheme(args),
-            'cat': (args) => this.catFile(args)
+            'cat': (args) => this.catFile(args),
+            'eastereggs': () => this.showEasterEggs(),
+            'fun': () => this.showFunCommands(),
+            'cowsay': (args) => this.cowsay(args)
         };
 
         this.currentDirectory = '~';
@@ -42,8 +45,11 @@ class Terminal {
                 'projects.txt': 'Portfolio projects',
                 'contact.txt': 'Contact information',
                 'secret/': {
-                    'easter-eggs.txt': 'Hidden features and games'
-                }
+                    'easter-eggs.txt': 'Hidden features and games',
+                    'konami.txt': 'The legendary cheat code',
+                    'games.txt': 'Available games in the terminal'
+                },
+                'readme.txt': 'Welcome to my terminal portfolio!'
             }
         };
 
@@ -161,6 +167,9 @@ Available commands:
   linkedin - Open my LinkedIn profile
   theme    - Change terminal theme
   cat      - Display file content
+  eastereggs - Show easter eggs
+  fun      - Show fun commands
+  cowsay   - Display a cowsay message
 
 Easter eggs (try these!):
   konami   - Activate Konami code
@@ -209,9 +218,16 @@ Development Practices: Unit Testing, Agile Development, Feature Branching
 
     showContact() {
         this.addToOutput(`
-Email: [Your Email]
-GitHub: [Your GitHub]
-LinkedIn: [Your LinkedIn]
+📧 Email: your.email@example.com
+🐙 GitHub: github.com/yourusername
+💼 LinkedIn: linkedin.com/in/yourusername
+🌐 Portfolio: aryam.dev
+
+Feel free to reach out for collaboration opportunities,
+technical discussions, or just to say hello!
+
+Response time: Usually within 24 hours
+Best contact method: Email
         `);
     }
 
@@ -395,7 +411,116 @@ Feel free to reach out for collaboration opportunities,
 technical discussions, or just to say hello!
 
 Response time: Usually within 24 hours
-Best contact method: Email`
+Best contact method: Email`,
+
+            'readme.txt': `🚀 WELCOME TO ARYA'S TERMINAL PORTFOLIO 🚀
+
+This is an interactive terminal emulator built with JavaScript.
+You can explore my portfolio using Unix-like commands!
+
+GETTING STARTED:
+• Type 'help' to see all available commands
+• Use 'ls' to list files and directories
+• Use 'cd' to navigate directories
+• Use 'cat <filename>' to read file contents
+
+SPECIAL FEATURES:
+• Type 'eastereggs' to see hidden games
+• Type 'fun' to see entertaining commands
+• Try the Konami code: ↑↑↓↓←→←→BA
+
+NAVIGATION:
+• Use arrow keys to navigate command history
+• Type 'clear' to clear the terminal
+• Type 'theme <name>' to change terminal themes
+
+Enjoy exploring! 🌟`,
+
+            'easter-eggs.txt': `🥚 EASTER EGGS GUIDE 🥚
+
+This terminal contains several hidden features:
+
+1. KONAMI CODE
+   - Enter the famous sequence: ↑↑↓↓←→←→BA
+   - Or simply type 'konami'
+   - Unlocks special terminal effects
+
+2. MATRIX EFFECT
+   - Type 'matrix' to enter the digital rain
+   - Press ESC to exit the Matrix
+   - Full-screen green code animation
+
+3. SNAKE GAME
+   - Type 'snake' to play the classic game
+   - Use WASD or arrow keys to move
+   - Try to beat your high score!
+
+4. TETRIS GAME
+   - Type 'tetris' for the falling blocks game
+   - A/D to move, S to drop, W to rotate
+   - Clear lines to score points
+
+5. TERMINAL THEMES
+   - Type 'theme matrix' for Matrix theme
+   - Type 'theme retro' for retro amber
+   - Type 'theme ocean' for ocean blue
+
+6. COWSAY
+   - Type 'cowsay Hello World' for ASCII art
+   - The cow will say whatever you want!
+
+Happy exploring! 🎮`,
+
+            'konami.txt': `🎮 THE KONAMI CODE 🎮
+
+The Konami Code is one of the most famous cheat codes in gaming history.
+
+SEQUENCE: ↑ ↑ ↓ ↓ ← → ← → B A
+
+HISTORY:
+Originally created by Kazuhisa Hashimoto for the 1986 game Gradius.
+It was intended as a developer tool to make testing easier.
+
+IN THIS TERMINAL:
+• Enter the sequence using arrow keys + 'b' + 'a'
+• Or simply type 'konami' as a command
+• Activates special terminal animations
+• Reveals hidden easter egg commands
+
+The code has appeared in hundreds of games and websites since then.
+It's a tribute to gaming culture and developer creativity!
+
+Try it now! 🕹️`,
+
+            'games.txt': `🎮 TERMINAL GAMES 🎮
+
+This terminal includes fully playable games:
+
+1. SNAKE 🐍
+   Command: snake
+   Controls: WASD or Arrow Keys
+   Goal: Eat food, grow longer, avoid walls and yourself
+   Features: Score tracking, smooth gameplay
+
+2. TETRIS 🎯
+   Command: tetris
+   Controls: A/D (move), S (drop), W (rotate)
+   Goal: Clear horizontal lines by filling them
+   Features: Line clearing, score system, increasing difficulty
+
+3. MATRIX EFFECT 🌐
+   Command: matrix
+   Controls: ESC to exit
+   Experience: Digital rain animation
+   Features: Full-screen effect, Japanese characters
+
+TIPS:
+• All games can be exited with ESC key
+• Scores are displayed during gameplay
+• Games work best in full-screen browser mode
+• Try different terminal themes while playing!
+
+Have fun! 🚀`
         };
 
         if (fileContents[filename]) {
@@ -421,6 +546,10 @@ Best contact method: Email`
     // Easter Eggs
     konamiCode() {
         this.addToOutput('🎮 Konami Code activated! 🎮');
+        this.addToOutput('✨ You found the secret! Here are some bonus commands:');
+        this.addToOutput('• Try "matrix" for a Matrix effect');
+        this.addToOutput('• Try "snake" for Snake game');
+        this.addToOutput('• Try "tetris" for Tetris game');
         document.body.style.animation = 'konami 1s';
         setTimeout(() => {
             document.body.style.animation = '';
@@ -429,17 +558,437 @@ Best contact method: Email`
 
     matrixEffect() {
         this.addToOutput('🌐 Entering the Matrix...');
-        // Matrix effect implementation would go here
+        this.addToOutput('Press ESC to exit the Matrix');
+        
+        // Create matrix canvas
+        const canvas = document.createElement('canvas');
+        canvas.id = 'matrix-canvas';
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '9999';
+        canvas.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        document.body.appendChild(canvas);
+        
+        const ctx = canvas.getContext('2d');
+        const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const charArray = chars.split('');
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        // Initialize drops
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+        
+        const matrixInterval = setInterval(() => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }, 50);
+        
+        // Exit on ESC key
+        const exitMatrix = (e) => {
+            if (e.key === 'Escape') {
+                clearInterval(matrixInterval);
+                document.body.removeChild(canvas);
+                document.removeEventListener('keydown', exitMatrix);
+                this.addToOutput('👋 Exited the Matrix');
+            }
+        };
+        
+        document.addEventListener('keydown', exitMatrix);
     }
 
     startSnakeGame() {
         this.addToOutput('🐍 Starting Snake game...');
-        // Snake game implementation would go here
+        this.addToOutput('Use WASD or Arrow keys to move. Press ESC to exit.');
+        
+        // Create game canvas
+        const canvas = document.createElement('canvas');
+        canvas.id = 'snake-canvas';
+        canvas.style.position = 'fixed';
+        canvas.style.top = '50%';
+        canvas.style.left = '50%';
+        canvas.style.transform = 'translate(-50%, -50%)';
+        canvas.style.zIndex = '9999';
+        canvas.style.border = '2px solid #fff';
+        canvas.style.backgroundColor = '#000';
+        canvas.width = 400;
+        canvas.height = 400;
+        
+        document.body.appendChild(canvas);
+        
+        const ctx = canvas.getContext('2d');
+        const gridSize = 20;
+        const tileCount = canvas.width / gridSize;
+        
+        let snake = [{ x: 10, y: 10 }];
+        let food = { x: 15, y: 15 };
+        let dx = 0;
+        let dy = 0;
+        let score = 0;
+        
+        const gameLoop = () => {
+            // Move snake
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+            
+            // Check wall collision
+            if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+                return gameOver();
+            }
+            
+            // Check self collision
+            if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                return gameOver();
+            }
+            
+            snake.unshift(head);
+            
+            // Check food collision
+            if (head.x === food.x && head.y === food.y) {
+                score++;
+                food = {
+                    x: Math.floor(Math.random() * tileCount),
+                    y: Math.floor(Math.random() * tileCount)
+                };
+            } else {
+                snake.pop();
+            }
+            
+            // Clear canvas
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw snake
+            ctx.fillStyle = '#0f0';
+            snake.forEach(segment => {
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+            });
+            
+            // Draw food
+            ctx.fillStyle = '#f00';
+            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+            
+            // Draw score
+            ctx.fillStyle = '#fff';
+            ctx.font = '20px Arial';
+            ctx.fillText('Score: ' + score, 10, 30);
+        };
+        
+        const gameOver = () => {
+            clearInterval(snakeInterval);
+            document.body.removeChild(canvas);
+            document.removeEventListener('keydown', snakeControls);
+            this.addToOutput(`🎮 Game Over! Final Score: ${score}`);
+        };
+        
+        const snakeControls = (e) => {
+            if (e.key === 'Escape') {
+                clearInterval(snakeInterval);
+                document.body.removeChild(canvas);
+                document.removeEventListener('keydown', snakeControls);
+                this.addToOutput('🐍 Snake game exited');
+                return;
+            }
+            
+            switch (e.key) {
+                case 'ArrowUp':
+                case 'w':
+                case 'W':
+                    if (dy !== 1) { dx = 0; dy = -1; }
+                    break;
+                case 'ArrowDown':
+                case 's':
+                case 'S':
+                    if (dy !== -1) { dx = 0; dy = 1; }
+                    break;
+                case 'ArrowLeft':
+                case 'a':
+                case 'A':
+                    if (dx !== 1) { dx = -1; dy = 0; }
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                case 'D':
+                    if (dx !== -1) { dx = 1; dy = 0; }
+                    break;
+            }
+        };
+        
+        document.addEventListener('keydown', snakeControls);
+        const snakeInterval = setInterval(gameLoop, 100);
     }
 
     startTetrisGame() {
         this.addToOutput('🎮 Starting Tetris game...');
-        // Tetris game implementation would go here
+        this.addToOutput('Use A/D to move, S to drop, W to rotate. Press ESC to exit.');
+        
+        // Create game canvas
+        const canvas = document.createElement('canvas');
+        canvas.id = 'tetris-canvas';
+        canvas.style.position = 'fixed';
+        canvas.style.top = '50%';
+        canvas.style.left = '50%';
+        canvas.style.transform = 'translate(-50%, -50%)';
+        canvas.style.zIndex = '9999';
+        canvas.style.border = '2px solid #fff';
+        canvas.style.backgroundColor = '#000';
+        canvas.width = 300;
+        canvas.height = 600;
+        
+        document.body.appendChild(canvas);
+        
+        const ctx = canvas.getContext('2d');
+        const BLOCK_SIZE = 30;
+        const BOARD_WIDTH = 10;
+        const BOARD_HEIGHT = 20;
+        
+        // Initialize board
+        const board = Array(BOARD_HEIGHT).fill().map(() => Array(BOARD_WIDTH).fill(0));
+        
+        // Tetris pieces
+        const pieces = [
+            [[1, 1, 1, 1]], // I
+            [[1, 1], [1, 1]], // O
+            [[0, 1, 0], [1, 1, 1]], // T
+            [[0, 1, 1], [1, 1, 0]], // S
+            [[1, 1, 0], [0, 1, 1]], // Z
+            [[1, 0, 0], [1, 1, 1]], // J
+            [[0, 0, 1], [1, 1, 1]]  // L
+        ];
+        
+        const colors = ['#000', '#0ff', '#ff0', '#f0f', '#0f0', '#f00', '#00f', '#ffa500'];
+        
+        let currentPiece = {
+            shape: pieces[Math.floor(Math.random() * pieces.length)],
+            x: 3,
+            y: 0,
+            color: Math.floor(Math.random() * 7) + 1
+        };
+        
+        let score = 0;
+        let lines = 0;
+        
+        const drawBlock = (x, y, color) => {
+            ctx.fillStyle = colors[color];
+            ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE - 1, BLOCK_SIZE - 1);
+        };
+        
+        const drawPiece = (piece) => {
+            piece.shape.forEach((row, y) => {
+                row.forEach((cell, x) => {
+                    if (cell) {
+                        drawBlock(piece.x + x, piece.y + y, piece.color);
+                    }
+                });
+            });
+        };
+        
+        const drawBoard = () => {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            board.forEach((row, y) => {
+                row.forEach((cell, x) => {
+                    if (cell) {
+                        drawBlock(x, y, cell);
+                    }
+                });
+            });
+        };
+        
+        const isValidMove = (piece, dx = 0, dy = 0, newShape = piece.shape) => {
+            return newShape.every((row, y) => {
+                return row.every((cell, x) => {
+                    if (!cell) return true;
+                    const newX = piece.x + x + dx;
+                    const newY = piece.y + y + dy;
+                    return newX >= 0 && newX < BOARD_WIDTH && 
+                           newY < BOARD_HEIGHT && 
+                           (newY < 0 || !board[newY][newX]);
+                });
+            });
+        };
+        
+        const placePiece = () => {
+            currentPiece.shape.forEach((row, y) => {
+                row.forEach((cell, x) => {
+                    if (cell) {
+                        const boardY = currentPiece.y + y;
+                        if (boardY >= 0) {
+                            board[boardY][currentPiece.x + x] = currentPiece.color;
+                        }
+                    }
+                });
+            });
+            
+            // Clear lines
+            for (let y = BOARD_HEIGHT - 1; y >= 0; y--) {
+                if (board[y].every(cell => cell)) {
+                    board.splice(y, 1);
+                    board.unshift(Array(BOARD_WIDTH).fill(0));
+                    lines++;
+                    score += 100;
+                    y++; // Check same line again
+                }
+            }
+            
+            // New piece
+            currentPiece = {
+                shape: pieces[Math.floor(Math.random() * pieces.length)],
+                x: 3,
+                y: 0,
+                color: Math.floor(Math.random() * 7) + 1
+            };
+            
+            // Game over check
+            if (!isValidMove(currentPiece)) {
+                return gameOver();
+            }
+        };
+        
+        const gameLoop = () => {
+            if (isValidMove(currentPiece, 0, 1)) {
+                currentPiece.y++;
+            } else {
+                placePiece();
+            }
+            
+            drawBoard();
+            drawPiece(currentPiece);
+            
+            // Draw score
+            ctx.fillStyle = '#fff';
+            ctx.font = '16px Arial';
+            ctx.fillText('Score: ' + score, 10, 20);
+            ctx.fillText('Lines: ' + lines, 10, 40);
+        };
+        
+        const gameOver = () => {
+            clearInterval(tetrisInterval);
+            document.body.removeChild(canvas);
+            document.removeEventListener('keydown', tetrisControls);
+            this.addToOutput(`🎮 Game Over! Final Score: ${score}, Lines: ${lines}`);
+        };
+        
+        const rotatePiece = (piece) => {
+            const rotated = piece.shape[0].map((_, i) => 
+                piece.shape.map(row => row[i]).reverse()
+            );
+            return rotated;
+        };
+        
+        const tetrisControls = (e) => {
+            if (e.key === 'Escape') {
+                clearInterval(tetrisInterval);
+                document.body.removeChild(canvas);
+                document.removeEventListener('keydown', tetrisControls);
+                this.addToOutput('🎮 Tetris game exited');
+                return;
+            }
+            
+            switch (e.key) {
+                case 'a':
+                case 'A':
+                case 'ArrowLeft':
+                    if (isValidMove(currentPiece, -1, 0)) {
+                        currentPiece.x--;
+                    }
+                    break;
+                case 'd':
+                case 'D':
+                case 'ArrowRight':
+                    if (isValidMove(currentPiece, 1, 0)) {
+                        currentPiece.x++;
+                    }
+                    break;
+                case 's':
+                case 'S':
+                case 'ArrowDown':
+                    if (isValidMove(currentPiece, 0, 1)) {
+                        currentPiece.y++;
+                        score++;
+                    }
+                    break;
+                case 'w':
+                case 'W':
+                case 'ArrowUp':
+                    const rotated = rotatePiece(currentPiece);
+                    if (isValidMove(currentPiece, 0, 0, rotated)) {
+                        currentPiece.shape = rotated;
+                    }
+                    break;
+            }
+            
+            drawBoard();
+            drawPiece(currentPiece);
+        };
+        
+        document.addEventListener('keydown', tetrisControls);
+        const tetrisInterval = setInterval(gameLoop, 500);
+        
+        // Initial draw
+        drawBoard();
+        drawPiece(currentPiece);
+    }
+
+    showEasterEggs() {
+        this.addToOutput('🥚 Available Easter Eggs:');
+        this.addToOutput('');
+        this.addToOutput('🎮 konami     - Activate the legendary Konami code');
+        this.addToOutput('🌐 matrix     - Enter the digital rain');
+        this.addToOutput('🐍 snake      - Play the classic Snake game');
+        this.addToOutput('🎮 tetris     - Play Tetris!');
+        this.addToOutput('');
+        this.addToOutput('💡 Hint: Try the Konami code sequence: ↑↑↓↓←→←→BA');
+    }
+
+    showFunCommands() {
+        this.addToOutput('🎉 Fun Terminal Commands:');
+        this.addToOutput('');
+        this.addToOutput('🎨 theme <name>  - Switch terminal themes (matrix, retro, ocean)');
+        this.addToOutput('🐄 cowsay <msg>  - Make a cow say something');
+        this.addToOutput('😂 joke         - Tell a random programming joke');
+        this.addToOutput('🌤️  weather      - Check the weather (simulated)');
+        this.addToOutput('📅 date         - Show current date and time');
+        this.addToOutput('🔄 echo <text>  - Echo back your text');
+        this.addToOutput('');
+        this.addToOutput('Try them out! 🚀');
+    }
+
+    cowsay(args) {
+        const message = args.length > 0 ? args.join(' ') : 'Hello from the terminal cow!';
+        const msgLength = message.length;
+        const border = '-'.repeat(msgLength + 2);
+        
+        this.addToOutput(`
+ ${border}
+< ${message} >
+ ${border}
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||`);
     }
 }
 
