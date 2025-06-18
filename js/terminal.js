@@ -1,9 +1,20 @@
+// Terminal emulator for my portfolio
+// This was the hardest part of the project - took me like 3 weeks to get working!
+// Learned about classes, event listeners, and DOM manipulation
+
 class Terminal {
     constructor() {
+        console.log('Creating terminal...'); // Debug message
+        
+        // Get references to HTML elements
         this.inputField = document.getElementById('terminal-input-field');
         this.outputDiv = document.getElementById('terminal-output');
+        
+        // Arrays to store command history
         this.commandHistory = [];
         this.historyIndex = -1;
+        
+        // Easter eggs - these were fun to add!
         this.easterEggs = {
             'konami': () => this.konamiCode(),
             'matrix': () => this.matrixEffect(),
@@ -11,6 +22,8 @@ class Terminal {
             'tetris': () => this.startTetrisGame()
         };
         
+        // All the commands the terminal can handle
+        // Took me a while to figure out how to organize this
         this.commands = {
             'help': () => this.showHelp(),
             'clear': () => this.clearTerminal(),
@@ -37,7 +50,10 @@ class Terminal {
             'cowsay': (args) => this.cowsay(args)
         };
 
+        // Current directory for the fake file system
         this.currentDirectory = '~';
+        
+        // Fake file system - learned about nested objects
         this.fileSystem = {
             '~': {
                 'about.txt': 'Information about Arya',
@@ -53,56 +69,81 @@ class Terminal {
             }
         };
 
+        // Set up event listeners
         this.setupEventListeners();
+        
+        console.log('Terminal created successfully!'); // Debug message
     }
 
+    // Set up all the event listeners for the terminal
+    // Had to learn about different keyboard events
     setupEventListeners() {
+        // Listen for key presses in the input field
         this.inputField.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
+                // User pressed enter - process the command
                 this.processCommand();
             } else if (e.key === 'ArrowUp') {
+                // Up arrow - go back in history
                 e.preventDefault();
                 this.navigateHistory('up');
             } else if (e.key === 'ArrowDown') {
+                // Down arrow - go forward in history
                 e.preventDefault();
                 this.navigateHistory('down');
             }
         });
 
-        // Konami Code Easter Egg
+        // Konami Code Easter Egg - this was tricky to implement!
+        // The famous cheat code: ↑↑↓↓←→←→BA
         let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         let konamiIndex = 0;
+        
         document.addEventListener('keydown', (e) => {
             if (e.key === konamiCode[konamiIndex]) {
                 konamiIndex++;
                 if (konamiIndex === konamiCode.length) {
+                    // They entered the whole sequence!
                     this.konamiCode();
-                    konamiIndex = 0;
+                    konamiIndex = 0; // Reset for next time
                 }
             } else {
+                // Wrong key - reset the sequence
                 konamiIndex = 0;
             }
         });
     }
 
+    // Process whatever command the user typed
+    // This function handles parsing and executing commands
     processCommand() {
         const input = this.inputField.value.trim();
+        
+        // Don't do anything if they didn't type anything
         if (input === '') return;
 
+        // Show what they typed in the output
         this.addToOutput(input, true);
+        
+        // Add to command history so they can use arrow keys
         this.commandHistory.push(input);
         this.historyIndex = this.commandHistory.length;
 
+        // Split the input into command and arguments
         const [command, ...args] = input.split(' ');
         
+        // Check if it's an easter egg first
         if (this.easterEggs[command]) {
             this.easterEggs[command]();
         } else if (this.commands[command]) {
+            // It's a regular command
             this.commands[command](args);
         } else {
+            // Command not found
             this.addToOutput(`Command not found: ${command}. Type 'help' for available commands.`);
         }
 
+        // Clear the input field for next command
         this.inputField.value = '';
     }
 
@@ -195,10 +236,27 @@ Interests: Software Development, Problem Solving, Teaching
 
     showSkills() {
         this.addToOutput(`
-Languages: C++, Python, Bash
-Tools: Git, VS Code, PostgreSQL
-Core Concepts: Memory Management, OOP & SOLID, Software Architecture
-Development Practices: Unit Testing, Agile Development, Feature Branching
+PROGRAMMING LANGUAGES:
+• C++ - Still learning (took CSE 100, working on CSE 101)
+• Python - Pretty comfortable (use it for most assignments)
+• JavaScript - Basic level (just started web dev)
+
+TOOLS I USE:
+• Git/GitHub - Still figuring it out, but getting better
+• VS Code - Use it every day for coding
+• Terminal/Bash - Getting more comfortable with command line
+
+CURRENTLY LEARNING:
+• Databases (PostgreSQL) - for my housing project
+• Web Development - HTML, CSS, JavaScript
+• AI/ML - just started, seems really cool
+
+FROM MY CLASSES:
+• Data Structures (CSE 100) - learned about trees, graphs, etc.
+• Algorithms - currently taking, pretty challenging
+• Object-Oriented Programming - starting to understand it better
+
+This portfolio took me about 10 weeks to build! Learned a lot about web development and JavaScript along the way.
         `);
     }
 
@@ -382,22 +440,26 @@ exploring the intersection of mathematics and computer
 science through various AI projects.`,
             
             'skills.txt': `PROGRAMMING LANGUAGES:
-• C++ - Advanced (OOP, SOLID principles, memory management)
-• Python - Advanced (Flask, data structures, algorithms)
-• JavaScript - Intermediate (ES6+, DOM manipulation)
-• Bash - Intermediate (shell scripting, automation)
+• C++ - Still learning (took CSE 100, working on CSE 101)
+• Python - Pretty comfortable (use it for most assignments)
+• JavaScript - Basic level (just started web dev)
 
-TOOLS & TECHNOLOGIES:
-• Git/GitHub - Version control and collaboration
-• VS Code - Primary development environment
-• PostgreSQL - Database design and management
-• Google Maps API - Location-based services
+TOOLS I USE:
+• Git/GitHub - Still figuring it out, but getting better
+• VS Code - Use it every day for coding
+• Terminal/Bash - Getting more comfortable with command line
 
-CORE CONCEPTS:
-• Object-Oriented Programming & SOLID principles
-• Software Architecture and Design Patterns
-• Unit Testing and Test-Driven Development
-• Agile Development Methodologies`,
+CURRENTLY LEARNING:
+• Databases (PostgreSQL) - for my housing project
+• Web Development - HTML, CSS, JavaScript
+• AI/ML - just started, seems really cool
+
+FROM MY CLASSES:
+• Data Structures (CSE 100) - learned about trees, graphs, etc.
+• Algorithms - currently taking, pretty challenging
+• Object-Oriented Programming - starting to understand it better
+
+This portfolio took me about 10 weeks to build! Learned a lot about web development and JavaScript along the way.`,
             
             'projects.txt': `1. UCR HOUSINGCONNECT (April 2025 - Present)
    Full-stack housing platform for UC Riverside students
