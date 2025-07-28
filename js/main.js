@@ -41,8 +41,7 @@ async function loadAllComponents() {
         { elementId: 'skills', fileName: 'skills.html' },           // Technical skills
         { elementId: 'contact', fileName: 'contact.html' },         // Contact info
         { elementId: 'gallery', fileName: 'gallery.html' },         // Photo gallery
-        { elementId: 'footer', fileName: 'footer.html' },           // Footer
-        { elementId: 'terminal-container', fileName: 'terminal.html' } // Terminal emulator
+        { elementId: 'footer', fileName: 'footer.html' }            // Footer
     ];
     
     // Show loading animations while components are loading
@@ -115,26 +114,6 @@ async function loadAllComponents() {
     // Promise.all was confusing but my TA explained it to me
     await Promise.all(loadingPromises);
     console.log('All components have finished loading!'); // Debug message
-    
-    // Now initialize the terminal after everything is loaded
-    // I had timing issues with this - the terminal wasn't working at first
-    setTimeout(function() {
-        console.log('Attempting to initialize terminal...'); // Debug message
-        
-        // Check if the Terminal class exists (from terminal.js)
-        if (typeof Terminal !== 'undefined') {
-            console.log('Terminal class found, creating new terminal instance...'); // Debug
-            try {
-                // Create a new terminal object
-                const myTerminal = new Terminal();
-                console.log('Terminal successfully created!'); // Debug
-            } catch (error) {
-                console.error('Error creating terminal:', error); // Debug
-            }
-        } else {
-            console.error('Terminal class not found! Make sure terminal.js is loaded.'); // Debug
-        }
-    }, 1000); // Wait 1 second to make sure everything is ready
 }
 
 // Function to set up the typing animation effect
@@ -154,9 +133,9 @@ function initializeTypingEffect() {
             // These are the strings that will be typed out
             const typedInstance = new Typed(typingElement, {
                 strings: [
-                    "Hi, I'm Arya",                                           // First thing to type
-                    "Mathematics and Computer Science Student @ UCSD",        // Second thing
-                    "Building creative, fun AI projects"                      // Third thing
+                    "Hi, I'm Arya. Nice to meet you!",                                          // First thing to type
+                    "Mathematics and Computer Science Student @ UCSD",       // Second thing
+                    "Building innovative software solutions"                 // Third thing
                 ],
                 typeSpeed: 50,        // How fast to type (milliseconds per character)
                 backSpeed: 30,        // How fast to delete characters
