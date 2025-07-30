@@ -1,11 +1,11 @@
-/* Custom styles beyond Tailwind */
+/* My custom CSS on top of Tailwind */
 
-/* Smooth scrolling */
+/* Makes clicking nav links smooth instead of jumping */
 html {
     scroll-behavior: smooth;
 }
 
-/* Animation for fade-in effect */
+/* Cool fade-in animations for when stuff loads */
 @keyframes fadeIn {
     from { 
         opacity: 0; 
@@ -51,13 +51,13 @@ html {
     animation: slideInRight 0.8s ease-out;
 }
 
-/* Staggered animation delays */
+/* Makes things animate one after another instead of all at once */
 .fade-in-element:nth-child(1) { animation-delay: 0.1s; }
 .fade-in-element:nth-child(2) { animation-delay: 0.2s; }
 .fade-in-element:nth-child(3) { animation-delay: 0.3s; }
 .fade-in-element:nth-child(4) { animation-delay: 0.4s; }
 
-/* Project card hover effect */
+/* Cool hover effect for project cards */
 .project-card {
     transition: transform 0.3s ease;
 }
@@ -66,7 +66,7 @@ html {
     transform: translateY(-10px);
 }
 
-/* Skill icon hover effect */
+/* Makes skill icons bigger when you hover over them */
 .skill-icon {
     transition: transform 0.2s ease;
     opacity: 0.8;
@@ -77,12 +77,12 @@ html {
     opacity: 1;
 }
 
-/* Custom cursor for interactive elements */
+/* Shows pointer cursor on clickable stuff */
 .interactive {
     cursor: pointer;
 }
 
-/* Typography enhancements */
+/* Purple gradient text for the typing animation */
 .gradient-text {
     background: linear-gradient(90deg, #8B5CF6, #EC4899);
     -webkit-background-clip: text;
@@ -92,7 +92,7 @@ html {
     hyphens: auto;
 }
 
-/* Gallery image styling */
+/* Photo gallery grid layout */
 #gallery .grid > div {
     background-color: #1F2937;
     padding: 10px;
