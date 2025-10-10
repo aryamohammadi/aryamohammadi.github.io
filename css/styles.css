@@ -517,72 +517,188 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Remove complex positioning - using inline styles for better performance */
 
-/* Spontaneous Random Raining Effect - Goes Much Lower */
-@keyframes rain-spontaneous-1 {
+/* Natural Rain Effect - Spontaneous and Non-Uniform */
+@keyframes rain-drift-left {
     0% { 
-        transform: translateY(-120vh) translateX(0px) rotate(0deg); 
+        transform: translateY(-140vh) translateX(0px) rotate(-5deg) scale(0.8); 
         opacity: 0; 
     }
-    5% { opacity: 1; }
-    95% { opacity: 1; }
+    4% { opacity: 1; }
+    50% { 
+        transform: translateY(50vh) translateX(-15px) rotate(-2deg) scale(1); 
+        opacity: 1;
+    }
+    96% { opacity: 1; }
     100% { 
-        transform: translateY(150vh) translateX(30px) rotate(20deg); 
+        transform: translateY(180vh) translateX(-25px) rotate(5deg) scale(0.9); 
         opacity: 0; 
     }
 }
 
-@keyframes rain-spontaneous-2 {
+@keyframes rain-drift-right {
     0% { 
-        transform: translateY(-110vh) translateX(0px) rotate(0deg); 
+        transform: translateY(-115vh) translateX(0px) rotate(8deg) scale(1.1); 
+        opacity: 0; 
+    }
+    7% { opacity: 1; }
+    40% { 
+        transform: translateY(40vh) translateX(20px) rotate(3deg) scale(0.95); 
+        opacity: 1;
+    }
+    93% { opacity: 1; }
+    100% { 
+        transform: translateY(175vh) translateX(35px) rotate(-8deg) scale(1.05); 
+        opacity: 0; 
+    }
+}
+
+@keyframes rain-straight-fast {
+    0% { 
+        transform: translateY(-135vh) translateX(0px) rotate(0deg) scale(0.9); 
+        opacity: 0; 
+    }
+    2% { opacity: 1; }
+    98% { opacity: 1; }
+    100% { 
+        transform: translateY(190vh) translateX(5px) rotate(0deg) scale(1.1); 
+        opacity: 0; 
+    }
+}
+
+@keyframes rain-wobble {
+    0% { 
+        transform: translateY(-125vh) translateX(0px) rotate(-10deg) scale(1); 
+        opacity: 0; 
+    }
+    6% { opacity: 1; }
+    25% { 
+        transform: translateY(25vh) translateX(-8px) rotate(5deg) scale(0.85); 
+    }
+    75% { 
+        transform: translateY(100vh) translateX(12px) rotate(-3deg) scale(1.15); 
+    }
+    94% { opacity: 1; }
+    100% { 
+        transform: translateY(185vh) translateX(-5px) rotate(8deg) scale(0.95); 
+        opacity: 0; 
+    }
+}
+
+@keyframes rain-spiral {
+    0% { 
+        transform: translateY(-150vh) translateX(0px) rotate(0deg) scale(0.7); 
         opacity: 0; 
     }
     8% { opacity: 1; }
+    20% { 
+        transform: translateY(20vh) translateX(-10px) rotate(45deg) scale(1); 
+    }
+    40% { 
+        transform: translateY(60vh) translateX(15px) rotate(90deg) scale(0.9); 
+    }
+    60% { 
+        transform: translateY(90vh) translateX(-5px) rotate(135deg) scale(1.1); 
+    }
+    80% { 
+        transform: translateY(130vh) translateX(8px) rotate(180deg) scale(0.95); 
+    }
     92% { opacity: 1; }
     100% { 
-        transform: translateY(140vh) translateX(-20px) rotate(-15deg); 
+        transform: translateY(170vh) translateX(0px) rotate(225deg) scale(0.8); 
         opacity: 0; 
     }
 }
 
-@keyframes rain-spontaneous-3 {
+@keyframes rain-gentle {
     0% { 
-        transform: translateY(-130vh) translateX(0px) rotate(0deg); 
+        transform: translateY(-105vh) translateX(0px) rotate(-2deg) scale(1.05); 
+        opacity: 0; 
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        transform: translateY(165vh) translateX(3px) rotate(2deg) scale(0.95); 
+        opacity: 0; 
+    }
+}
+
+@keyframes rain-zigzag {
+    0% { 
+        transform: translateY(-145vh) translateX(0px) rotate(0deg) scale(0.85); 
+        opacity: 0; 
+    }
+    5% { opacity: 1; }
+    20% { 
+        transform: translateY(-50vh) translateX(-20px) rotate(-15deg) scale(1.1); 
+    }
+    40% { 
+        transform: translateY(20vh) translateX(25px) rotate(15deg) scale(0.9); 
+    }
+    60% { 
+        transform: translateY(80vh) translateX(-15px) rotate(-10deg) scale(1.05); 
+    }
+    80% { 
+        transform: translateY(140vh) translateX(18px) rotate(12deg) scale(0.95); 
+    }
+    95% { opacity: 1; }
+    100% { 
+        transform: translateY(200vh) translateX(-8px) rotate(-5deg) scale(1); 
+        opacity: 0; 
+    }
+}
+
+@keyframes rain-flutter {
+    0% { 
+        transform: translateY(-120vh) translateX(0px) rotate(0deg) scale(1.2); 
         opacity: 0; 
     }
     3% { opacity: 1; }
+    15% { 
+        transform: translateY(-20vh) translateX(5px) rotate(30deg) scale(0.8); 
+    }
+    30% { 
+        transform: translateY(30vh) translateX(-12px) rotate(-20deg) scale(1.3); 
+    }
+    45% { 
+        transform: translateY(70vh) translateX(8px) rotate(25deg) scale(0.7); 
+    }
+    60% { 
+        transform: translateY(110vh) translateX(-6px) rotate(-15deg) scale(1.1); 
+    }
+    75% { 
+        transform: translateY(150vh) translateX(15px) rotate(35deg) scale(0.9); 
+    }
+    90% { 
+        transform: translateY(180vh) translateX(-3px) rotate(-10deg) scale(1.05); 
+    }
     97% { opacity: 1; }
     100% { 
-        transform: translateY(160vh) translateX(15px) rotate(12deg); 
+        transform: translateY(195vh) translateX(0px) rotate(0deg) scale(0.85); 
         opacity: 0; 
     }
 }
 
-@keyframes rain-spontaneous-4 {
-    0% { 
-        transform: translateY(-125vh) translateX(0px) rotate(0deg); 
-        opacity: 0; 
-    }
-    12% { opacity: 1; }
-    88% { opacity: 1; }
-    100% { 
-        transform: translateY(145vh) translateX(-35px) rotate(-18deg); 
-        opacity: 0; 
-    }
-}
-
-/* Very Random Animation Classes - Different Speeds & Delays */
-.rain-random-1 { animation: rain-spontaneous-1 6s linear infinite 0.3s; }
-.rain-random-2 { animation: rain-spontaneous-2 8.2s linear infinite 1.7s; }
-.rain-random-3 { animation: rain-spontaneous-3 5.5s linear infinite 3.1s; }
-.rain-random-4 { animation: rain-spontaneous-4 9.8s linear infinite 0.8s; }
-.rain-random-5 { animation: rain-spontaneous-1 7.3s linear infinite 2.4s; }
-.rain-random-6 { animation: rain-spontaneous-2 11.1s linear infinite 4.7s; }
-.rain-random-7 { animation: rain-spontaneous-3 6.7s linear infinite 1.2s; }
-.rain-random-8 { animation: rain-spontaneous-4 8.9s linear infinite 3.8s; }
-.rain-random-9 { animation: rain-spontaneous-1 10.2s linear infinite 0.5s; }
-.rain-random-10 { animation: rain-spontaneous-2 5.8s linear infinite 2.9s; }
-.rain-random-11 { animation: rain-spontaneous-3 12.4s linear infinite 4.2s; }
-.rain-random-12 { animation: rain-spontaneous-4 7.6s linear infinite 1.6s; }
+/* Highly Varied Rain Animation Classes - Non-Unanimous & Spontaneous */
+.rain-random-1 { animation: rain-drift-left 4.2s ease-in-out infinite 0.1s; }
+.rain-random-2 { animation: rain-straight-fast 7.8s linear infinite 2.3s; }
+.rain-random-3 { animation: rain-wobble 6.1s ease-in-out infinite 4.7s; }
+.rain-random-4 { animation: rain-drift-right 9.3s ease-out infinite 1.2s; }
+.rain-random-5 { animation: rain-spiral 11.7s ease-in infinite 3.9s; }
+.rain-random-6 { animation: rain-gentle 5.4s linear infinite 0.8s; }
+.rain-random-7 { animation: rain-zigzag 8.6s ease-in-out infinite 2.7s; }
+.rain-random-8 { animation: rain-flutter 7.2s ease-out infinite 5.1s; }
+.rain-random-9 { animation: rain-drift-left 10.9s ease-in infinite 1.6s; }
+.rain-random-10 { animation: rain-straight-fast 6.8s linear infinite 3.4s; }
+.rain-random-11 { animation: rain-wobble 12.3s ease-in-out infinite 0.3s; }
+.rain-random-12 { animation: rain-drift-right 5.7s ease-out infinite 4.2s; }
+.rain-random-13 { animation: rain-spiral 8.1s ease-in infinite 2.8s; }
+.rain-random-14 { animation: rain-gentle 9.9s linear infinite 1.4s; }
+.rain-random-15 { animation: rain-zigzag 7.5s ease-in-out infinite 3.6s; }
+.rain-random-16 { animation: rain-flutter 6.3s ease-out infinite 0.9s; }
+.rain-random-17 { animation: rain-drift-left 11.2s ease-in infinite 4.8s; }
+.rain-random-18 { animation: rain-straight-fast 5.9s linear infinite 2.1s; }
+.rain-random-19 { animation: rain-wobble 8.7s ease-in-out infinite 1.8s; }
+.rain-random-20 { animation: rain-drift-right 10.4s ease-out infinite 3.2s; }
 
 /* Mobile responsiveness for floating elements */
 @media (max-width: 768px) {
