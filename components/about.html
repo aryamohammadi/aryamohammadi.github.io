@@ -1,5 +1,64 @@
-<section id="about" class="py-24 bg-gray-900">
-    <div class="container mx-auto px-6">
+<section id="about" class="py-24 bg-gray-900 relative overflow-hidden">
+    <!-- Spontaneous Raining Code & Math Effect -->
+    <div class="floating-elements absolute inset-0 pointer-events-none z-5 overflow-hidden">
+        <!-- Math Symbols Rain -->
+        <div class="math-symbol absolute text-blue-400/35 text-4xl font-light rain-random-1" style="left: 2%;">∭</div>
+        <div class="math-symbol absolute text-purple-400/30 text-3xl font-light rain-random-2" style="left: 5%;">∂</div>
+        <div class="math-symbol absolute text-cyan-400/35 text-2xl font-light rain-random-3" style="left: 8%;">∑</div>
+        <div class="math-symbol absolute text-blue-500/30 text-3xl font-light rain-random-4" style="left: 3%;">∫</div>
+        <div class="math-symbol absolute text-indigo-400/35 text-2xl font-light rain-random-5" style="left: 7%;">∇</div>
+        <div class="math-symbol absolute text-purple-500/30 text-xl font-light rain-random-6" style="left: 1%;">∞</div>
+        <div class="math-symbol absolute text-violet-400/35 text-3xl font-light rain-random-7" style="left: 10%;">π</div>
+        <div class="math-symbol absolute text-blue-300/30 text-2xl font-light rain-random-8" style="left: 12%;">δ</div>
+        <div class="math-symbol absolute text-purple-300/35 text-2xl font-light rain-random-9" style="left: 6%;">λ</div>
+        <div class="math-symbol absolute text-indigo-300/30 text-xl font-light rain-random-10" style="left: 9%;">Ω</div>
+        <div class="math-symbol absolute text-cyan-300/35 text-lg font-light rain-random-11" style="left: 4%;">α</div>
+        <div class="math-symbol absolute text-blue-400/30 text-2xl font-light rain-random-12" style="left: 11%;">β</div>
+        
+        <!-- Math Functions Rain -->
+        <div class="math-function absolute text-violet-500/35 text-lg font-light rain-random-2" style="left: 0.5%;">f(x)</div>
+        <div class="math-function absolute text-blue-600/30 text-md font-light rain-random-4" style="left: 4.5%;">sin(θ)</div>
+        <div class="math-function absolute text-purple-600/35 text-lg font-light rain-random-6" style="left: 7.5%;">cos(x)</div>
+        <div class="math-function absolute text-cyan-600/30 text-md font-light rain-random-8" style="left: 2.5%;">log(n)</div>
+        <div class="math-function absolute text-indigo-600/35 text-lg font-light rain-random-10" style="left: 9.5%;">√(x²+y²)</div>
+        <div class="math-function absolute text-violet-400/30 text-md font-light rain-random-12" style="left: 6.5%;">lim x→∞</div>
+        <div class="math-function absolute text-blue-500/35 text-lg font-light rain-random-1" style="left: 12.5%;">∂f/∂x</div>
+        <div class="math-function absolute text-purple-500/30 text-md font-light rain-random-3" style="left: 1.5%;">dx/dt</div>
+        
+        <!-- Code Symbols Rain -->
+        <div class="code-symbol absolute text-green-400/35 text-2xl font-mono rain-random-1" style="left: 15%;">{ }</div>
+        <div class="code-symbol absolute text-emerald-400/30 text-xl font-mono rain-random-3" style="left: 18%;">&lt;/&gt;</div>
+        <div class="code-symbol absolute text-teal-400/35 text-2xl font-mono rain-random-5" style="left: 16%;">=&gt;</div>
+        <div class="code-symbol absolute text-green-500/30 text-lg font-mono rain-random-7" style="left: 20%;">def</div>
+        <div class="code-symbol absolute text-emerald-500/35 text-md font-mono rain-random-9" style="left: 17%;">class</div>
+        <div class="code-symbol absolute text-teal-500/30 text-xl font-mono rain-random-11" style="left: 14%;">[ ]</div>
+        <div class="code-symbol absolute text-lime-400/35 text-lg font-mono rain-random-2" style="left: 22%;">const</div>
+        <div class="code-symbol absolute text-green-300/30 text-md font-mono rain-random-4" style="left: 21%;">async</div>
+        <div class="code-symbol absolute text-emerald-300/35 text-xl font-mono rain-random-6" style="left: 24%;">( )</div>
+        <div class="code-symbol absolute text-teal-300/30 text-lg font-mono rain-random-8" style="left: 19%;">&&</div>
+        <div class="code-symbol absolute text-lime-300/35 text-md font-mono rain-random-10" style="left: 25%;">import</div>
+        <div class="code-symbol absolute text-green-400/30 text-lg font-mono rain-random-12" style="left: 23%;">//</div>
+        
+        <!-- Code Lines Rain -->
+        <div class="code-line absolute text-cyan-500/30 text-sm font-mono rain-random-1" style="left: 13.5%;">return x;</div>
+        <div class="code-line absolute text-green-600/35 text-sm font-mono rain-random-3" style="left: 16.5%;">if (condition)</div>
+        <div class="code-line absolute text-emerald-600/30 text-xs font-mono rain-random-5" style="left: 19.5%;">for (let i = 0;</div>
+        <div class="code-line absolute text-teal-600/35 text-sm font-mono rain-random-7" style="left: 14.5%;">console.log();</div>
+        <div class="code-line absolute text-lime-600/30 text-xs font-mono rain-random-9" style="left: 22.5%;">await fetch()</div>
+        <div class="code-line absolute text-green-700/35 text-sm font-mono rain-random-11" style="left: 17.5%;">try { ... }</div>
+        <div class="code-line absolute text-cyan-700/30 text-xs font-mono rain-random-2" style="left: 26%;">npm install</div>
+        <div class="code-line absolute text-emerald-700/35 text-sm font-mono rain-random-4" style="left: 15.5%;">git commit -m</div>
+        <div class="code-line absolute text-teal-700/30 text-xs font-mono rain-random-6" style="left: 21.5%;">useState()</div>
+        <div class="code-line absolute text-lime-700/35 text-sm font-mono rain-random-8" style="left: 18.5%;">map(item =></div>
+        
+        <!-- Extra Scattered Elements -->
+        <div class="math-symbol absolute text-indigo-500/25 text-2xl font-light rain-random-3" style="left: 27%;">θ</div>
+        <div class="code-symbol absolute text-cyan-400/30 text-lg font-mono rain-random-7" style="left: 28%;">func</div>
+        <div class="math-symbol absolute text-purple-600/25 text-xl font-light rain-random-11" style="left: 29%;">φ</div>
+        <div class="code-symbol absolute text-green-600/30 text-md font-mono rain-random-5" style="left: 30%;">var</div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-12 sm:mb-16">
             <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 sm:mb-6 gradient-text tracking-tight">About Me</h2>
             <p class="text-base sm:text-lg text-gray-400 font-light tracking-wide max-w-2xl mx-auto px-4 sm:px-0">
@@ -29,27 +88,89 @@
                         Hi, I'm Arya
                     </h3>
                     <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 leading-relaxed font-light tracking-wide mb-8 fade-in-element">
-                        I study Mathematics and Computer Science at University of California, San Diego. I am passionate about technology and fascinated by its transformative applications across industries.
+                        I study Mathematics and Computer Science at University of California, San Diego. As a Technical Lead and Cofounder of Arya Electric LLC, I combine my passion for technology with real-world business applications.
                     </p>
                     <p class="text-base sm:text-lg text-gray-300 leading-relaxed font-light tracking-wide fade-in-element">
-                        I enjoy solving complex problems through algorithmic thinking and creative programming, always seeking elegant solutions to challenging questions.
+                        I specialize in full-stack development, building scalable applications that solve real problems. From leading engineering teams to developing enterprise-level platforms, I focus on creating impactful solutions through clean code and thoughtful architecture.
                     </p>
                 </div>
 
-                <!-- Current Focus -->
+                <!-- Professional Current Focus Card -->
                 <div class="mb-8 sm:mb-12 fade-in-element">
-                    <h4 class="text-base sm:text-lg font-medium text-primary mb-3 sm:mb-4 tracking-wide">Currently Working On</h4>
-                    <p class="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
-                        Operating and scaling Arya Electric LLC, an electrical contracting business I co-founded, while leading technical infrastructure and growth strategy. Recently completed DormDuos, a full-stack housing platform for UC Riverside students, showcasing modern React development, secure authentication, and cloud deployment practices.
-                    </p>
+                    <div class="group cursor-pointer bg-gradient-to-br from-gray-800/30 to-gray-900/50 border border-gray-700/50 rounded-xl p-6 transition-all duration-300 hover:bg-gradient-to-br hover:from-gray-700/40 hover:to-gray-800/60 hover:shadow-xl hover:border-primary/30">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-white tracking-wide">
+                                Current Focus
+                            </h4>
+                            <div class="text-xs text-gray-400 group-hover:text-primary transition-colors duration-300 flex items-center">
+                                <span>Hover to expand</span>
+                                <svg class="w-3 h-3 ml-1 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="max-h-12 overflow-hidden transition-all duration-500 group-hover:max-h-96">
+                            <p class="text-gray-300 text-sm mb-3 group-hover:text-gray-200 transition-colors duration-300">
+                                Technical Lead driving platform growth and automation at Arya Electric LLC
+                            </p>
+                            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                                <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-primary">
+                                    <p class="text-gray-300 leading-relaxed">
+                                        <strong class="text-primary">Platform Development:</strong> Built and launched Next.js platform serving 300+ active users with 25% month-over-month growth
+                                    </p>
+                                </div>
+                                <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-blue-500 mt-3">
+                                    <p class="text-gray-300 leading-relaxed">
+                                        <strong class="text-blue-400">Automation Systems:</strong> Developed internal CRM tools and optimization strategies generating 60+ inbound leads
+                                    </p>
+                                </div>
+                                <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-green-500 mt-3">
+                                    <p class="text-gray-300 leading-relaxed">
+                                        <strong class="text-green-400">Operational Impact:</strong> Reduced operational overhead by 50% through data-driven solutions
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Community Impact -->
+                <!-- Professional Recent Projects Card -->
                 <div class="mb-8 sm:mb-12 fade-in-element">
-                    <h4 class="text-base sm:text-lg font-medium text-primary mb-3 sm:mb-4 tracking-wide">Beyond Academics</h4>
-                    <p class="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
-                        I contribute to my community as a STEM tutor, helping students master challenging concepts in mathematics and computer science. I'm passionate about exploring new technologies and frameworks.
-                    </p>
+                    <div class="group cursor-pointer bg-gradient-to-br from-gray-800/30 to-gray-900/50 border border-gray-700/50 rounded-xl p-6 transition-all duration-300 hover:bg-gradient-to-br hover:from-gray-700/40 hover:to-gray-800/60 hover:shadow-xl hover:border-secondary/30">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-lg font-semibold text-white tracking-wide">
+                                Key Projects
+                            </h4>
+                            <div class="text-xs text-gray-400 group-hover:text-secondary transition-colors duration-300 flex items-center">
+                                <span>Hover to expand</span>
+                                <svg class="w-3 h-3 ml-1 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="max-h-12 overflow-hidden transition-all duration-500 group-hover:max-h-96">
+                            <p class="text-gray-300 text-sm mb-3 group-hover:text-gray-200 transition-colors duration-300">
+                                Full-stack platforms, collaborative systems, and educational impact
+                            </p>
+                            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 space-y-3">
+                                <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-purple-500">
+                                    <p class="text-gray-300 leading-relaxed">
+                                        <strong class="text-purple-400">DormDuos Platform:</strong> Led development serving 26,000+ UC Riverside students with secure authentication and cloud deployment
+                                    </p>
+                                </div>
+                                <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-orange-500">
+                                    <p class="text-gray-300 leading-relaxed">
+                                        <strong class="text-orange-400">Battlestar RPG:</strong> Directed 5-member team building collaborative C++ game engine with 90%+ test coverage
+                                    </p>
+                                </div>
+                                <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-cyan-500">
+                                    <p class="text-gray-300 leading-relaxed">
+                                        <strong class="text-cyan-400">CS Tutoring:</strong> Mentored 400+ students in advanced computer science concepts and programming fundamentals
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-8 space-y-6">
@@ -58,15 +179,9 @@
                         <div class="space-y-4">
                             <div>
                                 <h4 class="text-lg font-medium text-primary">University of California San Diego</h4>
-                                <p class="text-gray-300">B.S. in Mathematics-Computer Science</p>
-                                <p class="text-gray-400">Expected March 2027 | GPA: 3.78/4.00</p>
-                                <p class="text-gray-400 mt-1">Selected Coursework: Advanced Data Structures, Algorithm Design & Analysis, Software Construction, Object-Oriented Programming, Discrete Mathematics</p>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-primary">University of California Riverside</h4>
-                                <p class="text-gray-300">B.S. Computer Science (Transferred to UCSD)</p>
-                                <p class="text-gray-400">2022–2025 | GPA: 3.78/4.00</p>
-                                <p class="text-gray-400 mt-1">Foundation Coursework: Data Structures & Algorithms, Computer Systems, Software Engineering, Database Systems, Programming Languages</p>
+                                <p class="text-gray-300">B.S. in Mathematics and Computer Science</p>
+                                <p class="text-gray-400">Expected June 2027 | GPA: 3.78/4.00</p>
+                                <p class="text-gray-400 mt-1">Selected Coursework: Data Structures & Algorithms, Differential Equations, Linear Algebra</p>
                             </div>
                         </div>
                     </div>
@@ -75,40 +190,58 @@
                         <h3 class="text-xl font-semibold mb-4 text-gray-200">Experience</h3>
                         <div class="space-y-6">
                             <div>
-                                <h4 class="text-lg font-medium text-primary">Cofounder & Operator</h4>
+                                <h4 class="text-lg font-medium text-primary">Cofounder & Technical Lead</h4>
                                 <p class="text-gray-300">Arya Electric LLC — Orange County, CA</p>
                                 <p class="text-gray-400">January 2025 – Present</p>
                                 <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-                                    <li>Co-founded and built electrical contracting company from the ground up, overseeing technical infrastructure and growth strategy</li>
-                                    <li>Designed and deployed full-stack marketing website with 100/100 Lighthouse performance score and 0.9s load time</li>
-                                    <li>Achieved 25% average monthly growth in customer inquiries through SEO optimization and targeted local outreach</li>
-                                    <li>Built internal systems including CRM, scheduling tools, and email automation, reducing administrative overhead by 50%</li>
-                                    <li>Managed 80+ client interactions and led marketing campaigns generating 60+ inbound leads in first quarter</li>
+                                    <li>Built and launched <a href="https://www.aryaelectric.com" target="_blank" class="text-primary hover:text-purple-400 underline">AryaElectric.com</a> (Next.js, React, TypeScript, Tailwind), attracting 300+ active users and serving as the company's primary client acquisition channel</li>
+                                    <li>Developed internal CRM, scheduling, and automation pipelines, reducing manual workflows by 50%</li>
+                                    <li>Applied data-driven optimization techniques (structured data, A/B testing, targeted campaigns), driving a 25% MoM increase in inquiries and generating 60+ inbound leads in the first quarter</li>
+                                    <li>Scaled infrastructure to support 80+ concurrent client service requests, ensuring system reliability</li>
                                 </ul>
                             </div>
                             
-                                             <div>
-                     <h4 class="text-lg font-medium text-primary">STEM Tutor</h4>
-                     <p class="text-gray-300">University of California, Riverside</p>
-                     <p class="text-gray-400">July 2024 – June 2025</p>
-                     <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-                         <li>Tutored 400+ students in Mathematics and Computer Science, specializing in Data Structures, Algorithms, and software engineering principles</li>
-                         <li>Led interactive coding sessions and debugging workshops to enhance students' problem-solving abilities and algorithmic thinking</li>
-                         <li>Facilitated group workshops on modular design patterns, performance optimization, and scalable software architecture</li>
-                     </ul>
-                 </div>
-                 <div>
-                     <h4 class="text-lg font-medium text-primary">Hardware Intern</h4>
-                     <p class="text-gray-300">ProCustom Group — California, United States</p>
-                     <p class="text-gray-400">Jun 2021 – Sep 2023 (Seasonal)</p>
-                     <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-                         <li>Performed custom hardware modifications on laptops and desktops for clients in corporate and government sectors</li>
-                         <li>Disassembled computers to inspect and identify internal components for repair or modification</li>
-                         <li>Removed or disabled specific hardware features such as microphones, Wi-Fi modules, touchpads, and cameras to meet client security requirements</li>
-                         <li>Replaced or repaired damaged components including laptop screens and internal boards</li>
-                         <li>Ensured all devices met strict functionality and compliance standards before returning to clients</li>
-                     </ul>
-                 </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-primary">Software Engineer (Project Lead)</h4>
+                                <p class="text-gray-300">DormDuos.com (Student-founded platform) — Riverside, CA</p>
+                                <p class="text-gray-400">January 2024 – September 2024</p>
+                                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                                    <li>Launched <a href="https://www.dormduos.com" target="_blank" class="text-primary hover:text-purple-400 underline">DormDuos.com</a>, a full-stack housing platform (React, Node, MongoDB) serving 26,000+ UC Riverside students, with 300+ early users testing roommate matching and housing discovery features</li>
+                                    <li>Developed secure authentication and role-based authorization (JWT + bcrypt), securing 100% of user accounts and protecting sensitive data</li>
+                                    <li>Deployed on cloud infrastructure (Vercel, Railway, MongoDB Atlas) with 99%+ uptime, scaling to support hundreds of real-time concurrent users and designing optimized database schemas and queries for low-latency performance</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-medium text-primary">Software Development Team Lead</h4>
+                                <p class="text-gray-300">Battlestar RPG (Collaborative Project) — Remote</p>
+                                <p class="text-gray-400">September 2024 – December 2024</p>
+                                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                                    <li>Directed a 5-member engineering team on a collaborative C++ game engine, driving collaboration and code quality across 600+ commits with GitHub workflows, PRs, and peer reviews</li>
+                                    <li>Engineered adaptive gameplay systems including XP progression, inventory management, and deterministic save/load, improving scalability and persistence under real-time gameplay conditions</li>
+                                    <li>Implemented automated unit and integration testing infrastructure with GoogleTest, achieving 90%+ coverage to improve release reliability and reduce defects</li>
+                                </ul>
+                            </div>
+                            
+                                                        <div>
+                                <h4 class="text-lg font-medium text-primary">STEM Tutor (Math & CS)</h4>
+                                <p class="text-gray-300">University of California, Riverside — Riverside, CA</p>
+                                <p class="text-gray-400">July 2024 – June 2025</p>
+                                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                                    <li>Tutored 400+ students in Data Structures, Algorithms, and core Mathematics, strengthening coding fluency and algorithmic problem-solving skills</li>
+                                    <li>Led hands-on debugging workshops in C++ and Python, teaching recursion, memory management, and performance optimization</li>
+                                    <li>Facilitated group sessions on software design patterns and scalable architectures, reinforcing best practices for industry-ready software development</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-primary">Hardware Intern (Seasonal)</h4>
+                                <p class="text-gray-300">ProCustom Group — California, USA</p>
+                                <p class="text-gray-400">June 2021 – September 2023</p>
+                                <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                                    <li>Executed custom hardware modifications for corporate and government clients, ensuring compliance with strict security standards</li>
+                                    <li>Diagnosed and repaired laptops/desktops, replacing critical components (boards, displays) to restore full system functionality under QA testing</li>
+                                </ul>
+                            </div>
 
                         </div>
                     </div>
@@ -123,13 +256,13 @@
                         </svg>
                     </a>
                     
-                    <!-- Resume download - still working on updating it -->
-                    <button onclick="alert('Resume coming soon! Currently being updated with latest experience.')" class="inline-flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 sm:py-4 px-4 sm:px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform text-center text-sm sm:text-base">
+                    <!-- Resume download - now available! -->
+                    <a href="AryaResume.pdf" download="Arya_Mohammadi_Resume.pdf" class="inline-flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 sm:py-4 px-4 sm:px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform text-center text-sm sm:text-base">
                         <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                         <span>Download Resume</span>
-                    </button>
+                    </a>
                     
                     <!-- My GitHub profile -->
                     <a href="https://github.com/aryamohammadi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center border border-gray-300 text-gray-200 hover:bg-white hover:text-gray-900 font-medium py-3 sm:py-4 px-4 sm:px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform text-center text-sm sm:text-base">
