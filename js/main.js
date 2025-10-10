@@ -1,35 +1,186 @@
-// Main JavaScript file for my portfolio website
-// This file handles loading all the components and setting up the page
-// Started this in week 1 of the project, kept adding stuff as I learned more
-// Had to rewrite this like 3 times when I figured out better ways to do things
+// Enhanced Portfolio JavaScript - Modern UX Implementation
+// Professional-grade user experience with smooth animations and interactions
 
-// I learned about DOMContentLoaded in CSE 101 - it waits for the page to load
+// Premium loading screen variables and functions
+const loadingTexts = [
+    'Initializing Portfolio...',
+    'Loading Components...',
+    'Preparing Animations...',
+    'Optimizing Performance...',
+    'Almost Ready...',
+    'Welcome!'
+];
+
+const loadingSteps = [
+    'Loading core files...',
+    'Initializing components...',
+    'Setting up animations...',
+    'Optimizing layout...',
+    'Finalizing setup...',
+    'Ready to explore!'
+];
+
+// Loading screen functions
+function showLoadingScreen() {
+    console.log('📱 Premium loading screen displayed');
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.opacity = '1';
+        loadingScreen.style.pointerEvents = 'auto';
+    }
+}
+
+function updateLoadingProgress(percentage) {
+    const progressBar = document.getElementById('loading-progress');
+    const percentageDisplay = document.getElementById('loading-percentage');
+    const loadingText = document.getElementById('loading-text');
+    const loadingStep = document.getElementById('loading-step');
+    
+    if (progressBar) {
+        progressBar.style.width = percentage + '%';
+    }
+    
+    if (percentageDisplay) {
+        percentageDisplay.textContent = Math.round(percentage) + '%';
+    }
+    
+    // Update loading text based on progress
+    const textIndex = Math.floor((percentage / 100) * loadingTexts.length);
+    if (loadingText && textIndex < loadingTexts.length) {
+        loadingText.textContent = loadingTexts[textIndex];
+    }
+    
+    // Update loading step
+    const stepIndex = Math.floor((percentage / 100) * loadingSteps.length);
+    if (loadingStep && stepIndex < loadingSteps.length) {
+        loadingStep.textContent = loadingSteps[stepIndex];
+    }
+    
+    console.log(`📊 Loading progress: ${percentage}%`);
+}
+
+// Initialize loading screen when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Always add debug messages so I can see what's happening in the console
-    console.log('Portfolio website is starting to load...'); 
+    // Show loading screen immediately
+    document.documentElement.style.overflow = 'hidden';
     
-    // Step 1: Load all the HTML components first
-    // This was the hardest part to figure out - took me 2 weeks
-    loadAllComponents();
-    
-    // Step 2: Wait a little bit then start the typing animation
-    // I use setTimeout because I learned the components need time to load
-    setTimeout(function() {
-        console.log('Starting typing effect...'); // Debug message
-        initializeTypingEffect();
-    }, 500); // Wait 500 milliseconds
-    
-    // Step 3: Set up smooth scrolling for navigation links
-    // This makes the page feel more professional
-    setupSmoothScrolling();
-    
-    console.log('Main initialization complete!'); // Debug message
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.display = 'flex';
+        loadingScreen.style.opacity = '1';
+        console.log('✅ Loading screen activated');
+        
+        // Start loading progress immediately
+        startPortfolioLoading();
+    } else {
+        console.log('❌ Loading screen not found');
+    }
 });
 
-// Function to load all the HTML components into the page
-// This was SO confusing at first - I had to learn about fetch() and promises
+// Main loading function
+async function startPortfolioLoading() {
+    try {
+        console.log('Portfolio loading started');
+        
+        // Simulate initial loading
+        updateLoadingProgress(10);
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        // Load components
+        await loadAllComponents();
+        
+        // Initialize UX features
+        updateLoadingProgress(90);
+        await initializeUXFeatures();
+        
+        // Complete loading
+        updateLoadingProgress(100);
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Hide loading screen
+        await hideLoadingScreen();
+        
+        // Initialize animations
+        setTimeout(() => {
+            initializeTypingEffect();
+            setupScrollAnimations();
+            setupNavigationHighlighting();
+        }, 300);
+        
+        console.log('✅ Portfolio fully loaded');
+        
+    } catch (error) {
+        console.error('❌ Loading failed:', error);
+        // Force hide loading screen
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+        }
+        document.documentElement.style.overflow = '';
+    }
+}
+
+// Main initialization function
+async function initializePortfolio() {
+    try {
+        console.log('🚀 Starting portfolio initialization...');
+        
+        // Step 1: Load all components with progress tracking
+        await loadAllComponents();
+        console.log('✅ All components loaded');
+        
+        // Step 2: Initialize UX enhancements
+        await initializeUXFeatures();
+        console.log('✅ UX features initialized');
+        
+        // Step 3: Small delay to show 100% completion
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Step 4: Hide loading screen with smooth transition
+        await hideLoadingScreen();
+        console.log('✅ Loading screen hidden');
+        
+        // Step 5: Initialize animations and interactions with optimized timing
+        setTimeout(() => {
+            // Ensure hero section is visible first
+            const heroSection = document.querySelector('#hero, #home');
+            if (heroSection) {
+                heroSection.style.opacity = '1';
+                heroSection.style.visibility = 'visible';
+            }
+            
+            // Initialize typing animation first for smooth experience
+            initializeTypingEffect();
+            
+            // Then setup other features with slight delays to prevent conflicts
+            setTimeout(() => {
+                setupScrollAnimations();
+                setupNavigationHighlighting();
+            }, 200);
+            
+            setTimeout(() => {
+                setupParallaxEffects();
+            }, 400);
+            
+            console.log('✨ Portfolio fully loaded and enhanced!');
+        }, 100); // Reduced delay for faster hero appearance
+        
+    } catch (error) {
+        console.error('❌ Portfolio initialization failed:', error);
+        // Force hide loading screen even if there's an error
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+                console.log('💥 Loading screen force hidden due to error');
+            }
+        }, 1000);
+    }
+}
+
+// Enhanced component loading with progress tracking
 async function loadAllComponents() {
-    console.log('Starting to load all components...'); // Debug message
+    console.log('📦 Loading components with progress tracking...');
     
     // Array of all the components I need to load
     // I keep adding to this list as I build more sections
@@ -44,32 +195,21 @@ async function loadAllComponents() {
         { elementId: 'footer', fileName: 'footer.html' }            // Footer
     ];
     
-    // Show loading animations while components are loading
-    // I learned about forEach in my data structures class
-    componentsList.forEach(function(component) {
-        const targetElement = document.getElementById(component.elementId);
-        if (targetElement) {
-            console.log('Adding loading animation for:', component.elementId); // Debug
-            
-            // Create a simple loading animation with gray boxes
-            // This is just basic HTML but it looks professional
-            targetElement.innerHTML = `
-                <div class="animate-pulse bg-gray-800 rounded-lg p-6 m-4">
-                    <div class="h-4 bg-gray-700 rounded w-3/4 mb-4"></div>
-                    <div class="h-4 bg-gray-700 rounded w-1/2 mb-2"></div>
-                    <div class="h-4 bg-gray-700 rounded w-2/3"></div>
-                </div>
-            `;
-        } else {
-            console.error('Could not find element with ID:', component.elementId); // Debug
-        }
-    });
+    let loadedCount = 0;
+    const totalComponents = componentsList.length;
     
-    // Now load each component using fetch
-    // I had to learn about Promise.all to load them all at the same time
-    const loadingPromises = componentsList.map(async function(component) {
+    // Update progress as components load
+    const updateProgress = (currentIndex) => {
+        const progress = ((currentIndex + 1) / totalComponents) * 100;
+        updateLoadingProgress(progress);
+        console.log(`📊 Loading progress: ${Math.round(progress)}%`);
+    };
+    
+    // Load components sequentially for proper progress tracking
+    for (let i = 0; i < componentsList.length; i++) {
+        const component = componentsList[i];
         try {
-            console.log('Fetching component file:', component.fileName); // Debug message
+            console.log(`📦 Loading ${component.fileName} (${i + 1}/${totalComponents})`);
             
             // Use fetch to get the HTML file from the components folder
             const response = await fetch(`components/${component.fileName}`);
@@ -88,74 +228,116 @@ async function loadAllComponents() {
             const targetElement = document.getElementById(component.elementId);
             if (targetElement) {
                 targetElement.innerHTML = htmlContent;
-                console.log('Successfully inserted:', component.fileName, 'into', component.elementId); // Debug
+                console.log(`✅ Loaded: ${component.fileName}`);
             } else {
-                console.error('Target element not found:', component.elementId); // Debug
+                console.error(`❌ Target element not found: ${component.elementId}`);
             }
+            
+            // Update progress after each component
+            updateProgress(i);
+            
+            // Small delay to show smooth progress
+            await new Promise(resolve => setTimeout(resolve, 150));
             
         } catch (error) {
-            // If something goes wrong, show an error message
-            console.error(`Error loading component ${component.fileName}:`, error); // Debug
-            
-            const targetElement = document.getElementById(component.elementId);
-            if (targetElement) {
-                // Show a user-friendly error message
-                targetElement.innerHTML = `
-                    <div class="bg-red-900 border border-red-700 text-red-100 px-4 py-3 rounded m-4">
-                        <strong>Oops!</strong> Failed to load ${component.fileName}
-                        <br><small>Error: ${error.message}</small>
-                    </div>
-                `;
-            }
+            console.error(`❌ Error loading ${component.fileName}:`, error);
+            // Still update progress to prevent hanging
+            updateProgress(i);
         }
-    });
+    }
     
-    // Wait for all components to finish loading
-    // Promise.all was confusing but my TA explained it to me
-    await Promise.all(loadingPromises);
-    console.log('All components have finished loading!'); // Debug message
+    console.log('📦 All components loaded successfully!');
 }
 
-// Function to set up the typing animation effect
-// I'm using the Typed.js library I found online - it's pretty cool!
+// Optimized typing animation with proper text visibility
 function initializeTypingEffect() {
-    console.log('Setting up typing animation...'); // Debug message
+    console.log('🎯 Setting up optimized typing animation...');
     
     // Find the element where the typing effect should happen
     const typingElement = document.querySelector('#typing-text');
     
     // Check if the element exists on the page
     if (typingElement) {
-        console.log('Found typing element, creating Typed.js instance...'); // Debug
+        console.log('✅ Found typing element, creating optimized Typed.js instance...');
+        
+        // Ensure element is visible first
+        typingElement.style.opacity = '1';
+        typingElement.style.visibility = 'visible';
+        
+        // Clear any existing content and classes
+        typingElement.textContent = '';
+        typingElement.className = 'gradient-text';
         
         try {
-            // Create the typing animation using Typed.js library
-            // These are the strings that will be typed out
+            // Test if gradient text is supported
+            const testElement = document.createElement('span');
+            testElement.style.background = 'linear-gradient(135deg, #8B5CF6, #EC4899)';
+            testElement.style.webkitBackgroundClip = 'text';
+            testElement.style.webkitTextFillColor = 'transparent';
+            
+            // Professional typing animation
             const typedInstance = new Typed(typingElement, {
                 strings: [
-                    "Hi, I'm Arya. Nice to meet you!",                                          // First thing to type
-                    "Mathematics and Computer Science Student @ UCSD",       // Second thing
-                    "Building innovative software solutions"                 // Third thing
+                    "Hi, I'm Arya",
+                    "Full-Stack Developer", 
+                    "Technical Leader",
+                    "Problem Solver",
+                    "Innovation Driver"
                 ],
-                typeSpeed: 50,        // How fast to type (milliseconds per character)
-                backSpeed: 30,        // How fast to delete characters
-                backDelay: 1500,      // How long to wait before starting to delete
-                startDelay: 500,      // How long to wait before starting to type
-                loop: true,           // Keep repeating the animation
-                showCursor: true,     // Show the blinking cursor
-                cursorChar: '|'       // What character to use for the cursor
+                typeSpeed: 80,        // Slightly slower for elegance
+                backSpeed: 60,        // Smooth deletion
+                backDelay: 2500,      // Longer pause to let people read
+                startDelay: 800,      // Give time for page to settle
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+                autoInsertCss: false, // Handle cursor CSS ourselves
+                smartBackspace: true,
+                shuffle: false,
+                contentType: 'text',
+                bindInputFocusEvents: false,
+                attr: null
             });
             
-            console.log('Typing animation started successfully!'); // Debug
+            // Ensure text is visible when typing starts
+            typedInstance.on('start', () => {
+                console.log('🎬 Typing animation started');
+                typingElement.style.opacity = '1';
+                
+                // Ensure cursor is properly styled
+                setTimeout(() => {
+                    const cursor = document.querySelector('.typed-cursor');
+                    if (cursor) {
+                        cursor.style.color = '#8B5CF6';
+                        cursor.style.fontWeight = '300';
+                    }
+                }, 100);
+            });
+            
+            // Handle each string completion
+            typedInstance.on('complete', () => {
+                console.log('✅ String typing completed');
+            });
+            
+            // Handle when typing resets for next string
+            typedInstance.on('reset', () => {
+                console.log('🔄 Typing reset for next string');
+            });
+            
+            console.log('✨ Typing animation initialized successfully!');
             
         } catch (error) {
-            console.error('Error setting up typing animation:', error); // Debug
-            // If the animation fails, just show static text
-            typingElement.textContent = "Hi, I'm Arya - Mathematics and Computer Science Student @ UCSD";
+            console.error('❌ Error setting up typing animation:', error);
+            // Robust fallback with visible text
+            typingElement.innerHTML = '<span class="gradient-text">Hi, I\'m Arya - Technical Lead & Full-Stack Developer</span>';
+            typingElement.style.opacity = '1';
+            typingElement.style.color = '#8B5CF6'; // Ensure fallback color
         }
         
     } else {
-        console.log('Typing element not found - maybe it hasn\'t loaded yet?'); // Debug
+        console.log('⚠️ Typing element not found - will retry...');
+        // Retry with timeout
+        setTimeout(initializeTypingEffect, 300);
     }
 }
 
@@ -268,14 +450,330 @@ window.addEventListener('load', function() {
     console.log('Scroll animations setup complete!'); // Debug message
 }); 
 
-// TODO: Add more interactive features later
-// TODO: Maybe add a dark mode toggle button?
-// TODO: Optimize the images - they're pretty big and slow to load
-// TODO: Add more animations to make the site feel more dynamic
-// TODO: Test on different browsers (I've only tested on Chrome so far)
-// TODO: Add error handling for when components fail to load
-// TODO: Make the mobile menu look better - it's pretty basic right now
+// ===== ENHANCED UX FEATURES =====
 
-// Note to self: This file has grown a lot over the 10 weeks!
-// Started with just basic HTML loading, now it has animations and everything
-// Still learning about web development but this project taught me so much 
+// Professional loading screen with progress bar
+function showLoadingScreen() {
+    const loadingHTML = `
+        <div id="loading-screen" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center">
+            <div class="text-center">
+                <!-- Animated logo/icon -->
+                <div class="mb-8 relative">
+                    <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-code text-primary text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Loading text -->
+                <h2 class="text-2xl font-light text-white mb-2 gradient-text">Loading Portfolio</h2>
+                <p class="text-gray-400 mb-8">Preparing an exceptional experience...</p>
+                
+                <!-- Progress bar -->
+                <div class="w-80 bg-gray-700 rounded-full h-2 mb-4 mx-auto">
+                    <div id="loading-progress" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                
+                <!-- Progress percentage -->
+                <span id="loading-percentage" class="text-gray-300 text-sm font-mono">0%</span>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', loadingHTML);
+}
+
+// Duplicate function removed
+
+// Hide loading screen with smooth animation
+function hideLoadingScreen() {
+    return new Promise((resolve) => {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            // Animate out
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transform = 'scale(0.95)';
+            loadingScreen.style.transition = 'all 0.5s ease-out';
+            
+            setTimeout(() => {
+                loadingScreen.remove();
+                document.documentElement.style.overflow = '';
+                resolve();
+            }, 500);
+        } else {
+            resolve();
+        }
+    });
+}
+
+// Initialize advanced UX features
+async function initializeUXFeatures() {
+    console.log('🎨 Initializing UX enhancements...');
+    
+    // Setup smooth scrolling with enhanced behavior
+    setupSmoothScrolling();
+    
+    // Add keyboard navigation support
+    setupKeyboardNavigation();
+    
+    // Initialize scroll progress indicator
+    setupScrollProgress();
+    
+    // Setup mobile menu enhancements
+    setupMobileMenuEnhancements();
+    
+    // Add hover effects and micro-interactions
+    setupMicroInteractions();
+    
+    console.log('✨ UX enhancements initialized!');
+}
+
+// Enhanced scroll animations with Intersection Observer
+function setupScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                
+                // Add staggered animation delays
+                if (element.classList.contains('fade-in-element')) {
+                    const siblings = Array.from(element.parentNode.children);
+                    const index = siblings.indexOf(element);
+                    
+                    setTimeout(() => {
+                        element.classList.add('fade-in');
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+                
+                observer.unobserve(element);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all animatable elements, but exclude hero section elements
+    document.querySelectorAll('.fade-in-element, .animate-on-scroll').forEach(el => {
+        // Don't hide elements that are in the hero section initially
+        const isInHero = el.closest('#hero, #home');
+        
+        if (!isInHero) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        } else {
+            // For hero elements, just add smooth transitions but keep them visible
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            // Trigger animation immediately for hero elements
+            setTimeout(() => {
+                el.classList.add('fade-in');
+            }, 100);
+        }
+    });
+    
+    // Special handling for elements that should be immediately visible
+    const heroElements = document.querySelectorAll('#hero .animate-on-scroll, #home .animate-on-scroll');
+    heroElements.forEach((el, index) => {
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            el.classList.add('fade-in');
+        }, index * 200 + 500); // Stagger hero animations after loading
+    });
+}
+
+// Active navigation section highlighting
+function setupNavigationHighlighting() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentSection = entry.target.getAttribute('id');
+                
+                // Update navigation active states
+                navLinks.forEach(link => {
+                    link.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                    link.classList.add('text-gray-300');
+                    
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.remove('text-gray-300');
+                        link.classList.add('text-primary', 'border-b-2', 'border-primary');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+// Subtle parallax effects
+function setupParallaxEffects() {
+    let ticking = false;
+    
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.parallax-element');
+        
+        parallaxElements.forEach(element => {
+            const speed = element.dataset.speed || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
+}
+
+// Scroll progress indicator
+function setupScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 z-50 transform scale-x-0 origin-left transition-transform duration-150';
+    progressBar.id = 'scroll-progress';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight);
+        
+        progressBar.style.transform = `scaleX(${scrollPercent})`;
+    }, { passive: true });
+}
+
+// Keyboard navigation support
+function setupKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        // Add keyboard shortcuts
+        if (e.ctrlKey || e.metaKey) {
+            switch(e.key) {
+                case 'k':
+                    e.preventDefault();
+                    // Focus search or navigation
+                    document.querySelector('nav a')?.focus();
+                    break;
+            }
+        }
+        
+        // Escape key closes mobile menu
+        if (e.key === 'Escape') {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+        }
+    });
+}
+
+// Enhanced mobile menu with animations
+function setupMobileMenuEnhancements() {
+    const mobileMenuButton = document.querySelector('[onclick="toggleMobileMenu()"]');
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.transform = 'translateY(-10px)';
+                    
+                    setTimeout(() => {
+                        mobileMenu.style.opacity = '1';
+                        mobileMenu.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.transform = 'translateY(-10px)';
+                    
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 200);
+                }
+            }
+        });
+    }
+}
+
+// Micro-interactions and hover effects
+function setupMicroInteractions() {
+    // Enhanced button hover effects
+    const buttons = document.querySelectorAll('a, button');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.transition = 'transform 0.2s ease';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Add ripple effect to clickable elements
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('button, .btn, .interactive')) {
+            createRippleEffect(e);
+        }
+    });
+}
+
+// Ripple effect for buttons
+function createRippleEffect(e) {
+    const button = e.target;
+    const ripple = document.createElement('span');
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    
+    ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(139, 92, 246, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s ease-out;
+        pointer-events: none;
+    `;
+    
+    // Add ripple animation keyframes if not exists
+    if (!document.getElementById('ripple-styles')) {
+        const style = document.createElement('style');
+        style.id = 'ripple-styles';
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    button.style.position = 'relative';
+    button.style.overflow = 'hidden';
+    button.appendChild(ripple);
+    
+    setTimeout(() => ripple.remove(), 600);
+} 

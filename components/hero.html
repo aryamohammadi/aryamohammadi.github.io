@@ -10,9 +10,9 @@
                         <img class="w-full h-full object-cover" src="images/IMG_72.png" alt="Arya M" style="object-position: center 30%;">
                     </div>
                     
-                    <!-- Floating elements around photo -->
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
-                    <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-purple-500/30 rounded-full blur-lg animate-pulse delay-1000"></div>
+                    <!-- Enhanced floating elements with parallax -->
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary/20 rounded-full blur-xl float-animation parallax-element" data-speed="0.3"></div>
+                    <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-purple-500/30 rounded-full blur-lg float-animation parallax-element" data-speed="0.2" style="animation-delay: 1s;"></div>
                     
                     <!-- Speech bubble connector -->
                     <div class="hidden lg:block absolute top-1/2 -right-8 transform -translate-y-1/2">
@@ -23,30 +23,59 @@
             
             <!-- Right Side - Your Thoughts -->
             <div class="lg:w-1/2 text-center lg:text-left">
-                <!-- Elegant speech bubble -->
-                <div class="bg-gray-900/95 backdrop-blur-xl rounded-2xl p-10 lg:p-12 shadow-2xl border border-gray-600/30 relative">
+                <!-- Elegant speech bubble with enhanced effects -->
+                <div class="glass-effect rounded-2xl p-10 lg:p-12 shadow-2xl border border-gray-600/30 relative">
                     
-                    <!-- Typing animation -->
-                    <div class="mb-10 h-[320px] sm:h-[280px] md:h-[240px] lg:h-[260px] xl:h-[300px] flex items-start justify-center lg:justify-start overflow-hidden">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.1] tracking-tight max-w-full">
-                            <span id="typing-text" class="gradient-text"></span>
+                    <!-- Clean typing animation -->
+                    <div class="mb-10 min-h-[200px] flex items-center justify-center lg:justify-start">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.2] tracking-tight text-center lg:text-left">
+                            <span id="typing-text" class="gradient-text inline-block"></span>
                         </h1>
                     </div>
                     
-                    <!-- Description -->
-                    <div class="mb-12">
-                        <p class="text-xl lg:text-2xl text-gray-200 leading-relaxed font-light tracking-wide">
-                            Undergraduate at UC San Diego with a focus on full-stack development and software engineering. I build scalable applications that solve real-world problems.
-                        </p>
+                    <!-- Interactive description - reveal on hover -->
+                    <div class="mb-12 group">
+                        <div class="text-center lg:text-left">
+                            <p class="text-lg lg:text-xl text-gray-400 leading-relaxed font-light tracking-wide mb-4 transition-all duration-300 group-hover:text-gray-200">
+                                Hover to learn more about my work
+                            </p>
+                            
+                            <!-- Professional expandable content -->
+                            <div class="max-h-0 overflow-hidden transition-all duration-500 group-hover:max-h-96 opacity-0 group-hover:opacity-100">
+                                <div class="pt-4 space-y-4">
+                                    <div class="bg-gray-800/30 rounded-lg p-4 border-l-4 border-purple-500">
+                                        <p class="text-base lg:text-lg text-gray-300 leading-relaxed font-light">
+                                            <strong class="text-purple-400">Education:</strong> Mathematics & Computer Science student at UC San Diego
+                                        </p>
+                                    </div>
+                                    <div class="bg-gray-800/30 rounded-lg p-4 border-l-4 border-blue-500">
+                                        <p class="text-base lg:text-lg text-gray-300 leading-relaxed font-light">
+                                            <strong class="text-blue-400">Role:</strong> Technical Lead & Cofounder at Arya Electric LLC
+                                        </p>
+                                    </div>
+                                    <div class="bg-gray-800/30 rounded-lg p-4 border-l-4 border-green-500">
+                                        <p class="text-base lg:text-lg text-gray-300 leading-relaxed font-light">
+                                            <strong class="text-green-400">Impact:</strong> Built platforms serving 26,000+ students with 25% MoM growth
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <!-- Buttons -->
+                    <!-- Enhanced buttons with modern effects -->
                     <div class="flex flex-col sm:flex-row gap-6 lg:justify-start justify-center">
-                        <a href="#projects" class="bg-primary hover:bg-purple-600 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform">
-                            View Projects
+                        <a href="#projects" class="btn-primary interactive glow-effect">
+                            <span class="flex items-center justify-center">
+                                <i class="fas fa-rocket mr-2"></i>
+                                View Projects
+                            </span>
                         </a>
-                        <a href="#contact" class="border border-gray-300 text-gray-200 hover:bg-white hover:text-gray-900 font-medium py-4 px-10 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform">
-                            Contact Me
+                        <a href="#contact" class="border border-gray-300 text-gray-200 hover:bg-white hover:text-gray-900 font-medium py-4 px-10 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl interactive">
+                            <span class="flex items-center justify-center">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Contact Me
+                            </span>
                         </a>
                     </div>
                 </div>
