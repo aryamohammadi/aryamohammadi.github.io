@@ -77,24 +77,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Main loading function - optimized for speed
+// Main loading function - optimized for maximum speed
 async function startPortfolioLoading() {
     try {
         console.log('Portfolio loading started');
         
-        // Load components quickly
-        updateLoadingProgress(20);
+        // Load components in parallel for speed
+        updateLoadingProgress(30);
         await loadAllComponents();
         
-        // Initialize UX features
-        updateLoadingProgress(80);
+        // Initialize UX features immediately
+        updateLoadingProgress(90);
         initializeUXFeatures();
         
-        // Complete loading
+        // Complete loading - minimal delay
         updateLoadingProgress(100);
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, 50));
         
-        // Hide loading screen
+        // Hide loading screen immediately
         await hideLoadingScreen();
         
         // Initialize animations after page is visible
@@ -108,7 +108,7 @@ async function startPortfolioLoading() {
         
     } catch (error) {
         console.error('❌ Loading failed:', error);
-        // Force hide loading screen
+        // Force hide loading screen immediately on error
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
             loadingScreen.style.display = 'none';
@@ -233,8 +233,7 @@ async function loadAllComponents() {
             // Update progress after each component
             updateProgress(i);
             
-            // Minimal delay for faster loading
-            await new Promise(resolve => setTimeout(resolve, 50));
+            // No delay - load as fast as possible
             
         } catch (error) {
             console.error(`❌ Error loading ${component.fileName}:`, error);
@@ -480,24 +479,17 @@ function showLoadingScreen() {
 
 // Duplicate function removed
 
-// Hide loading screen with smooth animation
+// Hide loading screen immediately
 function hideLoadingScreen() {
     return new Promise((resolve) => {
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
-            // Animate out
-            loadingScreen.style.opacity = '0';
-            loadingScreen.style.transform = 'scale(0.95)';
-            loadingScreen.style.transition = 'all 0.5s ease-out';
-            
-            setTimeout(() => {
-                loadingScreen.remove();
-                document.documentElement.style.overflow = '';
-                resolve();
-            }, 500);
-        } else {
-            resolve();
+            // Remove immediately - no animation delay
+            loadingScreen.style.display = 'none';
+            loadingScreen.remove();
+            document.documentElement.style.overflow = '';
         }
+        resolve();
     });
 }
 
