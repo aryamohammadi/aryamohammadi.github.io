@@ -82,22 +82,19 @@ async function startPortfolioLoading() {
     try {
         console.log('Portfolio loading started');
         
-        // Load components in parallel for speed
-        updateLoadingProgress(30);
-        await loadAllComponents();
+        // Start loading components immediately in parallel
+        const componentsPromise = loadAllComponents();
         
-        // Initialize UX features immediately
-        updateLoadingProgress(90);
+        // Initialize UX features in parallel (non-blocking)
         initializeUXFeatures();
         
-        // Complete loading - minimal delay
-        updateLoadingProgress(100);
-        await new Promise(resolve => setTimeout(resolve, 50));
+        // Wait for components to finish
+        await componentsPromise;
         
-        // Hide loading screen immediately
-        await hideLoadingScreen();
+        // Hide loading screen immediately - no delay
+        hideLoadingScreen();
         
-        // Initialize animations after page is visible
+        // Initialize animations after page is visible (non-blocking)
         requestAnimationFrame(() => {
             initializeTypingEffect();
             setupScrollAnimations();
@@ -117,132 +114,59 @@ async function startPortfolioLoading() {
     }
 }
 
-// Main initialization function
+// Legacy function - kept for compatibility but not used
+// All loading now happens in startPortfolioLoading()
 async function initializePortfolio() {
-    try {
-        console.log('🚀 Starting portfolio initialization...');
-        
-        // Step 1: Load all components with progress tracking
-        await loadAllComponents();
-        console.log('✅ All components loaded');
-        
-        // Step 2: Initialize UX enhancements
-        await initializeUXFeatures();
-        console.log('✅ UX features initialized');
-        
-        // Step 3: Small delay to show 100% completion
-        await new Promise(resolve => setTimeout(resolve, 500));
-        
-        // Step 4: Hide loading screen with smooth transition
-        await hideLoadingScreen();
-        console.log('✅ Loading screen hidden');
-        
-        // Step 5: Initialize animations and interactions with optimized timing
-        setTimeout(() => {
-            // Ensure hero section is visible first
-            const heroSection = document.querySelector('#hero, #home');
-            if (heroSection) {
-                heroSection.style.opacity = '1';
-                heroSection.style.visibility = 'visible';
-            }
-            
-            // Initialize typing animation first for smooth experience
-            initializeTypingEffect();
-            
-            // Then setup other features with slight delays to prevent conflicts
-            setTimeout(() => {
-                setupScrollAnimations();
-                setupNavigationHighlighting();
-            }, 200);
-            
-            setTimeout(() => {
-                setupParallaxEffects();
-            }, 400);
-            
-            console.log('✨ Portfolio fully loaded and enhanced!');
-        }, 100); // Reduced delay for faster hero appearance
-        
-    } catch (error) {
-        console.error('❌ Portfolio initialization failed:', error);
-        // Force hide loading screen even if there's an error
-        setTimeout(() => {
-            const loadingScreen = document.getElementById('loading-screen');
-            if (loadingScreen) {
-                loadingScreen.style.display = 'none';
-                console.log('💥 Loading screen force hidden due to error');
-            }
-        }, 1000);
-    }
+    // This function is deprecated - use startPortfolioLoading() instead
+    return startPortfolioLoading();
 }
 
-// Enhanced component loading with progress tracking
+// Load all components in parallel for maximum speed
 async function loadAllComponents() {
-    console.log('📦 Loading components with progress tracking...');
+    console.log('📦 Loading components in parallel...');
     
-    // Array of all the components I need to load
-    // I keep adding to this list as I build more sections
     const componentsList = [
-        { elementId: 'header', fileName: 'header.html' },           // Navigation bar
-        { elementId: 'hero', fileName: 'hero.html' },               // Main hero section
-        { elementId: 'about', fileName: 'about.html' },             // About me section
-        { elementId: 'projects', fileName: 'projects.html' },       // My projects
-        { elementId: 'skills', fileName: 'skills.html' },           // Technical skills
-        { elementId: 'contact', fileName: 'contact.html' },         // Contact info
-        { elementId: 'gallery', fileName: 'gallery.html' },         // Photo gallery
-        { elementId: 'footer', fileName: 'footer.html' }            // Footer
+        { elementId: 'header', fileName: 'header.html' },
+        { elementId: 'hero', fileName: 'hero.html' },
+        { elementId: 'about', fileName: 'about.html' },
+        { elementId: 'projects', fileName: 'projects.html' },
+        { elementId: 'skills', fileName: 'skills.html' },
+        { elementId: 'contact', fileName: 'contact.html' },
+        { elementId: 'gallery', fileName: 'gallery.html' },
+        { elementId: 'footer', fileName: 'footer.html' }
     ];
     
-    let loadedCount = 0;
-    const totalComponents = componentsList.length;
-    
-    // Update progress as components load
-    const updateProgress = (currentIndex) => {
-        const progress = ((currentIndex + 1) / totalComponents) * 100;
-        updateLoadingProgress(progress);
-        console.log(`📊 Loading progress: ${Math.round(progress)}%`);
-    };
-    
-    // Load components sequentially for proper progress tracking
-    for (let i = 0; i < componentsList.length; i++) {
-        const component = componentsList[i];
+    // Load all components in parallel using Promise.all
+    const loadPromises = componentsList.map(async (component, index) => {
         try {
-            console.log(`📦 Loading ${component.fileName} (${i + 1}/${totalComponents})`);
-            
-            // Use fetch to get the HTML file from the components folder
             const response = await fetch(`components/${component.fileName}`);
-            
-            // Check if the request was successful
             if (!response.ok) {
-                // Something went wrong - throw an error
                 throw new Error(`Failed to load ${component.fileName}: HTTP ${response.status}`);
             }
             
-            // Get the HTML content as text
             const htmlContent = await response.text();
-            console.log('Successfully loaded:', component.fileName); // Debug message
-            
-            // Put the HTML content into the right element on the page
             const targetElement = document.getElementById(component.elementId);
+            
             if (targetElement) {
                 targetElement.innerHTML = htmlContent;
-                console.log(`✅ Loaded: ${component.fileName}`);
+                // Update progress as each component loads
+                const progress = ((index + 1) / componentsList.length) * 100;
+                updateLoadingProgress(progress);
+                return true;
             } else {
                 console.error(`❌ Target element not found: ${component.elementId}`);
+                return false;
             }
-            
-            // Update progress after each component
-            updateProgress(i);
-            
-            // No delay - load as fast as possible
-            
         } catch (error) {
             console.error(`❌ Error loading ${component.fileName}:`, error);
-            // Still update progress to prevent hanging
-            updateProgress(i);
+            return false;
         }
-    }
+    });
     
-    console.log('📦 All components loaded successfully!');
+    // Wait for all components to load in parallel
+    await Promise.all(loadPromises);
+    updateLoadingProgress(100);
+    console.log('📦 All components loaded in parallel!');
 }
 
 // Optimized typing animation with proper text visibility
@@ -271,7 +195,7 @@ function initializeTypingEffect() {
             testElement.style.webkitBackgroundClip = 'text';
             testElement.style.webkitTextFillColor = 'transparent';
             
-            // Professional typing animation
+            // Professional typing animation - optimized for fast start
             const typedInstance = new Typed(typingElement, {
                 strings: [
                     "Hi, I'm Arya",
@@ -280,8 +204,8 @@ function initializeTypingEffect() {
                 ],
                 typeSpeed: 80,        // Slightly slower for elegance
                 backSpeed: 60,        // Smooth deletion
-                backDelay: 2500,      // Longer pause to let people read
-                startDelay: 800,      // Give time for page to settle
+                backDelay: 2000,      // Pause to let people read
+                startDelay: 0,        // Start immediately - no delay
                 loop: true,
                 showCursor: true,
                 cursorChar: '|',
@@ -705,18 +629,10 @@ function createRippleEffect(e) {
     setTimeout(() => ripple.remove(), 600);
 }
 
-// Optimized image loading - removed complex lazy loading for faster display
+// Image preloading happens immediately when components load
+// All images use loading="eager" and are preloaded in HTML head
+// This function is kept for compatibility but does minimal work
 function setupImageLazyLoading() {
-    // Preload all visible images immediately
-    const allImages = document.querySelectorAll('img[src]');
-    allImages.forEach(img => {
-        // Force browser to start loading immediately
-        if (img.src && !img.complete) {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = img.src;
-            document.head.appendChild(link);
-        }
-    });
+    // Images are already preloaded in HTML head and use loading="eager"
+    // No additional work needed - browser handles it optimally
 } 
