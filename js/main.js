@@ -525,34 +525,12 @@ async function initializeUXFeatures() {
     console.log('✨ UX enhancements initialized!');
 }
 
-// Optimized scroll animations with Intersection Observer
+// Scroll animations disabled - elements remain visible for professional appearance
 function setupScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.05,
-        rootMargin: '50px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                element.classList.add('fade-in');
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-                observer.unobserve(element);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe only non-hero elements
+    // All elements remain visible - no fade-in animations
     document.querySelectorAll('.fade-in-element').forEach(el => {
-        const isInHero = el.closest('#hero, #home');
-        if (!isInHero) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            observer.observe(el);
-        }
+        el.style.opacity = '1';
+        el.style.transform = 'none';
     });
 }
 
