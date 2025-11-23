@@ -723,16 +723,26 @@ function setupImageLazyLoading() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
+                    // Start loading immediately when in viewport
                     img.src = img.dataset.src;
                     img.removeAttribute('data-src');
                     observer.unobserve(img);
                 }
             });
         }, {
-            rootMargin: '100px' // Start loading 100px before image enters viewport
+            rootMargin: '200px' // Start loading 200px before image enters viewport
         });
         
-        lazyImages.forEach(img => imageObserver.observe(img));
+        lazyImages.forEach(img => {
+            // Preload first 2-3 images immediately
+            const index = Array.from(lazyImages).indexOf(img);
+            if (index < 3) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            } else {
+                imageObserver.observe(img);
+            }
+        });
     } else {
         // Fallback for browsers without IntersectionObserver
         lazyImages.forEach(img => {
@@ -741,26 +751,43 @@ function setupImageLazyLoading() {
         });
     }
     
-    // Handle image fade-in on load
+    // Handle image fade-in on load - optimized
     document.querySelectorAll('.image-fade-in').forEach(img => {
-        if (img.complete) {
+        if (img.complete && img.naturalHeight !== 0) {
             img.style.opacity = '1';
         } else {
             img.style.opacity = '0';
-            img.style.transition = 'opacity 0.3s ease';
-            img.addEventListener('load', function() {
+            img.style.transition = 'opacity 0.2s ease';
+            const loadHandler = function() {
                 this.style.opacity = '1';
-            });
+                this.removeEventListener('load', loadHandler);
+            };
+            img.addEventListener('load', loadHandler);
+            // Fallback for cached images
+            if (img.complete) {
+                loadHandler.call(img);
+            }
         }
     });
     
-    // Preload hero image immediately
-    const heroImage = document.querySelector('#hero img, #home img');
-    if (heroImage && heroImage.src) {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = heroImage.src;
-        document.head.appendChild(link);
+    // Preload about section image when user scrolls near it
+    const aboutSection = document.querySelector('#about');
+    if (aboutSection && 'IntersectionObserver' in window) {
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const aboutImg = document.querySelector('#about img');
+                    if (aboutImg && aboutImg.src) {
+                        const link = document.createElement('link');
+                        link.rel = 'preload';
+                        link.as = 'image';
+                        link.href = aboutImg.src;
+                        document.head.appendChild(link);
+                    }
+                    aboutObserver.disconnect();
+                }
+            });
+        }, { rootMargin: '300px' });
+        aboutObserver.observe(aboutSection);
     }
 } 

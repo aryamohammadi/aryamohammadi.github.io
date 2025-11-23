@@ -10,22 +10,22 @@
         <!-- Photo grid that works on all screen sizes -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
             
-            <!-- Optimized images with lazy loading and placeholders -->
+            <!-- Optimized images with aggressive lazy loading -->
             <div class="overflow-hidden rounded-xl shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
                 <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full image-fade-in" data-src="images/IMG_1465.jpeg" alt="Professional photograph" loading="lazy" decoding="async" width="400" height="300">
+                    <img class="object-cover w-full h-full image-fade-in" src="images/IMG_1465.jpeg" alt="Professional photograph" loading="lazy" decoding="async" width="400" height="300" fetchpriority="high">
                 </div>
             </div>
             
             <div class="overflow-hidden rounded-xl shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
                 <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full image-fade-in" data-src="images/photo1.jpeg" alt="Professional photograph" loading="lazy" decoding="async" width="400" height="300">
+                    <img class="object-cover w-full h-full image-fade-in" src="images/photo1.jpeg" alt="Professional photograph" loading="lazy" decoding="async" width="400" height="300">
                 </div>
             </div>
             
             <div class="overflow-hidden rounded-xl shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
                 <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full image-fade-in" data-src="images/FullSizeRender.jpeg" alt="Professional photograph" loading="lazy" decoding="async" width="400" height="300">
+                    <img class="object-cover w-full h-full image-fade-in" src="images/FullSizeRender.jpeg" alt="Professional photograph" loading="lazy" decoding="async" width="400" height="300">
                 </div>
             </div>
             
