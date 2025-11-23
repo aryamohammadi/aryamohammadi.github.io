@@ -311,13 +311,12 @@ nav a:hover {
     max-width: 100%;
     object-fit: cover;
     border-radius: 0.75rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: brightness(0.9) contrast(1.1);
+    transition: transform 0.2s ease;
+    will-change: transform;
 }
 
 #gallery img:hover {
-    filter: brightness(1) contrast(1.2);
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 /* Enhanced button styles */
@@ -502,17 +501,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Mobile responsive text sizing */
-/* Floating Mathematical and Code Elements */
+/* Floating Mathematical and Code Elements - Disabled for performance */
 .floating-elements {
-    z-index: 5;
-    display: block !important;
+    display: none !important; /* Disabled to improve performance */
 }
 
 .math-symbol, .code-symbol {
-    user-select: none;
-    will-change: transform;
-    transform: translateZ(0); /* Hardware acceleration */
-    backface-visibility: hidden; /* Smooth animations */
+    display: none; /* Disabled to improve performance */
 }
 
 /* Remove complex positioning - using inline styles for better performance */
@@ -735,9 +730,9 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 4px;
 }
 
-/* Smooth transitions for theme changes */
+/* Optimized transitions - only essential properties */
 * {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: background-color, border-color, color, opacity, transform;
+    transition-timing-function: ease;
     transition-duration: 150ms;
 } 

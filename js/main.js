@@ -77,35 +77,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Main loading function
+// Main loading function - optimized for speed
 async function startPortfolioLoading() {
     try {
         console.log('Portfolio loading started');
         
-        // Simulate initial loading
-        updateLoadingProgress(10);
-        await new Promise(resolve => setTimeout(resolve, 300));
-        
-        // Load components
+        // Load components quickly
+        updateLoadingProgress(20);
         await loadAllComponents();
         
         // Initialize UX features
-        updateLoadingProgress(90);
-        await initializeUXFeatures();
+        updateLoadingProgress(80);
+        initializeUXFeatures();
         
         // Complete loading
         updateLoadingProgress(100);
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 200));
         
         // Hide loading screen
         await hideLoadingScreen();
         
-        // Initialize animations
-        setTimeout(() => {
+        // Initialize animations after page is visible
+        requestAnimationFrame(() => {
             initializeTypingEffect();
             setupScrollAnimations();
             setupNavigationHighlighting();
-        }, 300);
+        });
         
         console.log('✅ Portfolio fully loaded');
         
@@ -236,8 +233,8 @@ async function loadAllComponents() {
             // Update progress after each component
             updateProgress(i);
             
-            // Small delay to show smooth progress
-            await new Promise(resolve => setTimeout(resolve, 150));
+            // Minimal delay for faster loading
+            await new Promise(resolve => setTimeout(resolve, 50));
             
         } catch (error) {
             console.error(`❌ Error loading ${component.fileName}:`, error);
@@ -528,63 +525,34 @@ async function initializeUXFeatures() {
     console.log('✨ UX enhancements initialized!');
 }
 
-// Enhanced scroll animations with Intersection Observer
+// Optimized scroll animations with Intersection Observer
 function setupScrollAnimations() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05,
+        rootMargin: '50px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const element = entry.target;
-                
-                // Add staggered animation delays
-                if (element.classList.contains('fade-in-element')) {
-                    const siblings = Array.from(element.parentNode.children);
-                    const index = siblings.indexOf(element);
-                    
-                    setTimeout(() => {
-                        element.classList.add('fade-in');
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-                
+                element.classList.add('fade-in');
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
                 observer.unobserve(element);
             }
         });
     }, observerOptions);
     
-    // Observe all animatable elements, but exclude hero section elements
-    document.querySelectorAll('.fade-in-element, .animate-on-scroll').forEach(el => {
-        // Don't hide elements that are in the hero section initially
+    // Observe only non-hero elements
+    document.querySelectorAll('.fade-in-element').forEach(el => {
         const isInHero = el.closest('#hero, #home');
-        
         if (!isInHero) {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
             observer.observe(el);
-        } else {
-            // For hero elements, just add smooth transitions but keep them visible
-            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            // Trigger animation immediately for hero elements
-            setTimeout(() => {
-                el.classList.add('fade-in');
-            }, 100);
         }
-    });
-    
-    // Special handling for elements that should be immediately visible
-    const heroElements = document.querySelectorAll('#hero .animate-on-scroll, #home .animate-on-scroll');
-    heroElements.forEach((el, index) => {
-        setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-            el.classList.add('fade-in');
-        }, index * 200 + 500); // Stagger hero animations after loading
     });
 }
 
@@ -615,46 +583,34 @@ function setupNavigationHighlighting() {
     sections.forEach(section => observer.observe(section));
 }
 
-// Subtle parallax effects
+// Subtle parallax effects - disabled for performance
 function setupParallaxEffects() {
-    let ticking = false;
-    
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.parallax-element');
-        
-        parallaxElements.forEach(element => {
-            const speed = element.dataset.speed || 0.5;
-            const yPos = -(scrolled * speed);
-            element.style.transform = `translateY(${yPos}px)`;
-        });
-        
-        ticking = false;
-    }
-    
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    }
-    
-    window.addEventListener('scroll', requestTick, { passive: true });
+    // Parallax disabled to improve scroll performance
+    return;
 }
 
-// Scroll progress indicator
+// Scroll progress indicator - optimized with throttling
 function setupScrollProgress() {
     const progressBar = document.createElement('div');
     progressBar.className = 'fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 z-50 transform scale-x-0 origin-left transition-transform duration-150';
     progressBar.id = 'scroll-progress';
     document.body.appendChild(progressBar);
     
-    window.addEventListener('scroll', () => {
+    let ticking = false;
+    function updateProgress() {
         const scrollTop = window.pageYOffset;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = (scrollTop / docHeight);
         
         progressBar.style.transform = `scaleX(${scrollPercent})`;
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateProgress);
+            ticking = true;
+        }
     }, { passive: true });
 }
 
