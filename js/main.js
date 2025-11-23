@@ -522,6 +522,9 @@ async function initializeUXFeatures() {
     // Add hover effects and micro-interactions
     setupMicroInteractions();
     
+    // Setup optimized image lazy loading
+    setupImageLazyLoading();
+    
     console.log('✨ UX enhancements initialized!');
 }
 
@@ -710,4 +713,56 @@ function createRippleEffect(e) {
     button.appendChild(ripple);
     
     setTimeout(() => ripple.remove(), 600);
+}
+
+// Optimized image lazy loading with Intersection Observer
+function setupImageLazyLoading() {
+    // Handle images with data-src attribute (gallery images)
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '100px' // Start loading 100px before image enters viewport
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        });
+    }
+    
+    // Handle image fade-in on load
+    document.querySelectorAll('.image-fade-in').forEach(img => {
+        if (img.complete) {
+            img.style.opacity = '1';
+        } else {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        }
+    });
+    
+    // Preload hero image immediately
+    const heroImage = document.querySelector('#hero img, #home img');
+    if (heroImage && heroImage.src) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = heroImage.src;
+        document.head.appendChild(link);
+    }
 } 
