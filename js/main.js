@@ -713,81 +713,18 @@ function createRippleEffect(e) {
     setTimeout(() => ripple.remove(), 600);
 }
 
-// Optimized image lazy loading with Intersection Observer
+// Optimized image loading - removed complex lazy loading for faster display
 function setupImageLazyLoading() {
-    // Handle images with data-src attribute (gallery images)
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    // Start loading immediately when in viewport
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            });
-        }, {
-            rootMargin: '200px' // Start loading 200px before image enters viewport
-        });
-        
-        lazyImages.forEach(img => {
-            // Preload first 2-3 images immediately
-            const index = Array.from(lazyImages).indexOf(img);
-            if (index < 3) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-            } else {
-                imageObserver.observe(img);
-            }
-        });
-    } else {
-        // Fallback for browsers without IntersectionObserver
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-        });
-    }
-    
-    // Handle image fade-in on load - optimized
-    document.querySelectorAll('.image-fade-in').forEach(img => {
-        if (img.complete && img.naturalHeight !== 0) {
-            img.style.opacity = '1';
-        } else {
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.2s ease';
-            const loadHandler = function() {
-                this.style.opacity = '1';
-                this.removeEventListener('load', loadHandler);
-            };
-            img.addEventListener('load', loadHandler);
-            // Fallback for cached images
-            if (img.complete) {
-                loadHandler.call(img);
-            }
+    // Preload all visible images immediately
+    const allImages = document.querySelectorAll('img[src]');
+    allImages.forEach(img => {
+        // Force browser to start loading immediately
+        if (img.src && !img.complete) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = img.src;
+            document.head.appendChild(link);
         }
     });
-    
-    // Preload about section image when user scrolls near it
-    const aboutSection = document.querySelector('#about');
-    if (aboutSection && 'IntersectionObserver' in window) {
-        const aboutObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const aboutImg = document.querySelector('#about img');
-                    if (aboutImg && aboutImg.src) {
-                        const link = document.createElement('link');
-                        link.rel = 'preload';
-                        link.as = 'image';
-                        link.href = aboutImg.src;
-                        document.head.appendChild(link);
-                    }
-                    aboutObserver.disconnect();
-                }
-            });
-        }, { rootMargin: '300px' });
-        aboutObserver.observe(aboutSection);
-    }
 } 
