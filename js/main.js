@@ -276,10 +276,8 @@ function initializeTypingEffect() {
             const typedInstance = new Typed(typingElement, {
                 strings: [
                     "Hi, I'm Arya",
-                    "Full-Stack Developer", 
-                    "Technical Leader",
-                    "Problem Solver",
-                    "Innovation Driver"
+                    "Math & CS at UCSD",
+                    "Full-stack developer"
                 ],
                 typeSpeed: 80,        // Slightly slower for elegance
                 backSpeed: 60,        // Smooth deletion
@@ -326,7 +324,7 @@ function initializeTypingEffect() {
         } catch (error) {
             console.error('❌ Error setting up typing animation:', error);
             // Robust fallback with visible text
-            typingElement.innerHTML = '<span class="gradient-text">Hi, I\'m Arya - Technical Lead & Full-Stack Developer</span>';
+            typingElement.innerHTML = '<span class="gradient-text">Hi, I\'m Arya</span>';
             typingElement.style.opacity = '1';
             typingElement.style.color = '#8B5CF6'; // Ensure fallback color
         }
