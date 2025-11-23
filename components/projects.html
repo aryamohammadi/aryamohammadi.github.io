@@ -12,20 +12,20 @@
             <div class="bg-gray-800 rounded-lg overflow-hidden fade-in-element project-card lg:col-span-1">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">Arya Electric Platform</h3>
+                        <h3 class="text-2xl font-bold text-white">Full-Stack Business Platform</h3>
                         <span class="text-sm text-gray-400">2025</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Full stack business platform built with Next.js featuring RESTful API endpoints, third party service integrations, and automated workflow systems. The platform processes customer quote requests and manages communication workflows through email and SMS channels.
+                        Production-ready full-stack web application built with Next.js, featuring RESTful API endpoints, third-party service integrations, and automated workflow systems. This platform handles customer inquiries, processes form submissions, and manages communication workflows through email and SMS channels.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Key Features</h4>
                         <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>Quote submission handler with server side validation and email notifications</li>
-                            <li>SMS webhook handler for receiving customer replies via Twilio</li>
-                            <li>Automated follow up system with scheduled SMS and email messages</li>
-                            <li>Lead scoring algorithm analyzing project type, contact methods, and urgency</li>
-                            <li>Google Reviews integration with response caching to reduce API costs</li>
+                            <li>Quote submission handler processing customer requests with server-side validation</li>
+                            <li>SMS webhook handler receiving incoming SMS replies from customers via Twilio</li>
+                            <li>Automated follow-up system sending scheduled SMS and email messages</li>
+                            <li>Lead scoring algorithm analyzing project type, contact methods, and urgency indicators</li>
+                            <li>Google Reviews integration fetching and caching Google Places API data</li>
                             <li>Dynamic OG image generation for social media sharing</li>
                         </ul>
                     </div>
@@ -42,14 +42,8 @@
                     </div>
 
                     <div class="text-sm text-gray-400 mb-4">
-                        <p>Production platform handling dozens of requests per week with comprehensive error handling</p>
+                        <p>Platform handles dozens of requests per week with comprehensive error handling and validation</p>
                     </div>
-                    <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
-                        Explore the Site
-                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                    </a>
                 </div>
             </div>
 
@@ -61,7 +55,7 @@
                         <span class="text-sm text-gray-400">2024</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Full stack housing marketplace platform serving UC Riverside students. Built with Node.js, Express, and MongoDB. The application handles authentication, listing management, and search functionality with a focus on reliability and security.
+                        Production-ready full-stack housing marketplace platform serving UC Riverside students. Built with Node.js, Express, and MongoDB, the application handles authentication, listing management, and search functionality with a focus on reliability and security. The platform processes dozens of listing requests weekly, serving hundreds of active users searching for housing near campus.
                     </p>
                     <div class="text-sm text-gray-400 mb-4 italic">
                         Independent student project; not affiliated with UCR.
@@ -69,11 +63,12 @@
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Technical Implementation</h4>
                         <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>JWT based authentication with bcrypt password hashing using 12 salt rounds</li>
-                            <li>Protected API routes with middleware based authorization and session management</li>
+                            <li>JWT-based authentication system with secure token generation and validation</li>
+                            <li>Password hashing using bcrypt with 12 salt rounds</li>
+                            <li>Protected API routes with middleware-based authorization</li>
                             <li>CRUD operations for housing listings with ownership validation</li>
                             <li>Advanced search and filtering by price range, bedrooms, bathrooms, and amenities</li>
-                            <li>Pagination support for large result sets with configurable page size limits</li>
+                            <li>Pagination support for large result sets</li>
                             <li>MongoDB schema design with proper indexing for query optimization</li>
                             <li>Input sanitization middleware preventing NoSQL injection attacks</li>
                             <li>Deployed on Railway for backend, Vercel for frontend, MongoDB Atlas for database</li>
@@ -118,19 +113,21 @@
                         <span class="text-sm text-gray-400">September 2024</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Terminal based turn based combat game implemented in C++ with a focus on clean architecture and object oriented design principles. The project demonstrates modular class design, separation of concerns, and systematic application of SOLID principles across a complete game engine.
+                        Terminal-based, turn-based combat game implemented in C++ with a focus on clean architecture and object-oriented design principles. The project demonstrates modular class design, separation of concerns, and systematic application of SOLID principles across a complete game engine. The architecture centers on a state-driven game loop that manages combat encounters, inventory systems, map navigation, and persistent game state through serialization.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Technical Implementation</h4>
                         <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>Turn based combat system with speed based turn ordering using custom MaxHeap data structure</li>
+                            <li>Turn-based combat system with speed-based turn ordering using MaxHeap data structure</li>
                             <li>Difficulty scaling system with configurable stat multipliers affecting attack and health modifiers</li>
                             <li>Inventory management with dynamic capacity, item stacking, and multiple sorting strategies</li>
-                            <li>Polymorphic item system with inheritance hierarchy for Weapon, Armour, and Potion classes</li>
-                            <li>Template based save and load system for game state serialization and deserialization</li>
+                            <li>Stat-based progression system tracking health, defense, damage, speed, and experience</li>
+                            <li>Map and room navigation system with enemy and item distribution</li>
+                            <li>State machine architecture for game flow management (MainMenu, InGame, GameOver)</li>
+                            <li>Serialization and deserialization for save/load game functionality</li>
+                            <li>Polymorphic item system with inheritance hierarchy (Weapon, Armour, Potion)</li>
                             <li>Merge sort and insertion sort implementations for inventory organization</li>
-                            <li>State machine architecture for game flow management with MainMenu, InGame, and GameOver states</li>
-                            <li>Comprehensive unit testing with GoogleTest covering combat, character, inventory, and sorting systems</li>
+                            <li>Template-based save/load system with file I/O abstraction</li>
                         </ul>
                     </div>
                     <div class="mb-4">
