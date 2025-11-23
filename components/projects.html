@@ -3,7 +3,7 @@
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Projects</h2>
             <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                Technical projects demonstrating full-stack development, software engineering, and problem-solving skills
+                Full stack web applications and software systems built with modern technologies
             </p>
         </div>
         
@@ -12,20 +12,21 @@
             <div class="bg-gray-800 rounded-lg overflow-hidden fade-in-element project-card lg:col-span-1">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">Arya Electric LLC</h3>
+                        <h3 class="text-2xl font-bold text-white">Arya Electric Platform</h3>
                         <span class="text-sm text-gray-400">2025</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Built and launched AryaElectric.com serving as the company's primary client acquisition channel, attracting 300+ active users. Applied data-driven optimization techniques including A/B testing and structured data, driving 25% month-over-month growth in inquiries and generating 60+ inbound leads in the first quarter.
+                        Full stack business platform built with Next.js featuring RESTful API endpoints, third party service integrations, and automated workflow systems. The platform processes customer quote requests and manages communication workflows through email and SMS channels.
                     </p>
                     <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Key Results</h4>
+                        <h4 class="text-lg font-semibold text-primary mb-2">Key Features</h4>
                         <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>Business Impact:</strong> 300+ active users, 25% MoM growth, 60+ inbound leads in Q1</li>
-                            <li><strong>Data-Driven Optimization:</strong> A/B testing, structured data, targeted campaigns</li>
-                            <li><strong>Infrastructure:</strong> Scaled to support 80+ concurrent client service requests</li>
-                            <li><strong>Internal Systems:</strong> Built CRM, scheduling, and automation pipelines reducing manual workflows by 50%</li>
-                            <li><strong>Architecture:</strong> Next.js + React + TypeScript with optimal performance and reliability</li>
+                            <li>Quote submission handler with server side validation and email notifications</li>
+                            <li>SMS webhook handler for receiving customer replies via Twilio</li>
+                            <li>Automated follow up system with scheduled SMS and email messages</li>
+                            <li>Lead scoring algorithm analyzing project type, contact methods, and urgency</li>
+                            <li>Google Reviews integration with response caching to reduce API costs</li>
+                            <li>Dynamic OG image generation for social media sharing</li>
                         </ul>
                     </div>
                     <div class="mb-4">
@@ -35,12 +36,13 @@
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">React</span>
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">TypeScript</span>
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">shadcn/ui</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Nodemailer</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Twilio</span>
                         </div>
                     </div>
 
                     <div class="text-sm text-gray-400 mb-4">
-                        <p>Family-owned electrical contractor serving Orange County, California</p>
+                        <p>Production platform handling dozens of requests per week with comprehensive error handling</p>
                     </div>
                     <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
                         Explore the Site
@@ -55,11 +57,11 @@
             <div class="bg-gray-800 rounded-lg overflow-hidden fade-in-element project-card">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">DormDuos - Full-Stack Housing Platform</h3>
+                        <h3 class="text-2xl font-bold text-white">DormDuos</h3>
                         <span class="text-sm text-gray-400">2024</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Launched a full-stack housing platform serving 26,000+ UC Riverside students, with 300+ early users testing roommate matching and housing discovery features. Deployed on cloud infrastructure with 99%+ uptime, scaling to support hundreds of real-time concurrent users.
+                        Full stack housing marketplace platform serving UC Riverside students. Built with Node.js, Express, and MongoDB. The application handles authentication, listing management, and search functionality with a focus on reliability and security.
                     </p>
                     <div class="text-sm text-gray-400 mb-4 italic">
                         Independent student project; not affiliated with UCR.
@@ -67,11 +69,14 @@
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Technical Implementation</h4>
                         <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>Frontend Architecture:</strong> React.js with Vite build system, Tailwind CSS, React Router, and Context API for state management</li>
-                            <li><strong>Backend Development:</strong> Node.js/Express RESTful API with JWT authentication, bcrypt password hashing, and comprehensive error handling</li>
-                            <li><strong>Database Design:</strong> MongoDB with Mongoose ODM, optimized schemas, efficient querying, and NoSQL injection prevention</li>
-                            <li><strong>Cloud Deployment:</strong> Production deployment on Vercel (frontend) and Railway (backend) with MongoDB Atlas integration</li>
-                            <li><strong>Security & Performance:</strong> Input validation, CORS configuration, advanced filtering, and responsive mobile-first design</li>
+                            <li>JWT based authentication with bcrypt password hashing using 12 salt rounds</li>
+                            <li>Protected API routes with middleware based authorization and session management</li>
+                            <li>CRUD operations for housing listings with ownership validation</li>
+                            <li>Advanced search and filtering by price range, bedrooms, bathrooms, and amenities</li>
+                            <li>Pagination support for large result sets with configurable page size limits</li>
+                            <li>MongoDB schema design with proper indexing for query optimization</li>
+                            <li>Input sanitization middleware preventing NoSQL injection attacks</li>
+                            <li>Deployed on Railway for backend, Vercel for frontend, MongoDB Atlas for database</li>
                         </ul>
                     </div>
                     <div class="mb-4">
@@ -113,16 +118,19 @@
                         <span class="text-sm text-gray-400">September 2024</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Directed a 5-member engineering team on a collaborative C++ game engine, driving collaboration and code quality across 600+ commits with GitHub workflows, PRs, and peer reviews. Implemented automated unit and integration testing infrastructure with GoogleTest, achieving 90%+ coverage to improve release reliability.
+                        Terminal based turn based combat game implemented in C++ with a focus on clean architecture and object oriented design principles. The project demonstrates modular class design, separation of concerns, and systematic application of SOLID principles across a complete game engine.
                     </p>
                     <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Technical Achievements</h4>
+                        <h4 class="text-lg font-semibold text-primary mb-2">Technical Implementation</h4>
                         <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li><strong>Team Leadership:</strong> Coordinated 5 developers using Git workflows, pull request reviews, and issue tracking</li>
-                            <li><strong>Software Architecture:</strong> Implemented SOLID principles with modular design and clear separation of concerns</li>
-                            <li><strong>Game Systems:</strong> Developed adaptive difficulty algorithms, XP/leveling systems, inventory management, and deterministic save/load</li>
-                            <li><strong>Quality Assurance:</strong> Maintained 90%+ unit test coverage using GoogleTest framework with CI pipeline</li>
-                            <li><strong>Development Process:</strong> Applied agile methodology with sprints, retrospectives, and GitHub issue management</li>
+                            <li>Turn based combat system with speed based turn ordering using custom MaxHeap data structure</li>
+                            <li>Difficulty scaling system with configurable stat multipliers affecting attack and health modifiers</li>
+                            <li>Inventory management with dynamic capacity, item stacking, and multiple sorting strategies</li>
+                            <li>Polymorphic item system with inheritance hierarchy for Weapon, Armour, and Potion classes</li>
+                            <li>Template based save and load system for game state serialization and deserialization</li>
+                            <li>Merge sort and insertion sort implementations for inventory organization</li>
+                            <li>State machine architecture for game flow management with MainMenu, InGame, and GameOver states</li>
+                            <li>Comprehensive unit testing with GoogleTest covering combat, character, inventory, and sorting systems</li>
                         </ul>
                     </div>
                     <div class="mb-4">
@@ -137,7 +145,7 @@
                         </div>
                     </div>
                     <div class="text-sm text-gray-400 mb-4">
-                        <p>5-person collaborative capstone project with 622+ commits, demonstrating team-based software development lifecycle</p>
+                        <p>Collaborative project demonstrating team based software development with comprehensive test coverage</p>
                     </div>
                     <a href="https://github.com/aryamohammadi/rpgGame" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
                         See the Code
