@@ -200,7 +200,7 @@ function initializeTypingEffect() {
                 strings: [
                     "Hi, I'm Arya",
                     "Math & CS at UCSD",
-                    "Full-stack developer"
+                    "AI-powered developer"
                 ],
                 typeSpeed: 80,        // Slightly slower for elegance
                 backSpeed: 60,        // Smooth deletion
@@ -410,8 +410,8 @@ function hideLoadingScreen() {
         if (loadingScreen) {
             // Remove immediately - no animation delay
             loadingScreen.style.display = 'none';
-            loadingScreen.remove();
-            document.documentElement.style.overflow = '';
+                loadingScreen.remove();
+                document.documentElement.style.overflow = '';
         }
         resolve();
     });
@@ -446,7 +446,7 @@ async function initializeUXFeatures() {
 function setupScrollAnimations() {
     // All elements remain visible - no fade-in animations
     document.querySelectorAll('.fade-in-element').forEach(el => {
-        el.style.opacity = '1';
+            el.style.opacity = '1';
         el.style.transform = 'none';
     });
 }

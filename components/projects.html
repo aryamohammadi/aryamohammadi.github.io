@@ -8,41 +8,122 @@
         </div>
         
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Professional business website development -->
-            <div class="bg-gray-800 rounded-lg overflow-hidden project-card lg:col-span-1">
+            <!-- CodeLens - Featured Project #1 -->
+            <div class="bg-gray-800 rounded-lg overflow-hidden project-card lg:col-span-2">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">Full-Stack Business Platform</h3>
+                        <h3 class="text-2xl font-bold text-white">CodeLens</h3>
                         <span class="text-sm text-gray-400">2025</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Production-ready full-stack web application built with Next.js, featuring RESTful API endpoints, third-party service integrations, and automated workflow systems. This platform handles customer inquiries, processes form submissions, and manages communication workflows through email and SMS channels.
+                        AI-powered code review tool that detects bugs, suggests optimizations, and analyzes time/space complexity across 8 programming languages using GPT-4.
                     </p>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Key Features</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>Quote submission handler processing customer requests with server-side validation</li>
-                            <li>SMS webhook handler receiving incoming SMS replies from customers via Twilio</li>
-                            <li>Automated follow-up system sending scheduled SMS and email messages</li>
-                            <li>Lead scoring algorithm analyzing project type, contact methods, and urgency indicators</li>
-                            <li>Google Reviews integration fetching and caching Google Places API data</li>
-                            <li>Dynamic OG image generation for social media sharing</li>
-                        </ul>
-                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Built with GPT-4 and a custom REST API architecture, featuring real-time syntax highlighting, structured JSON responses, and Zustand for client-side state management with async error handling.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Deployed on Vercel's edge network with syntax highlighting, skeleton loaders, and staggered animations.
+                    </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Next.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">React</span>
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">TypeScript</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">OpenAI API</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Zustand</span>
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Nodemailer</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Twilio</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Vercel</span>
                         </div>
                     </div>
+                    <div class="flex gap-4">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
+                            View Live Demo
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/aryamohammadi" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 font-medium flex items-center">
+                            See the Code
+                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="text-sm text-gray-400 mb-4">
-                        <p>Platform handles dozens of requests per week with comprehensive error handling and validation</p>
+            <!-- DormDuos -->
+            <div class="bg-gray-800 rounded-lg overflow-hidden project-card">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-white">DormDuos</h3>
+                        <span class="text-sm text-gray-400">2024</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Student housing platform matching UCR renters with listings, featuring React frontend, Node.js/Express API, JWT auth, Cloudinary uploads, and input sanitization.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Reduced query latency to &lt;1ms by adding compound indexes on status, price, and room filters. Benchmarked API at 28k req/sec with Autocannon.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Wrote tests with 100% branch coverage using Jest, Supertest, and MongoDB Memory Server.
+                    </p>
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">React.js</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Express.js</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">MongoDB</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">JWT</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Jest</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Vercel</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Railway</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://www.dormduos.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
+                            View Live Demo
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/aryamohammadi/UCRHousing" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 font-medium flex items-center">
+                            See the Code
+                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AryaElectric.com -->
+            <div class="bg-gray-800 rounded-lg overflow-hidden project-card">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-white">AryaElectric.com</h3>
+                        <span class="text-sm text-gray-400">2025</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Production website for electrical contractor with async API routes for quote submissions, SMS webhooks, and automated follow-ups.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Added server-side caching for Google Reviews API, reducing cached response latency by 90%.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Wrote 90+ tests with mocked Twilio/Nodemailer; validated end-to-end flows with Playwright.
+                    </p>
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Next.js</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Twilio</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Nodemailer</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Jest</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Playwright</span>
+                        </div>
                     </div>
                     <div class="flex gap-4">
                         <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
@@ -61,102 +142,30 @@
                 </div>
             </div>
 
-            <!-- Full-stack web application -->
-            <div class="bg-gray-800 rounded-lg overflow-hidden project-card">
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">DormDuos</h3>
-                        <span class="text-sm text-gray-400">2024</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">
-                        Production-ready full-stack housing marketplace platform serving UC Riverside students. Built with Node.js, Express, and MongoDB, the application handles authentication, listing management, and search functionality with a focus on reliability and security. The platform processes dozens of listing requests weekly, serving hundreds of active users searching for housing near campus.
-                    </p>
-                    <div class="text-sm text-gray-400 mb-4 italic">
-                        Independent student project; not affiliated with UCR.
-                    </div>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Technical Implementation</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>JWT-based authentication system with secure token generation and validation</li>
-                            <li>Password hashing using bcrypt with 12 salt rounds</li>
-                            <li>Protected API routes with middleware-based authorization</li>
-                            <li>CRUD operations for housing listings with ownership validation</li>
-                            <li>Advanced search and filtering by price range, bedrooms, bathrooms, and amenities</li>
-                            <li>Pagination support for large result sets</li>
-                            <li>MongoDB schema design with proper indexing for query optimization</li>
-                            <li>Input sanitization middleware preventing NoSQL injection attacks</li>
-                            <li>Deployed on Railway for backend, Vercel for frontend, MongoDB Atlas for database</li>
-                        </ul>
-                    </div>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Express</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">MongoDB</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">JWT</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Vite</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Vercel</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Railway</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
-                            View Live Demo
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/aryamohammadi/UCRHousing" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 font-medium flex items-center">
-                            See the Code
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Collaborative software development project -->
+            <!-- Battlestar RPG -->
             <div class="bg-gray-800 rounded-lg overflow-hidden project-card">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-2xl font-bold text-white">Battlestar RPG</h3>
-                        <span class="text-sm text-gray-400">September 2024</span>
+                        <span class="text-sm text-gray-400">2024</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Terminal-based, turn-based combat game implemented in C++ with a focus on clean architecture and object-oriented design principles. The project demonstrates modular class design, separation of concerns, and systematic application of SOLID principles across a complete game engine. The architecture centers on a state-driven game loop that manages combat encounters, inventory systems, map navigation, and persistent game state through serialization.
+                        3.4k-line RPG engine with 23 classes built over 3 months in a team of 5.
                     </p>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Technical Implementation</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
-                            <li>Turn-based combat system with speed-based turn ordering using MaxHeap data structure</li>
-                            <li>Difficulty scaling system with configurable stat multipliers affecting attack and health modifiers</li>
-                            <li>Inventory management with dynamic capacity, item stacking, and multiple sorting strategies</li>
-                            <li>Stat-based progression system tracking health, defense, damage, speed, and experience</li>
-                            <li>Map and room navigation system with enemy and item distribution</li>
-                            <li>State machine architecture for game flow management (MainMenu, InGame, GameOver)</li>
-                            <li>Serialization and deserialization for save/load game functionality</li>
-                            <li>Polymorphic item system with inheritance hierarchy (Weapon, Armour, Potion)</li>
-                            <li>Merge sort and insertion sort implementations for inventory organization</li>
-                            <li>Template-based save/load system with file I/O abstraction</li>
-                        </ul>
-                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Implemented MaxHeap-based combat scheduler for O(n log n) speed-based turn ordering. Designed polymorphic item system with clone pattern and template-based save/load serialization.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Wrote 2.3k lines of unit tests covering combat, inventory, sorting, and state persistence.
+                    </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">C++</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">CMake</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">OOP</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">SOLID</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">STL</span>
                             <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">GoogleTest</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Git</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">CMake</span>
                         </div>
-                    </div>
-                    <div class="text-sm text-gray-400 mb-4">
-                        <p>Collaborative project demonstrating team based software development with comprehensive test coverage</p>
                     </div>
                     <a href="https://github.com/aryamohammadi/rpgGame" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
                         See the Code
@@ -168,4 +177,4 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
