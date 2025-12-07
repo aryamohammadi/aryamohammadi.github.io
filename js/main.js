@@ -200,7 +200,7 @@ function initializeTypingEffect() {
                 strings: [
                     "Hi, I'm Arya",
                     "Math & CS at UCSD",
-                    "AI-powered developer"
+                    "Full-stack developer"
                 ],
                 typeSpeed: 80,        // Slightly slower for elegance
                 backSpeed: 60,        // Smooth deletion
