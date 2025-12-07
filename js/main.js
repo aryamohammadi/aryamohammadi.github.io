@@ -377,7 +377,7 @@ function showLoadingScreen() {
             <div class="text-center">
                 <!-- Animated logo/icon -->
                 <div class="mb-8 relative">
-                    <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
+                    <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded animate-spin mx-auto"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
                         <i class="fas fa-code text-primary text-2xl"></i>
                     </div>
@@ -388,8 +388,8 @@ function showLoadingScreen() {
                 <p class="text-gray-400 mb-8">Preparing an exceptional experience...</p>
                 
                 <!-- Progress bar -->
-                <div class="w-80 bg-gray-700 rounded-full h-2 mb-4 mx-auto">
-                    <div id="loading-progress" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                <div class="w-80 bg-gray-700 rounded h-2 mb-4 mx-auto">
+                    <div id="loading-progress" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded transition-all duration-300" style="width: 0%"></div>
                 </div>
                 
                 <!-- Progress percentage -->
