@@ -1,81 +1,66 @@
-<section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-900 pt-4 sm:pt-8 lg:pt-16">
-    <div class="container mx-auto px-6 py-8 sm:py-16 lg:py-24">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-20">
+<section id="home" class="min-h-screen flex items-center bg-[#0d1117] pt-16 sm:pt-20 relative overflow-hidden">
+    <!-- Subtle background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-[#0d1117] opacity-50 pointer-events-none"></div>
+    
+    <div class="container mx-auto px-6 py-12 sm:py-16 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
             
             <!-- Left Side - Your Photo -->
             <div class="lg:w-1/2 flex justify-center lg:justify-start">
-                <div class="relative">
-                    <!-- Main photo with cool effects -->
-                    <div class="w-80 h-80 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px] xl:w-[480px] xl:h-[480px] rounded overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300 border-4 border-cyan-500/20 bg-slate-800">
-                        <img class="w-full h-full object-cover" src="images/IMG_72.png" alt="Arya M" style="object-position: center 30%;" loading="eager" decoding="async" fetchpriority="high" width="480" height="480">
+                <div class="relative profile-image">
+                    <!-- Elegant profile photo with refined border -->
+                    <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-xl overflow-hidden shadow-2xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
+                        <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="images/IMG_72.png" alt="Arya M" style="object-position: center 30%;" loading="eager" decoding="async" fetchpriority="high" width="320" height="320">
                     </div>
-                    
-                    <!-- Enhanced floating elements with parallax -->
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-cyan-500/20 rounded-full blur-xl float-animation parallax-element" data-speed="0.3"></div>
-                    <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-blue-500/30 rounded-full blur-lg float-animation parallax-element" data-speed="0.2" style="animation-delay: 1s;"></div>
-                    
-                    <!-- Speech bubble connector -->
-                    <div class="hidden lg:block absolute top-1/2 -right-8 transform -translate-y-1/2">
-                        <div class="w-0 h-0 border-t-[20px] border-t-transparent border-b-[20px] border-b-transparent border-l-[30px] border-l-gray-800/90 animate-pulse"></div>
-                    </div>
+                    <!-- Subtle accent glow -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary via-primary-light to-primary opacity-0 hover:opacity-20 rounded-xl blur-xl transition-opacity duration-500 -z-10"></div>
                 </div>
             </div>
             
-            <!-- Right Side - Your Thoughts -->
+            <!-- Right Side - Content -->
             <div class="lg:w-1/2 text-center lg:text-left">
-                <!-- Elegant speech bubble with enhanced effects -->
-                <div class="glass-effect rounded p-10 lg:p-12 shadow-2xl border border-gray-600/30 relative">
+                <div class="space-y-7">
                     
-                    <!-- Clean typing animation -->
-                    <div class="mb-10 min-h-[200px] flex items-center justify-center lg:justify-start">
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.2] tracking-tight text-center lg:text-left">
+                    <!-- Typing animation with elegant styling -->
+                    <div class="min-h-[140px] flex items-center justify-center lg:justify-start">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-[-0.04em]">
                             <span id="typing-text" class="gradient-text inline-block"></span>
                         </h1>
                     </div>
                     
-                    <!-- Interactive description - reveal on hover -->
-                    <div class="mb-12 group">
-                        <div class="text-center lg:text-left">
-                            <p class="text-lg lg:text-xl text-gray-400 leading-relaxed font-light tracking-wide mb-4 transition-all duration-300 group-hover:text-gray-200">
-                                Hover to learn more about my work
-                            </p>
-                            
-                            <!-- Professional expandable content -->
-                            <div class="max-h-0 overflow-hidden transition-all duration-500 group-hover:max-h-96 opacity-0 group-hover:opacity-100">
-                                <div class="pt-4 space-y-4">
-                                    <div class="bg-gray-800/30 rounded p-4 border-l-4 border-cyan-500">
-                                        <p class="text-base lg:text-lg text-gray-300 leading-relaxed font-light">
-                                            <strong class="text-cyan-400">Education:</strong> B.S. Mathematics and Computer Science at UC San Diego, GPA 3.75
-                                        </p>
-                                    </div>
-                                    <div class="bg-gray-800/30 rounded-lg p-4 border-l-4 border-blue-500">
-                                        <p class="text-base lg:text-lg text-gray-300 leading-relaxed font-light">
-                                            <strong class="text-blue-400">Experience:</strong> Computer Science Tutor at UC Riverside, Hardware Intern at ProCustom Group
-                                        </p>
-                                    </div>
-                                    <div class="bg-gray-800/30 rounded p-4 border-l-4 border-cyan-500">
-                                        <p class="text-base lg:text-lg text-gray-300 leading-relaxed font-light">
-                                            <strong class="text-cyan-400">Projects:</strong> Full stack web applications and developer tools
-                                        </p>
-                                    </div>
-                                </div>
+                    <!-- Refined description with elegant divider -->
+                    <div class="space-y-5">
+                        <p class="text-lg sm:text-xl text-[#c9d1d9] leading-relaxed font-light tracking-wide">
+                            Mathematics & Computer Science student at UC San Diego
+                        </p>
+                        
+                        <!-- Elegant divider -->
+                        <div class="divider-accent w-20 mx-auto lg:mx-0"></div>
+                        
+                        <!-- Refined info badges -->
+                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                            <div class="bg-[#161b22] border border-[#30363d] rounded-md px-4 py-2 text-sm text-[#c9d1d9] hover:border-primary/50 transition-all duration-300 hover:bg-[#21262d]">
+                                UC San Diego
+                            </div>
+                            <div class="bg-[#161b22] border border-[#30363d] rounded-md px-4 py-2 text-sm text-[#c9d1d9] hover:border-primary/50 transition-all duration-300 hover:bg-[#21262d]">
+                                Full Stack Developer
+                            </div>
+                            <div class="bg-[#161b22] border border-[#30363d] rounded-md px-4 py-2 text-sm text-[#c9d1d9] hover:border-primary/50 transition-all duration-300 hover:bg-[#21262d]">
+                                CS Tutor
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Enhanced buttons with modern effects -->
-                    <div class="flex flex-col sm:flex-row gap-6 lg:justify-start justify-center">
-                        <a href="#projects" class="btn-primary interactive glow-effect">
-                            <span class="flex items-center justify-center">
-                                <i class="fas fa-rocket mr-2"></i>
-                                View Projects
-                            </span>
+                    <!-- Elegant buttons with refined styling -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
+                        <a href="#projects" class="btn-primary inline-flex items-center justify-center group">
+                            <span>View Projects</span>
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
                         </a>
-                        <a href="#contact" class="border border-gray-300 text-gray-200 hover:bg-white hover:text-gray-900 font-medium py-4 px-10 rounded transition-all duration-300 shadow-lg hover:shadow-xl interactive">
-                            <span class="flex items-center justify-center">
-                                <i class="fas fa-envelope mr-2"></i>
-                                Contact Me
-                            </span>
+                        <a href="#contact" class="btn-secondary inline-flex items-center justify-center px-6 py-3 rounded-md font-medium">
+                            <span>Contact Me</span>
                         </a>
                     </div>
                 </div>
@@ -83,13 +68,13 @@
             
         </div>
         
-        <!-- Little bounce arrow to scroll down -->
-        <div class="text-center mt-8 sm:mt-12 lg:mt-24">
-            <a href="#about" class="text-gray-400 hover:text-primary inline-block animate-bounce transition-colors duration-300">
-                <svg class="h-8 w-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        <!-- Elegant scroll indicator -->
+        <div class="text-center mt-16 sm:mt-20">
+            <a href="#about" class="text-[#8b949e] hover:text-primary inline-block transition-all duration-300 group">
+                <svg class="h-6 w-6 mx-auto transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
             </a>
         </div>
     </div>
-</section> 
+</section>

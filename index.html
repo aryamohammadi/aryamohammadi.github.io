@@ -30,11 +30,8 @@
     <link rel="preload" as="image" href="images/IMG_72.png" fetchpriority="high">
     <link rel="preload" as="image" href="images/IMG_7090.png" fetchpriority="high">
     <link rel="preload" as="image" href="images/IMG_1465.jpeg" fetchpriority="high">
-    <link rel="preload" as="image" href="images/photo1.jpeg" fetchpriority="high">
-    <link rel="preload" as="image" href="images/FullSizeRender.jpeg" fetchpriority="high">
+    <link rel="preload" as="image" href="images/FullSizeRender.jpeg">
     <link rel="preload" as="image" href="images/50BD71A7-39DF-44DF-951D-EBA50E62ABED_1_105_c.jpeg">
-    <link rel="preload" as="image" href="images/B790383D-30C2-4C3D-AA22-B3D4039D8ABB.jpeg">
-    <link rel="preload" as="image" href="images/0CA72C63-BC69-4044-8CFE-C16E91BDDCD7_1_105_c.jpeg">
     <link rel="preload" as="image" href="images/IMG_7143.jpeg">
     
     <!-- Tailwind CSS - this framework is a lifesaver -->
@@ -59,19 +56,21 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#06B6D4', // Cyan accent - modern technical
+                        primary: '#d4af37', // Elegant gold
+                        'primary-light': '#e5c558',
+                        'primary-dark': '#b8941f',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
-    <!-- Simplified Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+<body class="bg-[#0d1117] text-[#f0f0f0] overflow-x-hidden">
+    <!-- Elegant Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-[#0d1117] flex items-center justify-center z-50">
         <div class="text-center">
-            <div class="w-16 h-16 mx-auto border-4 border-primary border-t-transparent rounded animate-spin mb-4"></div>
-            <div id="loading-percentage" class="text-sm text-gray-400 font-mono">0%</div>
+            <div class="w-16 h-16 mx-auto border-2 border-primary/30 border-t-primary rounded-full animate-spin mb-6"></div>
+            <div id="loading-percentage" class="text-sm text-[#8b949e] font-mono">0%</div>
         </div>
     </div>
 

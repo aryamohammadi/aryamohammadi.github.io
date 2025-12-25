@@ -1,67 +1,50 @@
-<section id="gallery" class="py-24 bg-gray-800">
+<section id="gallery" class="py-12 sm:py-16 bg-[#0d1117]">
     <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Gallery</h2>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                Capturing moments of life
+        <!-- Section header -->
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-light mb-4 gradient-text tracking-tight inline-block">Gallery</h2>
+            <p class="text-base sm:text-lg text-[#8b949e] font-light max-w-2xl mx-auto mt-4">
+                Moments captured
             </p>
         </div>
         
-        <!-- Photo grid that works on all screen sizes -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-            
-            <!-- Images load immediately - no lazy loading for faster display -->
-            <div class="overflow-hidden rounded shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
-                <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full" src="images/IMG_1465.jpeg" alt="Professional photograph" loading="eager" decoding="async" width="400" height="300" fetchpriority="high">
+        <!-- Elegant divider -->
+        <div class="divider mb-12"></div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
+            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
+                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
+                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/IMG_1465.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
                 </div>
             </div>
             
-            <div class="overflow-hidden rounded shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
-                <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full" src="images/photo1.jpeg" alt="Professional photograph" loading="eager" decoding="async" width="400" height="300">
+            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
+                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
+                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/FullSizeRender.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
                 </div>
             </div>
             
-            <div class="overflow-hidden rounded shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
-                <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full" src="images/FullSizeRender.jpeg" alt="Professional photograph" loading="eager" decoding="async" width="400" height="300">
+            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
+                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
+                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/50BD71A7-39DF-44DF-951D-EBA50E62ABED_1_105_c.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
                 </div>
             </div>
             
-            <div class="overflow-hidden rounded shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
-                <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full" src="images/50BD71A7-39DF-44DF-951D-EBA50E62ABED_1_105_c.jpeg" alt="Professional photograph" loading="eager" decoding="async" width="400" height="300">
+            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
+                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
+                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/IMG_7143.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
                 </div>
             </div>
-            
-            <div class="overflow-hidden rounded shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
-                <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full" src="images/B790383D-30C2-4C3D-AA22-B3D4039D8ABB.jpeg" alt="Professional photograph" loading="eager" decoding="async" width="400" height="300">
-                </div>
-            </div>
-            
-            <div class="overflow-hidden rounded shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
-                <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full" src="images/0CA72C63-BC69-4044-8CFE-C16E91BDDCD7_1_105_c.jpeg" alt="Professional photograph" loading="eager" decoding="async" width="400" height="300">
-                </div>
-            </div>
-            
-            <div class="overflow-hidden rounded shadow-lg transition-transform duration-200 hover:scale-[1.01] bg-gray-900">
-                <div class="aspect-w-4 aspect-h-3 h-64 lg:h-72 relative bg-gray-800">
-                    <img class="object-cover w-full h-full" src="images/IMG_7143.jpeg" alt="Professional photograph" loading="eager" decoding="async" width="400" height="300">
-                </div>
-            </div>
-            
         </div>
         
-        <div class="text-center mt-16">
-            <blockquote class="text-gray-300 italic text-lg font-light max-w-4xl mx-auto">
-                <p class="mb-4">"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth."</p>
-                <footer class="text-gray-400 text-base font-normal">
+        <!-- Elegant quote -->
+        <div class="text-center max-w-3xl mx-auto">
+            <blockquote class="text-[#c9d1d9] italic text-base font-light leading-relaxed">
+                <p class="mb-3">"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth."</p>
+                <footer class="text-[#8b949e] text-sm font-normal not-italic">
                     ― Marcus Aurelius, <cite class="font-medium">Meditations</cite>
                 </footer>
             </blockquote>
         </div>
     </div>
-</section> 
+</section>

@@ -1,205 +1,133 @@
-<section id="projects" class="py-24 bg-gray-900">
+<section id="projects" class="py-12 sm:py-16 bg-[#161b22]">
     <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Projects</h2>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                Full stack web applications and software systems built with modern technologies
+        <!-- Section header -->
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-light mb-4 gradient-text tracking-tight inline-block">Projects</h2>
+            <p class="text-base sm:text-lg text-[#8b949e] font-light max-w-2xl mx-auto mt-4">
+                Full stack applications and software systems
             </p>
         </div>
         
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- CodeLens - Featured Project #1 -->
-            <div class="bg-gray-800 rounded overflow-hidden project-card lg:col-span-2">
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">CodeLens</h3>
-                        <span class="text-sm text-gray-400">2025</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">
-                        Code review tool that analyzes snippets across 8 languages using GPT-4, showing bugs, optimizations, and time/space complexity.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Wrote structured prompts with strict JSON schemas for consistent API responses, and added validation to handle empty or malformed outputs.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Managed async state with Zustand and built syntax highlighting, skeleton loaders, and staggered animations for the UI.
-                    </p>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Next.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">TypeScript</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">OpenAI API</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Zustand</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Vercel</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
-                            View Live Demo
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/aryamohammadi" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 font-medium flex items-center">
-                            See the Code
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
+        <!-- Elegant divider -->
+        <div class="divider mb-12"></div>
+        
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- CodeLens - Featured -->
+            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6 lg:col-span-2">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">CodeLens</h3>
+                    <span class="text-xs text-[#8b949e] font-light">2025</span>
+                </div>
+                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
+                    Code review tool using GPT-4 API across 8 languages. Built structured prompts with JSON schemas and async state management with Zustand.
+                </p>
+                <div class="mb-5">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Next.js</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">TypeScript</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">OpenAI API</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Zustand</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- DormDuos -->
-            <div class="bg-gray-800 rounded overflow-hidden project-card">
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">DormDuos</h3>
-                        <span class="text-sm text-gray-400">2024</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">
-                        Housing platform for UCR students to find and post off-campus listings; React frontend, Express API, JWT auth, Cloudinary uploads.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Added input sanitization to prevent NoSQL injection, bcrypt password hashing, and protected routes for secure access.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Optimized search across 10k+ listings with compound indexes and pagination, and wrote tests with Jest and Supertest to achieve 100% branch coverage.
-                    </p>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">React.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Express.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">MongoDB</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">JWT</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Jest</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Vercel</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Railway</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="https://www.dormduos.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
-                            View Live Demo
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/aryamohammadi/UCRHousing" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 font-medium flex items-center">
-                            See the Code
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AryaElectric.com -->
-            <div class="bg-gray-800 rounded overflow-hidden project-card">
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">AryaElectric.com</h3>
-                        <span class="text-sm text-gray-400">2025</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">
-                        Production website for electrical contractor with async API routes for quote submissions, SMS webhooks, and automated follow-ups.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Added server-side caching for Google Reviews API, reducing cached response latency by 90%.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Wrote 90+ tests with mocked Twilio/Nodemailer; validated end-to-end flows with Playwright.
-                    </p>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Next.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Twilio</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Nodemailer</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Jest</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Playwright</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
-                            View Live Site
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                            </svg>
-                        </a>
-                        <a href="https://github.com/aryamohammadi/AryaElectricProject-Demo" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 font-medium flex items-center">
-                            See the Code
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Battlestar RPG -->
-            <div class="bg-gray-800 rounded overflow-hidden project-card">
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">Battlestar RPG</h3>
-                        <span class="text-sm text-gray-400">2024</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">
-                        3.4k-line RPG engine with 23 classes and 2.3k-line test cases built over 3 months in a team of 5.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Implemented MaxHeap-based combat scheduler for O(n log n) speed-based turn ordering.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Designed polymorphic item system with clone pattern and template-based save/load serialization.
-                    </p>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">C++</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">STL</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">GoogleTest</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">CMake</span>
-                        </div>
-                    </div>
-                    <a href="https://github.com/aryamohammadi/rpgGame" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-purple-400 font-medium flex items-center">
-                        See the Code
-                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex gap-5">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium flex items-center group transition-colors duration-300">
+                        Live Demo
+                        <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                         </svg>
+                    </a>
+                    <a href="https://github.com/aryamohammadi" target="_blank" rel="noopener noreferrer" class="text-[#8b949e] hover:text-[#f0f0f0] text-sm font-medium transition-colors duration-300">
+                        Code
                     </a>
                 </div>
             </div>
 
-            <!-- Chat Server -->
-            <div class="bg-gray-800 rounded overflow-hidden project-card">
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-2xl font-bold text-white">Chat Server</h3>
-                        <span class="text-sm text-gray-400">2024</span>
+            <!-- DormDuos -->
+            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">DormDuos</h3>
+                    <span class="text-xs text-[#8b949e] font-light">2024</span>
+                </div>
+                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
+                    Housing platform for UCR students. React frontend, Express API, JWT auth, MongoDB with 100% test coverage.
+                </p>
+                <div class="mb-5">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">React</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Node.js</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">MongoDB</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Jest</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
-                        Multi-client chat server in C using POSIX sockets with manual HTTP parsing and routing for a messaging system with posts and reactions.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Created in-memory data structures with size limits, timestamps, and UTF-8 validation to handle bad input and prevent buffer overflows.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Tested under concurrent connections on Linux, checking memory usage and verifying correct request handling.
-                    </p>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">C</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">HTTP</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Sockets</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Linux</span>
-                        </div>
+                </div>
+                <div class="flex gap-5">
+                    <a href="https://www.dormduos.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium transition-colors duration-300">
+                        Live Site
+                    </a>
+                    <a href="https://github.com/aryamohammadi/UCRHousing" target="_blank" rel="noopener noreferrer" class="text-[#8b949e] hover:text-[#f0f0f0] text-sm font-medium transition-colors duration-300">
+                        Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- AryaElectric.com -->
+            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">AryaElectric.com</h3>
+                    <span class="text-xs text-[#8b949e] font-light">2025</span>
+                </div>
+                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
+                    Production website with async API routes, SMS webhooks, and server-side caching (90% latency reduction).
+                </p>
+                <div class="mb-5">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Next.js</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Twilio</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Playwright</span>
+                    </div>
+                </div>
+                <div class="flex gap-5">
+                    <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium transition-colors duration-300">
+                        Live Site
+                    </a>
+                    <a href="https://github.com/aryamohammadi/AryaElectricProject-Demo" target="_blank" rel="noopener noreferrer" class="text-[#8b949e] hover:text-[#f0f0f0] text-sm font-medium transition-colors duration-300">
+                        Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Battlestar RPG -->
+            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">Battlestar RPG</h3>
+                    <span class="text-xs text-[#8b949e] font-light">2024</span>
+                </div>
+                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
+                    3.4k-line RPG engine with MaxHeap-based combat scheduler. Built in C++ with 2.3k-line test suite.
+                </p>
+                <div class="mb-5">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">C++</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">GoogleTest</span>
+                    </div>
+                </div>
+                <a href="https://github.com/aryamohammadi/rpgGame" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium transition-colors duration-300 inline-flex items-center">
+                    View Code
+                </a>
+            </div>
+
+            <!-- Chat Server -->
+            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">Chat Server</h3>
+                    <span class="text-xs text-[#8b949e] font-light">2024</span>
+                </div>
+                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
+                    Multi-client chat server in C with POSIX sockets, manual HTTP parsing, and in-memory data structures.
+                </p>
+                <div class="mb-5">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">C</span>
+                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Linux</span>
                     </div>
                 </div>
             </div>
