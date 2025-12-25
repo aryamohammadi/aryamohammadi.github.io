@@ -16,13 +16,13 @@
                         <span class="text-sm text-gray-400">2025</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Code review tool that detects bugs, suggests optimizations, and analyzes time/space complexity across 8 programming languages using GPT-4 API.
+                        Code review tool that analyzes snippets across 8 languages using GPT-4, showing bugs, optimizations, and time/space complexity.
                     </p>
                     <p class="text-gray-300 mb-4">
-                        Built with GPT-4 and a custom REST API architecture, featuring real-time syntax highlighting, structured JSON responses, and Zustand for client-side state management with async error handling.
+                        Wrote structured prompts with strict JSON schemas for consistent API responses, and added validation to handle empty or malformed outputs.
                     </p>
                     <p class="text-gray-300 mb-4">
-                        Deployed on Vercel's edge network with syntax highlighting, skeleton loaders, and staggered animations.
+                        Managed async state with Zustand and built syntax highlighting, skeleton loaders, and staggered animations for the UI.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
@@ -60,13 +60,13 @@
                         <span class="text-sm text-gray-400">2024</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        Student housing platform matching UCR renters with listings, featuring React frontend, Node.js/Express API, JWT auth, Cloudinary uploads, and input sanitization.
+                        Housing platform for UCR students to find and post off-campus listings; React frontend, Express API, JWT auth, Cloudinary uploads.
                     </p>
                     <p class="text-gray-300 mb-4">
-                        Reduced query latency to &lt;1ms by adding compound indexes on status, price, and room filters. Benchmarked API at 28k req/sec with Autocannon.
+                        Added input sanitization to prevent NoSQL injection, bcrypt password hashing, and protected routes for secure access.
                     </p>
                     <p class="text-gray-300 mb-4">
-                        Wrote tests with 100% branch coverage using Jest, Supertest, and MongoDB Memory Server.
+                        Optimized search across 10k+ listings with compound indexes and pagination, and wrote tests with Jest and Supertest to achieve 100% branch coverage.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
@@ -150,13 +150,13 @@
                         <span class="text-sm text-gray-400">2024</span>
                     </div>
                     <p class="text-gray-300 mb-4">
-                        3.4k-line RPG engine with 23 classes built over 3 months in a team of 5.
+                        3.4k-line RPG engine with 23 classes and 2.3k-line test cases built over 3 months in a team of 5.
                     </p>
                     <p class="text-gray-300 mb-4">
-                        Implemented MaxHeap-based combat scheduler for O(n log n) speed-based turn ordering. Designed polymorphic item system with clone pattern and template-based save/load serialization.
+                        Implemented MaxHeap-based combat scheduler for O(n log n) speed-based turn ordering.
                     </p>
                     <p class="text-gray-300 mb-4">
-                        Wrote 2.3k lines of unit tests covering combat, inventory, sorting, and state persistence.
+                        Designed polymorphic item system with clone pattern and template-based save/load serialization.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
@@ -173,6 +173,34 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                         </svg>
                     </a>
+                </div>
+            </div>
+
+            <!-- Chat Server -->
+            <div class="bg-gray-800 rounded overflow-hidden project-card">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-white">Chat Server</h3>
+                        <span class="text-sm text-gray-400">2024</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Multi-client chat server in C using POSIX sockets with manual HTTP parsing and routing for a messaging system with posts and reactions.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Created in-memory data structures with size limits, timestamps, and UTF-8 validation to handle bad input and prevent buffer overflows.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Tested under concurrent connections on Linux, checking memory usage and verifying correct request handling.
+                    </p>
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold text-primary mb-2">Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">C</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">HTTP</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Sockets</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded text-sm">Linux</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
