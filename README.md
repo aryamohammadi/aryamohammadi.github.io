@@ -48,23 +48,30 @@ portfolio/
 
 ## Featured Projects
 
-### UCR Housing Platform
+### CodeLens
 
-This full-stack web application addresses a real need I identified while helping students find housing near UC Riverside. The platform allows students to browse available listings, post their own housing options, and connect with potential roommates. I built it using React for the frontend, Node.js for the backend API, and MongoDB for data persistence. The application includes user authentication, complete CRUD operations, and a responsive interface that works across all devices.
+An AI-powered code review tool that detects bugs, suggests optimizations, and analyzes time and space complexity across 8 programming languages using GPT-4. I designed a REST API with a structured JSON schema for consistent model output, validation for empty or malformed responses, and async state management with Zustand. Built with Next.js and TypeScript.
 
-**Live Demo:** [ucr-housing.vercel.app](https://ucr-housing.vercel.app)
+**GitHub Repository:** [github.com/aryamohammadi/code-analyzer](https://github.com/aryamohammadi/code-analyzer)
+
+### DormDuos
+
+This full-stack web application serves a 500+ member UC Riverside housing community I co-founded. The platform allows students to browse available listings, post their own housing options, and connect with potential roommates. I built it using React for the frontend, Node.js and Express for the backend API, and MongoDB for data persistence. The application includes JWT authentication, complete CRUD operations, input sanitization against NoSQL injection, and 100% branch test coverage with Jest, Supertest, and MongoDB Memory Server.
+
+**Live Demo:** [ucr-housing-frontend.vercel.app](https://ucr-housing-frontend.vercel.app/)
+**GitHub Repository:** [github.com/aryamohammadi/Dormduos](https://github.com/aryamohammadi/Dormduos)
 
 ### Arya Electric LLC Website
 
-As the Technical Lead at Arya Electric, I developed the company's primary web presence from scratch. This professional website serves as the main point of contact for clients and showcases our electrical contracting services. I chose Next.js and TypeScript for their excellent developer experience and performance characteristics, combined with Tailwind CSS for rapid UI development. The site has contributed to a 25% increase in business growth and serves our customer base effectively.
+As the Web & Technical Lead at Arya Electric, I developed and maintain the company's primary web presence from scratch. This production Next.js platform serves a licensed electrical contractor with 400+ customers across Southern California. It features async API routes for quote submission with Twilio SMS confirmation, automated email follow-ups, and server-side caching for the Google Reviews API that cut cached response latency by 90%. The codebase is covered by 90+ tests with Playwright end-to-end validation.
 
 **Live Site:** [aryaelectric.com](https://www.aryaelectric.com)
 
 ### Battlestar RPG Game
 
-This terminal-based RPG game was my capstone project for my C++ programming course. Working with a team of four other students, we built a complete game featuring turn-based combat, an inventory system, and adaptive difficulty that responds to player performance. We implemented comprehensive testing using GoogleTest and learned valuable lessons about collaborative software development, version control, and managing a larger codebase.
+This terminal-based RPG game was my capstone project for my C++ programming course. Working with a team of four other students, we built a 3.4k-line game engine with 23 classes featuring turn-based combat with a MaxHeap-based scheduler, an inventory system, and adaptive difficulty. We wrote 2.3k lines of GoogleTest unit tests and learned valuable lessons about collaborative software development, version control, and managing a larger codebase.
 
-**GitHub Repository:** [github.com/aryamohammadi/rpgGame](https://github.com/aryamohammadi/rpgGame)
+**GitHub Repository:** [github.com/aryamohammadi/Battlestar-RPG](https://github.com/aryamohammadi/Battlestar-RPG)
 
 ## Running Locally
 
@@ -82,7 +89,7 @@ The site is hosted on GitHub Pages and deploys automatically whenever I push cha
 
 ## About Me and My Goals
 
-I'm currently pursuing my degree in Mathematics and Computer Science at UC San Diego while working as a Technical Lead at Arya Electric LLC. I'm passionate about building software that solves real problems and creates value for users. Right now, I'm actively looking for summer 2025 internship opportunities where I can contribute to meaningful projects and continue growing as a software engineer.
+I'm currently pursuing my degree in Computer Science and Mathematics at UC San Diego (expected 2027) while working as the Web & Technical Lead at Arya Electric LLC. This summer I'm a Software Engineer Intern at IBM on the watsonx Orchestrate team, building agentic AI tooling. I'm passionate about building software that solves real problems and creates value for users.
 
 This portfolio represents not just my technical skills, but also my approach to development: clean code, thoughtful design, and a focus on user experience. I believe in continuous learning and improvement, and I'm always working on new projects to expand my capabilities.
 
@@ -90,9 +97,9 @@ This portfolio represents not just my technical skills, but also my approach to 
 
 I'm always interested in connecting with fellow developers, potential employers, and anyone working on interesting projects. Feel free to reach out through any of these channels:
 
-- **Email:** armohammadi@ucsd.edu
+- **Email:** aryamohammadi.dev@gmail.com
 - **LinkedIn:** [linkedin.com/in/aryamshahi](https://linkedin.com/in/aryamshahi)
-- **GitHub:** [github.com/aryamang1](https://github.com/aryamang1)
+- **GitHub:** [github.com/aryamohammadi](https://github.com/aryamohammadi)
 - **Portfolio Website:** There's also a contact form on the site if you prefer that route
 
 Whether you have questions about my projects, want to discuss potential opportunities, or just want to chat about technology and software development, I'd love to hear from you.
