@@ -1,200 +1,40 @@
-// Enhanced Portfolio JavaScript - Modern UX Implementation
-// Professional-grade user experience with smooth animations and interactions
+// Portfolio JavaScript - animations and interactions
+// All content is pre-rendered in index.html; this file only handles UX.
 
-// Premium loading screen variables and functions
-const loadingTexts = [
-    'Initializing Portfolio...',
-    'Loading Components...',
-    'Preparing Animations...',
-    'Optimizing Performance...',
-    'Almost Ready...',
-    'Welcome!'
-];
-
-const loadingSteps = [
-    'Loading core files...',
-    'Initializing components...',
-    'Setting up animations...',
-    'Optimizing layout...',
-    'Finalizing setup...',
-    'Ready to explore!'
-];
-
-// Loading screen functions
-function showLoadingScreen() {
-    console.log('📱 Premium loading screen displayed');
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-        loadingScreen.style.opacity = '1';
-        loadingScreen.style.pointerEvents = 'auto';
-    }
-}
-
-function updateLoadingProgress(percentage) {
-    const progressBar = document.getElementById('loading-progress');
-    const percentageDisplay = document.getElementById('loading-percentage');
-    const loadingText = document.getElementById('loading-text');
-    const loadingStep = document.getElementById('loading-step');
-    
-    if (progressBar) {
-        progressBar.style.width = percentage + '%';
-    }
-    
-    if (percentageDisplay) {
-        percentageDisplay.textContent = Math.round(percentage) + '%';
-    }
-    
-    // Update loading text based on progress
-    const textIndex = Math.floor((percentage / 100) * loadingTexts.length);
-    if (loadingText && textIndex < loadingTexts.length) {
-        loadingText.textContent = loadingTexts[textIndex];
-    }
-    
-    // Update loading step
-    const stepIndex = Math.floor((percentage / 100) * loadingSteps.length);
-    if (loadingStep && stepIndex < loadingSteps.length) {
-        loadingStep.textContent = loadingSteps[stepIndex];
-    }
-    
-    console.log(`📊 Loading progress: ${percentage}%`);
-}
-
-// Initialize loading screen when DOM loads
+// Initialize everything once the DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Show loading screen immediately
-    document.documentElement.style.overflow = 'hidden';
-    
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-        loadingScreen.style.display = 'flex';
-        loadingScreen.style.opacity = '1';
-        console.log('✅ Loading screen activated');
-        
-        // Start loading progress immediately
-        startPortfolioLoading();
-    } else {
-        console.log('❌ Loading screen not found');
-    }
+    initializeUXFeatures();
+    initializeTypingEffect();
+    setupScrollAnimations();
+    setupNavigationHighlighting();
 });
-
-// Main loading function - optimized for maximum speed
-async function startPortfolioLoading() {
-    try {
-        console.log('Portfolio loading started');
-        
-        // Start loading components immediately in parallel
-        const componentsPromise = loadAllComponents();
-        
-        // Initialize UX features in parallel (non-blocking)
-        initializeUXFeatures();
-        
-        // Wait for components to finish
-        await componentsPromise;
-        
-        // Hide loading screen immediately - no delay
-        hideLoadingScreen();
-        
-        // Initialize animations after page is visible (non-blocking)
-        requestAnimationFrame(() => {
-            initializeTypingEffect();
-            setupScrollAnimations();
-            setupNavigationHighlighting();
-        });
-        
-        console.log('✅ Portfolio fully loaded');
-        
-    } catch (error) {
-        console.error('❌ Loading failed:', error);
-        // Force hide loading screen immediately on error
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            loadingScreen.style.display = 'none';
-        }
-        document.documentElement.style.overflow = '';
-    }
-}
-
-// Legacy function - kept for compatibility but not used
-// All loading now happens in startPortfolioLoading()
-async function initializePortfolio() {
-    // This function is deprecated - use startPortfolioLoading() instead
-    return startPortfolioLoading();
-}
-
-// Load all components in parallel for maximum speed
-async function loadAllComponents() {
-    console.log('📦 Loading components in parallel...');
-    
-    const componentsList = [
-        { elementId: 'header', fileName: 'header.html' },
-        { elementId: 'hero', fileName: 'hero.html' },
-        { elementId: 'about', fileName: 'about.html' },
-        { elementId: 'projects', fileName: 'projects.html' },
-        { elementId: 'skills', fileName: 'skills.html' },
-        { elementId: 'contact', fileName: 'contact.html' },
-        { elementId: 'gallery', fileName: 'gallery.html' },
-        { elementId: 'footer', fileName: 'footer.html' }
-    ];
-    
-    // Load all components in parallel using Promise.all
-    const loadPromises = componentsList.map(async (component, index) => {
-        try {
-            const response = await fetch(`components/${component.fileName}`);
-            if (!response.ok) {
-                throw new Error(`Failed to load ${component.fileName}: HTTP ${response.status}`);
-            }
-            
-            const htmlContent = await response.text();
-            const targetElement = document.getElementById(component.elementId);
-            
-            if (targetElement) {
-                targetElement.innerHTML = htmlContent;
-                // Update progress as each component loads
-                const progress = ((index + 1) / componentsList.length) * 100;
-                updateLoadingProgress(progress);
-                return true;
-            } else {
-                console.error(`❌ Target element not found: ${component.elementId}`);
-                return false;
-            }
-        } catch (error) {
-            console.error(`❌ Error loading ${component.fileName}:`, error);
-            return false;
-        }
-    });
-    
-    // Wait for all components to load in parallel
-    await Promise.all(loadPromises);
-    updateLoadingProgress(100);
-    console.log('📦 All components loaded in parallel!');
-}
 
 // Optimized typing animation with proper text visibility
 function initializeTypingEffect() {
     console.log('🎯 Setting up optimized typing animation...');
-    
+
     // Find the element where the typing effect should happen
     const typingElement = document.querySelector('#typing-text');
-    
+
     // Check if the element exists on the page
     if (typingElement) {
         console.log('✅ Found typing element, creating optimized Typed.js instance...');
-        
+
         // Ensure element is visible first
         typingElement.style.opacity = '1';
         typingElement.style.visibility = 'visible';
-        
+
         // Clear any existing content and classes
         typingElement.textContent = '';
         typingElement.className = 'gradient-text';
-        
+
         try {
             // Test if gradient text is supported
             const testElement = document.createElement('span');
             testElement.style.background = 'linear-gradient(135deg, #8B5CF6, #EC4899)';
             testElement.style.webkitBackgroundClip = 'text';
             testElement.style.webkitTextFillColor = 'transparent';
-            
+
             // Professional typing animation - optimized for fast start
             const typedInstance = new Typed(typingElement, {
                 strings: [
@@ -216,34 +56,18 @@ function initializeTypingEffect() {
                 bindInputFocusEvents: false,
                 attr: null
             });
-            
-            // Ensure text is visible when typing starts
-            typedInstance.on('start', () => {
-                console.log('🎬 Typing animation started');
-                typingElement.style.opacity = '1';
-                
-                // Ensure cursor is properly styled
-                setTimeout(() => {
-                    const cursor = document.querySelector('.typed-cursor');
-                    if (cursor) {
-                        cursor.style.color = '#8B5CF6';
-                        cursor.style.fontWeight = '300';
-                    }
-                }, 100);
-            });
-            
-            // Handle each string completion
-            typedInstance.on('complete', () => {
-                console.log('✅ String typing completed');
-            });
-            
-            // Handle when typing resets for next string
-            typedInstance.on('reset', () => {
-                console.log('🔄 Typing reset for next string');
-            });
-            
+
+            // Ensure cursor is properly styled once it exists
+            setTimeout(() => {
+                const cursor = document.querySelector('.typed-cursor');
+                if (cursor) {
+                    cursor.style.color = '#8B5CF6';
+                    cursor.style.fontWeight = '300';
+                }
+            }, 100);
+
             console.log('✨ Typing animation initialized successfully!');
-            
+
         } catch (error) {
             console.error('❌ Error setting up typing animation:', error);
             // Robust fallback with visible text
@@ -251,7 +75,7 @@ function initializeTypingEffect() {
             typingElement.style.opacity = '1';
             typingElement.style.color = '#8B5CF6'; // Ensure fallback color
         }
-        
+
     } else {
         console.log('⚠️ Typing element not found - will retry...');
         // Retry with timeout
@@ -263,34 +87,34 @@ function initializeTypingEffect() {
 // This makes clicking nav links smoothly scroll to sections instead of jumping
 function setupSmoothScrolling() {
     console.log('Setting up smooth scrolling for navigation...'); // Debug message
-    
+
     // Find all links that start with # (internal page links)
     const navigationLinks = document.querySelectorAll('a[href^="#"]');
     console.log('Found', navigationLinks.length, 'navigation links'); // Debug
-    
+
     // Add a click event listener to each navigation link
     navigationLinks.forEach(function(link) {
         link.addEventListener('click', function(event) {
             console.log('Navigation link clicked:', this.getAttribute('href')); // Debug
-            
+
             // Stop the default link behavior (jumping to section)
             event.preventDefault();
-            
+
             // Get the target section ID from the href attribute
             const targetSectionId = this.getAttribute('href');
             const targetSection = document.querySelector(targetSectionId);
-            
+
             // Check if the target section exists
             if (targetSection) {
                 console.log('Scrolling to section:', targetSectionId); // Debug
-                
+
                 // Smoothly scroll to the target section
                 // The -70 offset accounts for the fixed navigation header
                 window.scrollTo({
                     top: targetSection.offsetTop - 70,  // Position to scroll to
                     behavior: 'smooth'                   // Make it smooth instead of instant
                 });
-                
+
                 // Close mobile menu if it's currently open
                 // This is for mobile devices where the menu might be expanded
                 const mobileMenu = document.querySelector('#mobile-menu');
@@ -299,13 +123,13 @@ function setupSmoothScrolling() {
                     mobileMenu.classList.remove('block');
                     mobileMenu.classList.add('hidden');
                 }
-                
+
             } else {
                 console.error('Target section not found:', targetSectionId); // Debug
             }
         });
     });
-    
+
     console.log('Smooth scrolling setup complete!'); // Debug message
 }
 
@@ -313,10 +137,10 @@ function setupSmoothScrolling() {
 // I had to learn about responsive design for this
 function toggleMobileMenu() {
     console.log('Mobile menu toggle clicked'); // Debug message
-    
+
     // Find the mobile menu element
     const mobileMenu = document.querySelector('#mobile-menu');
-    
+
     if (mobileMenu) {
         // Toggle between hidden and visible
         if (mobileMenu.classList.contains('hidden')) {
@@ -337,11 +161,11 @@ function toggleMobileMenu() {
 // This is extra credit stuff - learned about Intersection Observer from YouTube
 window.addEventListener('load', function() {
     console.log('Setting up scroll animations...'); // Debug message
-    
+
     // Find all elements that should fade in when scrolled to
     const elementsToFade = document.querySelectorAll('.fade-in-element');
     console.log('Found', elementsToFade.length, 'elements to animate'); // Debug
-    
+
     // Create an Intersection Observer to watch for elements entering the viewport
     // This was really confusing at first but it's pretty cool once you understand it
     const scrollObserver = new IntersectionObserver(function(entries) {
@@ -351,94 +175,41 @@ window.addEventListener('load', function() {
                 // Element is now visible - add the fade-in class
                 console.log('Element came into view, adding fade-in animation'); // Debug
                 entry.target.classList.add('fade-in');
-                
+
                 // Stop watching this element since it's already animated
                 scrollObserver.unobserve(entry.target);
             }
         });
-    }, { 
+    }, {
         threshold: 0.1  // Trigger when 10% of the element is visible
     });
-    
+
     // Start watching all the fade elements
     elementsToFade.forEach(function(element) {
         scrollObserver.observe(element);
     });
-    
+
     console.log('Scroll animations setup complete!'); // Debug message
-}); 
+});
 
 // ===== ENHANCED UX FEATURES =====
 
-// Professional loading screen with progress bar
-function showLoadingScreen() {
-    const loadingHTML = `
-        <div id="loading-screen" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center">
-            <div class="text-center">
-                <!-- Animated logo/icon -->
-                <div class="mb-8 relative">
-                    <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded animate-spin mx-auto"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-code text-primary text-2xl"></i>
-                    </div>
-                </div>
-                
-                <!-- Loading text -->
-                <h2 class="text-2xl font-light text-white mb-2 gradient-text">Loading Portfolio</h2>
-                <p class="text-gray-400 mb-8">Preparing an exceptional experience...</p>
-                
-                <!-- Progress bar -->
-                <div class="w-80 bg-gray-700 rounded h-2 mb-4 mx-auto">
-                    <div id="loading-progress" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded transition-all duration-300" style="width: 0%"></div>
-                </div>
-                
-                <!-- Progress percentage -->
-                <span id="loading-percentage" class="text-gray-300 text-sm font-mono">0%</span>
-            </div>
-        </div>
-    `;
-    
-    document.body.insertAdjacentHTML('beforeend', loadingHTML);
-}
-
-// Duplicate function removed
-
-// Hide loading screen immediately
-function hideLoadingScreen() {
-    return new Promise((resolve) => {
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            // Remove immediately - no animation delay
-            loadingScreen.style.display = 'none';
-                loadingScreen.remove();
-                document.documentElement.style.overflow = '';
-        }
-        resolve();
-    });
-}
-
 // Initialize advanced UX features
-async function initializeUXFeatures() {
+function initializeUXFeatures() {
     console.log('🎨 Initializing UX enhancements...');
-    
+
     // Setup smooth scrolling with enhanced behavior
     setupSmoothScrolling();
-    
+
     // Add keyboard navigation support
     setupKeyboardNavigation();
-    
+
     // Initialize scroll progress indicator
     setupScrollProgress();
-    
-    // Setup mobile menu enhancements
-    setupMobileMenuEnhancements();
-    
+
     // Add hover effects and micro-interactions
     setupMicroInteractions();
-    
-    // Setup optimized image lazy loading
-    setupImageLazyLoading();
-    
+
     console.log('✨ UX enhancements initialized!');
 }
 
@@ -455,17 +226,17 @@ function setupScrollAnimations() {
 function setupNavigationHighlighting() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const currentSection = entry.target.getAttribute('id');
-                
+
                 // Update navigation active states
                 navLinks.forEach(link => {
                     link.classList.remove('text-primary', 'border-b-2', 'border-primary');
                     link.classList.add('text-gray-300');
-                    
+
                     if (link.getAttribute('href') === `#${currentSection}`) {
                         link.classList.remove('text-gray-300');
                         link.classList.add('text-primary', 'border-b-2', 'border-primary');
@@ -474,14 +245,8 @@ function setupNavigationHighlighting() {
             }
         });
     }, { threshold: 0.3 });
-    
-    sections.forEach(section => observer.observe(section));
-}
 
-// Subtle parallax effects - disabled for performance
-function setupParallaxEffects() {
-    // Parallax disabled to improve scroll performance
-    return;
+    sections.forEach(section => observer.observe(section));
 }
 
 // Scroll progress indicator - optimized with throttling
@@ -490,17 +255,17 @@ function setupScrollProgress() {
     progressBar.className = 'fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 z-50 transform scale-x-0 origin-left transition-transform duration-150';
     progressBar.id = 'scroll-progress';
     document.body.appendChild(progressBar);
-    
+
     let ticking = false;
     function updateProgress() {
         const scrollTop = window.pageYOffset;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = (scrollTop / docHeight);
-        
+
         progressBar.style.transform = `scaleX(${scrollPercent})`;
         ticking = false;
     }
-    
+
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(updateProgress);
@@ -522,7 +287,7 @@ function setupKeyboardNavigation() {
                     break;
             }
         }
-        
+
         // Escape key closes mobile menu
         if (e.key === 'Escape') {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -531,35 +296,6 @@ function setupKeyboardNavigation() {
             }
         }
     });
-}
-
-// Enhanced mobile menu with animations
-function setupMobileMenuEnhancements() {
-    const mobileMenuButton = document.querySelector('[onclick="toggleMobileMenu()"]');
-    if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', () => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu) {
-                if (mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.remove('hidden');
-                    mobileMenu.style.opacity = '0';
-                    mobileMenu.style.transform = 'translateY(-10px)';
-                    
-                    setTimeout(() => {
-                        mobileMenu.style.opacity = '1';
-                        mobileMenu.style.transform = 'translateY(0)';
-                    }, 10);
-                } else {
-                    mobileMenu.style.opacity = '0';
-                    mobileMenu.style.transform = 'translateY(-10px)';
-                    
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 200);
-                }
-            }
-        });
-    }
 }
 
 // Micro-interactions and hover effects
@@ -571,12 +307,12 @@ function setupMicroInteractions() {
             this.style.transform = 'translateY(-2px)';
             this.style.transition = 'transform 0.2s ease';
         });
-        
+
         button.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
         });
     });
-    
+
     // Add ripple effect to clickable elements
     document.addEventListener('click', function(e) {
         if (e.target.matches('button, .btn, .interactive')) {
@@ -593,7 +329,7 @@ function createRippleEffect(e) {
     const size = Math.max(rect.width, rect.height);
     const x = e.clientX - rect.left - size / 2;
     const y = e.clientY - rect.top - size / 2;
-    
+
     ripple.style.cssText = `
         position: absolute;
         width: ${size}px;
@@ -606,7 +342,7 @@ function createRippleEffect(e) {
         animation: ripple 0.6s ease-out;
         pointer-events: none;
     `;
-    
+
     // Add ripple animation keyframes if not exists
     if (!document.getElementById('ripple-styles')) {
         const style = document.createElement('style');
@@ -621,18 +357,10 @@ function createRippleEffect(e) {
         `;
         document.head.appendChild(style);
     }
-    
+
     button.style.position = 'relative';
     button.style.overflow = 'hidden';
     button.appendChild(ripple);
-    
+
     setTimeout(() => ripple.remove(), 600);
 }
-
-// Image preloading happens immediately when components load
-// All images use loading="eager" and are preloaded in HTML head
-// This function is kept for compatibility but does minimal work
-function setupImageLazyLoading() {
-    // Images are already preloaded in HTML head and use loading="eager"
-    // No additional work needed - browser handles it optimally
-} 
