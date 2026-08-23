@@ -26,16 +26,38 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
-    <!-- Preload all images immediately for fastest loading -->
+    <!-- Preload only the above-the-fold hero photo; everything else lazy-loads -->
     <link rel="preload" as="image" href="images/IMG_72.png" fetchpriority="high">
-    <link rel="preload" as="image" href="images/IMG_7090.png" fetchpriority="high">
-    <link rel="preload" as="image" href="images/IMG_1465.jpeg" fetchpriority="high">
-    <link rel="preload" as="image" href="images/FullSizeRender.jpeg">
-    <link rel="preload" as="image" href="images/50BD71A7-39DF-44DF-951D-EBA50E62ABED_1_105_c.jpeg">
-    <link rel="preload" as="image" href="images/IMG_7143.jpeg">
-    
-    <!-- Tailwind CSS - this framework is a lifesaver -->
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="canonical" href="https://aryamohammadi.github.io/">
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Arya Mohammadi",
+        "url": "https://aryamohammadi.github.io/",
+        "image": "https://aryamohammadi.github.io/images/IMG_72.png",
+        "jobTitle": "Software Engineer Intern",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "IBM"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of California, San Diego"
+        },
+        "email": "mailto:aryamohammadi.dev@gmail.com",
+        "sameAs": [
+            "https://github.com/aryamohammadi",
+            "https://linkedin.com/in/aryamshahi"
+        ]
+    }
+    </script>
+
+    <!-- Tailwind CSS, built with the Tailwind CLI (see tailwind.config.js) -->
+    <link rel="stylesheet" href="css/tailwind.css">
     
     <!-- Font Awesome for all the cool icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -45,32 +67,18 @@
     
     <!-- My custom styles on top of Tailwind -->
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Typography: IBM Plex Sans for body, JetBrains Mono for code -->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Setting up Tailwind colors -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#d4af37', // Elegant gold
-                        'primary-light': '#e5c558',
-                        'primary-dark': '#b8941f',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Typography: IBM Plex — Serif for headings, Sans for body, Mono for labels -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+
 </head>
 <body class="bg-[#0d1117] text-[#f0f0f0] overflow-x-hidden">
 
     <!-- Navigation bar goes here -->
     <header class="fixed w-full glass-effect z-50">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-lg font-medium gradient-text tracking-tight hover:opacity-80 transition-opacity duration-300">Arya M</a>
+        <a href="#" class="text-lg font-medium text-primary tracking-tight hover:opacity-80 transition-opacity duration-300">Arya M</a>
         
         <!-- Navigation menu for bigger screens -->
         <div class="hidden md:flex space-x-1">
@@ -79,6 +87,7 @@
             <a href="#skills" class="text-[#c9d1d9] hover:text-primary text-sm font-normal transition-all duration-300 px-3 py-2 rounded-md">Skills</a>
             <a href="#contact" class="text-[#c9d1d9] hover:text-primary text-sm font-normal transition-all duration-300 px-3 py-2 rounded-md">Contact</a>
             <a href="#gallery" class="text-[#c9d1d9] hover:text-primary text-sm font-normal transition-all duration-300 px-3 py-2 rounded-md">Gallery</a>
+            <a href="AryaResume.pdf" target="_blank" rel="noopener" class="text-[#c9d1d9] hover:text-primary text-sm font-normal transition-all duration-300 px-3 py-2 rounded-md">Resume</a>
         </div>
         
         <!-- Mobile Navigation Button -->
@@ -98,211 +107,104 @@
         <a href="#skills" class="block py-2.5 text-[#c9d1d9] hover:text-primary text-sm transition-colors duration-300">Skills</a>
         <a href="#contact" class="block py-2.5 text-[#c9d1d9] hover:text-primary text-sm transition-colors duration-300">Contact</a>
         <a href="#gallery" class="block py-2.5 text-[#c9d1d9] hover:text-primary text-sm transition-colors duration-300">Gallery</a>
+        <a href="AryaResume.pdf" target="_blank" rel="noopener" class="block py-2.5 text-[#c9d1d9] hover:text-primary text-sm transition-colors duration-300">Resume</a>
     </div>
 </header>
 
     
     <!-- Main landing section with my photo and typing animation -->
-    <section id="home" class="min-h-screen flex items-center bg-[#0d1117] pt-16 sm:pt-20 relative overflow-hidden">
-    <!-- Subtle background gradient -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-[#0d1117] opacity-50 pointer-events-none"></div>
-    
-    <div class="container mx-auto px-6 py-12 sm:py-16 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
-            
-            <!-- Left Side - Your Photo -->
-            <div class="lg:w-1/2 flex justify-center lg:justify-start">
-                <div class="relative profile-image">
-                    <!-- Elegant profile photo with refined border -->
-                    <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-xl overflow-hidden shadow-2xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
-                        <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="images/IMG_72.png" alt="Arya M" style="object-position: center 30%;" loading="eager" decoding="async" fetchpriority="high" width="320" height="320">
-                    </div>
-                    <!-- Subtle accent glow -->
-                    <div class="absolute -inset-1 bg-gradient-to-r from-primary via-primary-light to-primary opacity-0 hover:opacity-20 rounded-xl blur-xl transition-opacity duration-500 -z-10"></div>
+    <section id="home" class="min-h-screen flex items-center bg-[#0d1117] pt-24 pb-16 relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            <div class="lg:col-span-7 order-2 lg:order-1">
+                <p class="eyebrow mb-6">UC San Diego &middot; SWE Intern @ IBM &middot; Full-stack</p>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium text-primary leading-tight mb-6">
+                    <span id="typing-text"></span>
+                </h1>
+                <p class="text-lg sm:text-xl text-[#c9d1d9] font-light leading-relaxed max-w-xl mb-10">
+                    Computer Science &amp; Mathematics student at UC San Diego, building full-stack
+                    and AI-integrated systems that run in production.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="btn-primary inline-flex items-center justify-center px-6 py-3 rounded-md font-medium text-sm">View projects</a>
+                    <a href="#contact" class="btn-secondary inline-flex items-center justify-center px-6 py-3 rounded-md font-medium text-sm">Get in touch</a>
                 </div>
             </div>
-            
-            <!-- Right Side - Content -->
-            <div class="lg:w-1/2 text-center lg:text-left">
-                <div class="space-y-7">
-                    
-                    <!-- Typing animation with elegant styling -->
-                    <div class="min-h-[140px] flex items-center justify-center lg:justify-start">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-[-0.04em]">
-                            <span id="typing-text" class="gradient-text inline-block"></span>
-                        </h1>
-                    </div>
-                    
-                    <!-- Refined description with elegant divider -->
-                    <div class="space-y-5">
-                        <p class="text-lg sm:text-xl text-[#c9d1d9] leading-relaxed font-light tracking-wide">
-                            Computer Science & Mathematics student at UC San Diego
-                        </p>
-                        
-                        <!-- Elegant divider -->
-                        <div class="divider-accent w-20 mx-auto lg:mx-0"></div>
-                        
-                        <!-- Refined info badges -->
-                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-                            <div class="bg-[#161b22] border border-[#30363d] rounded-md px-4 py-2 text-sm text-[#c9d1d9] hover:border-primary/50 transition-all duration-300 hover:bg-[#21262d]">
-                                UC San Diego
-                            </div>
-                            <div class="bg-[#161b22] border border-[#30363d] rounded-md px-4 py-2 text-sm text-[#c9d1d9] hover:border-primary/50 transition-all duration-300 hover:bg-[#21262d]">
-                                Full Stack Developer
-                            </div>
-                            <div class="bg-[#161b22] border border-[#30363d] rounded-md px-4 py-2 text-sm text-[#c9d1d9] hover:border-primary/50 transition-all duration-300 hover:bg-[#21262d]">
-                                SWE Intern @ IBM
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Elegant buttons with refined styling -->
-                    <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
-                        <a href="#projects" class="btn-primary inline-flex items-center justify-center group">
-                            <span>View Projects</span>
-                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                        <a href="#contact" class="btn-secondary inline-flex items-center justify-center px-6 py-3 rounded-md font-medium">
-                            <span>Contact Me</span>
-                        </a>
-                    </div>
+
+            <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+                <div class="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 overflow-hidden rounded-lg border border-[#30363d]">
+                    <img src="images/IMG_72.png" alt="Arya Mohammadi" width="288" height="288"
+                         class="w-full h-full object-cover" style="object-position: center 30%;"
+                         loading="eager" decoding="async" fetchpriority="high">
                 </div>
             </div>
-            
-        </div>
-        
-        <!-- Elegant scroll indicator -->
-        <div class="text-center mt-16 sm:mt-20">
-            <a href="#about" class="text-[#8b949e] hover:text-primary inline-block transition-all duration-300 group">
-                <svg class="h-6 w-6 mx-auto transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-            </a>
+
         </div>
     </div>
 </section>
 
     
     <!-- About me section -->
-    <section id="about" class="py-12 sm:py-16 bg-[#0d1117]">
+    <section id="about" class="py-20 sm:py-28 bg-[#0d1117]">
     <div class="container mx-auto px-6">
-        <!-- Section header with elegant title -->
-        <div class="text-center mb-12 sm:mb-16">
-            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-light mb-4 gradient-text tracking-tight inline-block">About Me</h2>
-            <p class="text-base sm:text-lg text-[#8b949e] font-light tracking-wide max-w-2xl mx-auto mt-4">
-                Full stack developer and computer science tutor
-            </p>
-        </div>
-        
-        <div class="max-w-6xl mx-auto">
-            <!-- Elegant divider -->
-            <div class="divider mb-12"></div>
-            
-            <div class="flex flex-col lg:flex-row items-start gap-10 lg:gap-14">
-                <!-- Profile Image -->
-                <div class="lg:w-2/5 flex justify-center lg:justify-start">
-                    <div class="relative profile-image">
-                        <div class="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-xl overflow-hidden shadow-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
-                            <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="images/IMG_7090.png" alt="Arya M" style="object-position: center 30%;" loading="eager" decoding="async" fetchpriority="high" width="320" height="320">
-                        </div>
-                    </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            <div class="lg:col-span-1">
+                <p class="eyebrow mb-3">About</p>
+                <h2 class="text-3xl sm:text-4xl font-medium text-[#f0f0f0] mb-6 leading-tight">I build software that handles real user data.</h2>
+                <p class="text-[#8b949e] text-sm font-light leading-relaxed mb-8">Computer Science &amp; Mathematics at UC San Diego, currently interning on the watsonx Orchestrate team at IBM. Most of what I have shipped runs in production for people who are not me.</p>
+                <div class="border-t border-[#30363d] pt-5">
+                    <p class="eyebrow mb-2">Education</p>
+                    <p class="text-[#f0f0f0] text-sm font-medium">University of California, San Diego</p>
+                    <p class="text-[#c9d1d9] text-sm font-light mt-1">B.S. Computer Science and Mathematics</p>
+                    <p class="font-mono text-xs text-[#8b949e] mt-2">Expected 2027 · GPA 3.70/4.00</p>
                 </div>
-                
-                <!-- Content -->
-                <div class="lg:w-3/5 space-y-7">
-                    <!-- Introduction -->
-                    <div>
-                        <h3 class="text-2xl sm:text-3xl font-light text-[#f0f0f0] mb-4 tracking-tight">
-                            Hi, I'm Arya
-                        </h3>
-                        <p class="text-lg sm:text-xl text-[#c9d1d9] leading-relaxed font-light">
-                            I build full stack web applications and software systems that handle real user data.
-                        </p>
+            </div>
+            <div class="lg:col-span-2">
+                <p class="eyebrow mb-6">Experience</p>
+                <div class="border-t border-[#30363d]">
+                    <div class="py-6 border-b border-[#30363d]">
+                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                            <h3 class="text-lg font-medium text-[#f0f0f0]">Software Engineer Intern</h3>
+                            <p class="font-mono text-xs text-[#8b949e]">June 2026 – September 2026</p>
+                        </div>
+                        <p class="text-primary text-sm mt-1 mb-3">IBM — watsonx Orchestrate</p>
+                        <ul class="space-y-2">
+                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Built Bob Brain, an AI platform that auto-captures institutional knowledge into a shared knowledge graph, with a FastAPI vault server and a Model Context Protocol server exposing six agent tools</li>
+                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Developed and tested REST API endpoints with CI/CD pipelines, connecting watsonx Orchestrate agents into coordinated multi-agent workflows</li>
+                        </ul>
                     </div>
-
-                    <!-- Elegant info cards -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-card bg-card-hover p-5 rounded-lg">
-                            <h4 class="text-primary text-sm font-medium mb-2 tracking-wide">Full Stack</h4>
-                            <p class="text-[#c9d1d9] text-sm leading-relaxed">
-                                CodeLens, DormDuos, and production web apps with Node.js, React, and MongoDB
-                            </p>
+                    <div class="py-6 border-b border-[#30363d]">
+                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                            <h3 class="text-lg font-medium text-[#f0f0f0]">Web &amp; Technical Lead (Contract)</h3>
+                            <p class="font-mono text-xs text-[#8b949e]">June 2025 – Present</p>
                         </div>
-                        <div class="bg-card bg-card-hover p-5 rounded-lg">
-                            <h4 class="text-primary text-sm font-medium mb-2 tracking-wide">Teaching</h4>
-                            <p class="text-[#c9d1d9] text-sm leading-relaxed">
-                                Tutored 400+ students over 600 hours in data structures, algorithms, and C++ debugging
-                            </p>
-                        </div>
+                        <p class="text-primary text-sm mt-1 mb-3">Arya Electric LLC</p>
+                        <ul class="space-y-2">
+                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Own the production Next.js platform for a licensed electrical contractor serving 400+ customers across Southern California</li>
+                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Built quote APIs with Twilio SMS confirmation and email automation; 90+ tests plus Playwright end-to-end flows; shipped a second production site for NOOR Electric Inc.</li>
+                        </ul>
                     </div>
-
-                    <!-- Education & Experience -->
-                    <div class="space-y-5">
-                        <div class="bg-card p-6 rounded-lg">
-                            <h3 class="text-lg font-medium mb-4 text-[#f0f0f0] tracking-wide">Education</h3>
-                            <div>
-                                <h4 class="text-primary font-medium mb-1.5">University of California, San Diego</h4>
-                                <p class="text-[#c9d1d9] text-sm mb-1">B.S. Computer Science and Mathematics</p>
-                                <p class="text-[#8b949e] text-sm">Expected 2027 | GPA: 3.70/4.00</p>
-                                <p class="text-[#8b949e] text-sm mt-2">Coursework: Advanced Data Structures, Design &amp; Analysis of Algorithms, Software Engineering, Systems Programming, AI, Graph Theory, Probability &amp; Statistics</p>
-                            </div>
+                    <div class="py-6 border-b border-[#30363d]">
+                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                            <h3 class="text-lg font-medium text-[#f0f0f0]">Computer Science and Mathematics Tutor</h3>
+                            <p class="font-mono text-xs text-[#8b949e]">September 2024 – June 2025</p>
                         </div>
-
-                        <div class="bg-card p-6 rounded-lg">
-                            <h3 class="text-lg font-medium mb-4 text-[#f0f0f0] tracking-wide">Experience</h3>
-                            <div class="space-y-5">
-                                <div>
-                                    <h4 class="text-primary font-medium mb-1.5">Software Engineer Intern</h4>
-                                    <p class="text-[#c9d1d9] text-sm mb-1">IBM — watsonx Orchestrate</p>
-                                    <p class="text-[#8b949e] text-sm mb-2">June 2026 – September 2026</p>
-                                    <ul class="text-[#c9d1d9] text-sm space-y-1.5 list-disc list-inside">
-                                        <li>Built Bob Brain, an AI platform that auto-captures institutional knowledge into a shared knowledge graph, with a FastAPI vault server and a Model Context Protocol server exposing six agent tools</li>
-                                        <li>Developed and tested REST API endpoints with CI/CD pipelines, connecting watsonx Orchestrate agents into coordinated multi-agent workflows</li>
-                                    </ul>
-                                </div>
-                                <div class="pt-3 border-t border-[#30363d]">
-                                    <h4 class="text-primary font-medium mb-1.5">Web &amp; Technical Lead (Contract)</h4>
-                                    <p class="text-[#c9d1d9] text-sm mb-1">Arya Electric LLC</p>
-                                    <p class="text-[#8b949e] text-sm mb-2">June 2025 – Present</p>
-                                    <ul class="text-[#c9d1d9] text-sm space-y-1.5 list-disc list-inside">
-                                        <li>Own the production Next.js platform for a licensed electrical contractor serving 400+ customers across Southern California</li>
-                                        <li>Built quote APIs with Twilio SMS confirmation and email automation; 90+ tests plus Playwright end-to-end flows; shipped a second production site for NOOR Electric Inc.</li>
-                                    </ul>
-                                </div>
-                                <div class="pt-3 border-t border-[#30363d]">
-                                    <h4 class="text-primary font-medium mb-1.5">Computer Science and Mathematics Tutor</h4>
-                                    <p class="text-[#c9d1d9] text-sm mb-1">University of California, Riverside</p>
-                                    <p class="text-[#8b949e] text-sm mb-2">September 2024 – June 2025</p>
-                                    <ul class="text-[#c9d1d9] text-sm space-y-1.5 list-disc list-inside">
-                                        <li>Tutored 400+ students over 600 hours in data structures, algorithms, and systems programming</li>
-                                        <li>Debugged 100+ student C++ codebases; authored 50+ practice problems adopted by 3 other tutors</li>
-                                    </ul>
-                                </div>
-                                <div class="pt-3 border-t border-[#30363d]">
-                                    <h4 class="text-primary font-medium mb-1.5">Hardware Intern</h4>
-                                    <p class="text-[#c9d1d9] text-sm mb-1">ProCustom Group</p>
-                                    <p class="text-[#8b949e] text-sm mb-2">June 2021 – September 2023</p>
-                                    <ul class="text-[#c9d1d9] text-sm space-y-1.5 list-disc list-inside">
-                                        <li>Assembled 250+ rugged laptop systems for Lockheed Martin and Raytheon with 100% on-time delivery</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="text-primary text-sm mt-1 mb-3">University of California, Riverside</p>
+                        <ul class="space-y-2">
+                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Tutored 400+ students over 600 hours in data structures, algorithms, and systems programming</li>
+                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Debugged 100+ student C++ codebases; authored 50+ practice problems adopted by 3 other tutors</li>
+                        </ul>
                     </div>
-                    
-                    <!-- Refined action buttons -->
-                    <div class="flex flex-wrap gap-3 pt-2">
-                        <a href="#contact" class="btn-primary inline-flex items-center justify-center text-sm">
-                            <span>Get in Touch</span>
-                        </a>
-                        <a href="https://github.com/aryamohammadi" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium text-sm">
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://linkedin.com/in/aryamshahi" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium text-sm">
-                            <span>LinkedIn</span>
-                        </a>
+                    <div class="py-6 border-b border-[#30363d]">
+                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                            <h3 class="text-lg font-medium text-[#f0f0f0]">Hardware Intern</h3>
+                            <p class="font-mono text-xs text-[#8b949e]">June 2021 – September 2023</p>
+                        </div>
+                        <p class="text-primary text-sm mt-1 mb-3">ProCustom Group</p>
+                        <ul class="space-y-2">
+                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Assembled 250+ rugged laptop systems for Lockheed Martin and Raytheon with 100% on-time delivery</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -312,199 +214,91 @@
 
     
     <!-- My projects section (the important stuff) -->
-    <section id="projects" class="py-12 sm:py-16 bg-[#161b22]">
+    <section id="projects" class="py-20 sm:py-28 bg-[#161b22]">
     <div class="container mx-auto px-6">
-        <!-- Section header -->
-        <div class="text-center mb-12 sm:mb-16">
-            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-light mb-4 gradient-text tracking-tight inline-block">Projects</h2>
-            <p class="text-base sm:text-lg text-[#8b949e] font-light max-w-2xl mx-auto mt-4">
-                Full stack applications and software systems
-            </p>
-        </div>
-        
-        <!-- Elegant divider -->
-        <div class="divider mb-12"></div>
-        
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- CodeLens - Featured -->
-            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6 lg:col-span-2">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">CodeLens</h3>
-                    <span class="text-xs text-[#8b949e] font-light">2025</span>
+        <p class="eyebrow mb-3">Selected work</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f0f0f0] mb-12">Projects</h2>
+        <div class="ledger">
+            <article class="ledger-row">
+                <div class="ledger-year">2025</div>
+                <div>
+                    <h3 class="ledger-name">CodeLens</h3>
+                    <p class="ledger-stack mt-2">Next.js · TypeScript · OpenAI API · Zustand</p>
                 </div>
-                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
-                    AI-powered code review tool that detects bugs, suggests optimizations, and analyzes time/space complexity across 8 languages using GPT-4. REST API with structured JSON schema output, validation for malformed responses, and async state management with Zustand.
-                </p>
-                <div class="mb-5">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Next.js</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">TypeScript</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">OpenAI API</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Zustand</span>
+                <div>
+                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">AI-powered code review tool that detects bugs, suggests optimizations, and analyzes time/space complexity across 8 languages using GPT-4. REST API with structured JSON schema output, validation for malformed responses, and async state management with Zustand.</p>
+                    <div class="mt-4 flex flex-wrap gap-5">
+                        <a href="https://github.com/aryamohammadi/code-analyzer" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
                     </div>
                 </div>
-                <a href="https://github.com/aryamohammadi/code-analyzer" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium flex items-center group transition-colors duration-300">
-                    View Code
-                    <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- DormDuos -->
-            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">DormDuos</h3>
-                    <span class="text-xs text-[#8b949e] font-light">2024</span>
+            </article>
+            <article class="ledger-row">
+                <div class="ledger-year">2025</div>
+                <div>
+                    <h3 class="ledger-name">AryaElectric.com</h3>
+                    <p class="ledger-stack mt-2">Next.js · Twilio · Playwright</p>
                 </div>
-                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
-                    Housing platform for a 500+ member UCR community I co-founded. React frontend, Express API, JWT auth, sub-1ms indexed queries, and 100% branch test coverage.
-                </p>
-                <div class="mb-5">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">React</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Node.js</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">MongoDB</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Jest</span>
+                <div>
+                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Production site for a licensed contractor serving 400+ customers. Async API routes, Twilio SMS webhooks, server-side caching (90% latency reduction), and 90+ tests.</p>
+                    <div class="mt-4 flex flex-wrap gap-5">
+                        <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">Live site</a>
+                        <a href="https://github.com/aryamohammadi/AryaElectricProject-Demo" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
                     </div>
                 </div>
-                <div class="flex gap-5">
-                    <a href="https://ucr-housing-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium transition-colors duration-300">
-                        Live Site
-                    </a>
-                    <a href="https://github.com/aryamohammadi/Dormduos" target="_blank" rel="noopener noreferrer" class="text-[#8b949e] hover:text-[#f0f0f0] text-sm font-medium transition-colors duration-300">
-                        Code
-                    </a>
+            </article>
+            <article class="ledger-row">
+                <div class="ledger-year">2024</div>
+                <div>
+                    <h3 class="ledger-name">DormDuos</h3>
+                    <p class="ledger-stack mt-2">React · Node.js · MongoDB · Jest</p>
                 </div>
-            </div>
-
-            <!-- AryaElectric.com -->
-            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">AryaElectric.com</h3>
-                    <span class="text-xs text-[#8b949e] font-light">2025</span>
-                </div>
-                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
-                    Production site for a licensed contractor serving 400+ customers. Async API routes, Twilio SMS webhooks, server-side caching (90% latency reduction), and 90+ tests.
-                </p>
-                <div class="mb-5">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Next.js</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Twilio</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">Playwright</span>
+                <div>
+                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Housing platform for a 500+ member UCR community I co-founded. React frontend, Express API, JWT auth, sub-1ms indexed queries, and 100% branch test coverage.</p>
+                    <div class="mt-4 flex flex-wrap gap-5">
+                        <a href="https://ucr-housing-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">Live site</a>
+                        <a href="https://github.com/aryamohammadi/Dormduos" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
                     </div>
                 </div>
-                <div class="flex gap-5">
-                    <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium transition-colors duration-300">
-                        Live Site
-                    </a>
-                    <a href="https://github.com/aryamohammadi/AryaElectricProject-Demo" target="_blank" rel="noopener noreferrer" class="text-[#8b949e] hover:text-[#f0f0f0] text-sm font-medium transition-colors duration-300">
-                        Code
-                    </a>
+            </article>
+            <article class="ledger-row">
+                <div class="ledger-year">2024</div>
+                <div>
+                    <h3 class="ledger-name">Battlestar RPG</h3>
+                    <p class="ledger-stack mt-2">C++ · GoogleTest</p>
                 </div>
-            </div>
-
-            <!-- Battlestar RPG -->
-            <div class="project-card bg-[#21262d] border border-[#30363d] rounded-xl p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-medium text-[#f0f0f0] tracking-tight">Battlestar RPG</h3>
-                    <span class="text-xs text-[#8b949e] font-light">2024</span>
-                </div>
-                <p class="text-[#c9d1d9] text-sm leading-relaxed mb-5 font-light">
-                    3.4k-line RPG engine with 23 classes, built by a 5-person team. MaxHeap-based combat scheduler and a 2.3k-line GoogleTest suite.
-                </p>
-                <div class="mb-5">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">C++</span>
-                        <span class="skill-tag px-3 py-1.5 bg-[#161b22] border border-[#30363d] text-[#c9d1d9] rounded-md text-xs font-light">GoogleTest</span>
+                <div>
+                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">3.4k-line RPG engine with 23 classes, built by a 5-person team. MaxHeap-based combat scheduler and a 2.3k-line GoogleTest suite.</p>
+                    <div class="mt-4 flex flex-wrap gap-5">
+                        <a href="https://github.com/aryamohammadi/Battlestar-RPG" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
                     </div>
                 </div>
-                <a href="https://github.com/aryamohammadi/Battlestar-RPG" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-light text-sm font-medium transition-colors duration-300 inline-flex items-center">
-                    View Code
-                </a>
-            </div>
+            </article>
         </div>
     </div>
 </section>
 
     
     <!-- Skills I've learned -->
-    <section id="skills" class="py-12 sm:py-16 bg-[#0d1117]">
+    <section id="skills" class="py-20 sm:py-28 bg-[#0d1117]">
     <div class="container mx-auto px-6">
-        <!-- Section header -->
-        <div class="text-center mb-12 sm:mb-16">
-            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-light mb-4 gradient-text tracking-tight inline-block">Skills & Technologies</h2>
-            <p class="text-base sm:text-lg text-[#8b949e] font-light max-w-2xl mx-auto mt-4">
-                Technologies and tools I work with
-            </p>
-        </div>
-        
-        <!-- Elegant divider -->
-        <div class="divider mb-12"></div>
-        
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- Languages -->
-                <div class="bg-card p-6 rounded-xl">
-                    <h3 class="text-lg font-medium text-primary mb-5 tracking-wide">Languages</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Python</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">C++</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">C</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">JavaScript</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">TypeScript</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Java</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">SQL</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">HTML</span>
-                    </div>
-                </div>
-
-                <!-- Frameworks & Libraries -->
-                <div class="bg-card p-6 rounded-xl">
-                    <h3 class="text-lg font-medium text-primary mb-5 tracking-wide">Frameworks & Libraries</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Next.js</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">React.js</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Node.js</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Express.js</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">FastAPI</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Zustand</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Jest</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Supertest</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Playwright</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">GoogleTest</span>
-                    </div>
-                </div>
-
-                <!-- Tools & Platforms -->
-                <div class="bg-card p-6 rounded-xl">
-                    <h3 class="text-lg font-medium text-primary mb-5 tracking-wide">Tools & Platforms</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Git</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Linux</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">MongoDB</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Docker</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Twilio</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Vercel</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">CMake</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">gdb</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Valgrind</span>
-                    </div>
-                </div>
-
-                <!-- Concepts -->
-                <div class="bg-card p-6 rounded-xl">
-                    <h3 class="text-lg font-medium text-primary mb-5 tracking-wide">Concepts</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">REST APIs</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">CI/CD</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Unit &amp; E2E Testing</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Authentication</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">AI Integration</span>
-                        <span class="skill-tag px-3 py-2 bg-[#21262d] border border-[#30363d] text-[#c9d1d9] rounded-md text-sm font-light">Model Context Protocol</span>
-                    </div>
-                </div>
+        <p class="eyebrow mb-3">What I work with</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f0f0f0] mb-12">Skills</h2>
+        <div class="border-t border-[#30363d]">
+            <div class="spec-row">
+                <p class="eyebrow">Languages</p>
+                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Python, C++, C, JavaScript, TypeScript, Java, SQL, HTML</p>
+            </div>
+            <div class="spec-row">
+                <p class="eyebrow">Frameworks</p>
+                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Next.js, React.js, Node.js, Express.js, FastAPI, Zustand, Jest, Supertest, Playwright, GoogleTest</p>
+            </div>
+            <div class="spec-row">
+                <p class="eyebrow">Tools</p>
+                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Git, Linux, MongoDB, Docker, Twilio, Vercel, CMake, gdb, Valgrind</p>
+            </div>
+            <div class="spec-row">
+                <p class="eyebrow">Concepts</p>
+                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">REST APIs, CI/CD, Unit &amp; E2E Testing, Authentication, AI Integration, Model Context Protocol</p>
             </div>
         </div>
     </div>
@@ -512,109 +306,32 @@
 
     
     <!-- How to reach me -->
-    <section id="contact" class="py-12 sm:py-16 bg-[#161b22]">
+    <section id="contact" class="py-20 sm:py-28 bg-[#161b22]">
     <div class="container mx-auto px-6">
-        <!-- Section header -->
-        <div class="text-center mb-12 sm:mb-16">
-            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-light mb-4 gradient-text tracking-tight inline-block">Get In Touch</h2>
-            <p class="text-base sm:text-lg text-[#8b949e] font-light max-w-2xl mx-auto mt-4">
-                Let's connect and collaborate
-            </p>
-        </div>
-        
-        <!-- Elegant divider -->
-        <div class="divider mb-12"></div>
-        
-        <div class="max-w-4xl mx-auto">
-            <div class="bg-card p-8 sm:p-10 rounded-xl">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-                    <!-- Email -->
-                    <div class="space-y-4">
-                        <div class="text-primary text-4xl mb-2">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <h3 class="text-base font-medium text-[#f0f0f0] tracking-wide">Email</h3>
-                        <a href="mailto:aryamohammadi.dev@gmail.com" class="btn-primary inline-flex items-center justify-center text-sm">
-                            Send Email
-                        </a>
-                    </div>
-                    
-                    <!-- LinkedIn -->
-                    <div class="space-y-4">
-                        <div class="text-primary text-4xl mb-2">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </div>
-                        <h3 class="text-base font-medium text-[#f0f0f0] tracking-wide">LinkedIn</h3>
-                        <a href="https://linkedin.com/in/aryamshahi" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium text-sm">
-                            Connect
-                        </a>
-                    </div>
-                    
-                    <!-- GitHub -->
-                    <div class="space-y-4">
-                        <div class="text-primary text-4xl mb-2">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-                        <h3 class="text-base font-medium text-[#f0f0f0] tracking-wide">GitHub</h3>
-                        <a href="https://github.com/aryamohammadi" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium text-sm">
-                            View Profile
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <p class="eyebrow mb-3">Contact</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f0f0f0] mb-6 max-w-2xl">Open to internships and new-grad roles.</h2>
+        <p class="text-[#8b949e] text-base font-light mb-10 max-w-xl">The fastest way to reach me is email.</p>
+        <div class="flex flex-wrap gap-x-10 gap-y-5">
+            <a href="mailto:aryamohammadi.dev@gmail.com" class="font-mono text-sm text-[#c9d1d9] hover:text-primary transition-colors duration-200 border-b border-[#30363d] hover:border-primary pb-1">aryamohammadi.dev@gmail.com</a>
+            <a href="https://linkedin.com/in/aryamshahi" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-[#c9d1d9] hover:text-primary transition-colors duration-200 border-b border-[#30363d] hover:border-primary pb-1">linkedin.com/in/aryamshahi</a>
+            <a href="https://github.com/aryamohammadi" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-[#c9d1d9] hover:text-primary transition-colors duration-200 border-b border-[#30363d] hover:border-primary pb-1">github.com/aryamohammadi</a>
         </div>
     </div>
 </section>
 
     
     <!-- Random photos -->
-    <section id="gallery" class="py-12 sm:py-16 bg-[#0d1117]">
+    <section id="gallery" class="py-20 sm:py-28 bg-[#0d1117]">
     <div class="container mx-auto px-6">
-        <!-- Section header -->
-        <div class="text-center mb-12 sm:mb-16">
-            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-light mb-4 gradient-text tracking-tight inline-block">Gallery</h2>
-            <p class="text-base sm:text-lg text-[#8b949e] font-light max-w-2xl mx-auto mt-4">
-                Moments captured
-            </p>
-        </div>
-        
-        <!-- Elegant divider -->
-        <div class="divider mb-12"></div>
-        
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
-            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
-                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
-                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/IMG_1465.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
-                </div>
-            </div>
-            
-            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
-                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
-                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/FullSizeRender.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
-                </div>
-            </div>
-            
-            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
-                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
-                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/50BD71A7-39DF-44DF-951D-EBA50E62ABED_1_105_c.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
-                </div>
-            </div>
-            
-            <div class="overflow-hidden rounded-xl border border-[#30363d] bg-[#161b22] transition-all duration-500">
-                <div class="aspect-w-4 aspect-h-3 h-48 sm:h-56 relative">
-                    <img class="object-cover w-full h-full transition-transform duration-700" src="images/IMG_7143.jpeg" alt="Gallery photo" loading="lazy" decoding="async" width="400" height="300">
-                </div>
-            </div>
-        </div>
-        
-        <!-- Elegant quote -->
-        <div class="text-center max-w-3xl mx-auto">
-            <blockquote class="text-[#c9d1d9] italic text-base font-light leading-relaxed">
-                <p class="mb-3">"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth."</p>
-                <footer class="text-[#8b949e] text-sm font-normal not-italic">
-                    ― Marcus Aurelius, <cite class="font-medium">Meditations</cite>
-                </footer>
-            </blockquote>
+        <p class="eyebrow mb-3">Outside the editor</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f0f0f0] mb-12">Gallery</h2>
+    </div>
+    <div class="bleed">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-1">
+            <img src="images/IMG_1465.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-48 sm:h-56 lg:h-64 object-cover">
+            <img src="images/FullSizeRender.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-48 sm:h-56 lg:h-64 object-cover">
+            <img src="images/50BD71A7-39DF-44DF-951D-EBA50E62ABED_1_105_c.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-48 sm:h-56 lg:h-64 object-cover">
+            <img src="images/IMG_7143.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-48 sm:h-56 lg:h-64 object-cover">
         </div>
     </div>
 </section>
