@@ -1,122 +1,76 @@
-// Portfolio interactions. All page content is pre-rendered in index.html;
-// this file only handles navigation and the hero type-on effect.
+// Portfolio interactions. All content is pre-rendered in index.html.
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.addEventListener('DOMContentLoaded', function () {
-    setupSmoothScrolling();
-    setupKeyboardNavigation();
-    setupNavigationHighlighting();
-    initializeTypingEffect();
+    setupLift();
+    setupGuitar();
+    setupKeyboard();
 });
 
-// Types the three intro lines once, then leaves the last one in place.
-// With reduced motion requested, the final line is written immediately.
-function initializeTypingEffect() {
-    const typingElement = document.querySelector('#typing-text');
-    if (!typingElement) return;
+// Project cards: section gets .in when the grid is well on screen;
+// each card gets .up (arming the hover bounce) when its lift finishes.
+function setupLift() {
+    var grid = document.querySelector('.cards');
+    if (!grid) return;
+    var section = grid.closest('section');
 
-    const strings = ["Hi, I'm Arya", 'Math & CS at UCSD', 'Full-stack developer'];
+    if (prefersReducedMotion) { section.classList.add('in'); return; }
 
-    if (prefersReducedMotion || typeof Typed === 'undefined') {
-        typingElement.textContent = strings[strings.length - 1];
-        return;
-    }
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            section.classList.toggle('in', e.isIntersecting);
+            if (!e.isIntersecting) {
+                grid.querySelectorAll('.card').forEach(function (c) { c.classList.remove('up'); });
+            }
+        });
+    }, { rootMargin: '0px 0px -22% 0px', threshold: 0.3 });
+    io.observe(grid);
 
-    new Typed(typingElement, {
-        strings: strings,
-        typeSpeed: 80,
-        backSpeed: 60,
-        backDelay: 2000,
-        startDelay: 0,
-        loop: false,
-        showCursor: true,
-        cursorChar: '|',
-        autoInsertCss: false,
-        smartBackspace: true,
-        contentType: 'text'
+    grid.querySelectorAll('.card').forEach(function (c) {
+        c.addEventListener('transitionend', function (e) {
+            if (e.propertyName === 'transform' && section.classList.contains('in')) {
+                c.classList.add('up');
+            }
+        });
     });
 }
 
-// Anchor links scroll to their section, offset by the fixed header.
-function setupSmoothScrolling() {
-    const headerOffset = 70;
+// Guitar draws itself once when it enters the viewport.
+function setupGuitar() {
+    var wrap = document.querySelector('.guitar-wrap');
+    if (!wrap) return;
+    if (prefersReducedMotion) { wrap.classList.add('in'); return; }
 
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener('click', function (event) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const target = document.querySelector(targetId);
-            if (!target) return;
-
-            event.preventDefault();
-            window.scrollTo({
-                top: target.offsetTop - headerOffset,
-                behavior: prefersReducedMotion ? 'auto' : 'smooth'
-            });
-
-            closeMobileMenu();
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { wrap.classList.add('in'); io.unobserve(wrap); }
         });
-    });
+    }, { threshold: 0.25 });
+    io.observe(wrap);
 }
 
 function toggleMobileMenu() {
-    const menu = document.querySelector('#mobile-menu');
+    var menu = document.querySelector('#mobile-menu');
     if (!menu) return;
-
-    const isOpen = menu.classList.toggle('block');
-    menu.classList.toggle('hidden', !isOpen);
+    var open = menu.classList.toggle('block');
+    menu.classList.toggle('hidden', !open);
 }
 
-function closeMobileMenu() {
-    const menu = document.querySelector('#mobile-menu');
-    if (menu && menu.classList.contains('block')) {
-        menu.classList.remove('block');
-        menu.classList.add('hidden');
-    }
-}
-
-// Marks the nav link for whichever section is currently in view.
-function setupNavigationHighlighting() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    if (!sections.length || !navLinks.length) return;
-
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-
-            const currentId = '#' + entry.target.getAttribute('id');
-            navLinks.forEach(function (link) {
-                link.classList.toggle('nav-active', link.getAttribute('href') === currentId);
-            });
-        });
-    }, { threshold: 0.3 });
-
-    sections.forEach(function (section) {
-        observer.observe(section);
-    });
-}
-
-function setupKeyboardNavigation() {
+function setupKeyboard() {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            closeMobileMenu();
+            var menu = document.querySelector('#mobile-menu');
+            if (menu && menu.classList.contains('block')) toggleMobileMenu();
         }
     });
 }
 
-// The guitar draws itself once the About rail is in view.
-(function () {
-    var wrap = document.querySelector('.guitar-wrap');
-    if (!wrap) return;
-
-    var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-        });
-    }, { threshold: 0.25 });
-
-    io.observe(wrap);
-})();
+// Anchor clicks close the mobile menu (CSS scroll-behavior handles the smoothness).
+document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (a) {
+        var menu = document.querySelector('#mobile-menu');
+        if (menu && menu.classList.contains('block')) toggleMobileMenu();
+    }
+});
