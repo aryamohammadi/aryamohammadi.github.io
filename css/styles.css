@@ -126,6 +126,7 @@ h1, h2, h3 {
 .in .card.lift:nth-child(2) { transition-delay: 0.12s; }
 .in .card.lift:nth-child(3) { transition-delay: 0.24s; }
 .in .card.lift:nth-child(4) { transition-delay: 0.36s; }
+.in .card.lift:nth-child(5) { transition-delay: 0.48s; }
 
 .in .card.lift.up:hover {
     transform: translateY(-7px) rotate(-1.2deg);
