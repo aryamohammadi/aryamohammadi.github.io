@@ -139,57 +139,14 @@ h1, h2, h3 {
     .card.lift { transform: none !important; opacity: 1 !important; }
 }
 
-/* Guitar: ink outline, orange strings. Draws in once, strings pop on hover. */
+/* Guitar and dumbbell: interactive, sound on deliberate touch only. */
 .guitar { display: block; width: 100%; height: auto; overflow: visible; }
 
-.guitar path, .guitar circle {
-    stroke-dasharray: 1400;
-    stroke-dashoffset: 1400;
-}
-
-.guitar-wrap.in .guitar path,
-.guitar-wrap.in .guitar circle {
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1.5s cubic-bezier(.22,.68,.28,1);
-}
-
-.guitar-wrap.in .gstrings path { transition-delay: 0.9s; }
-
-.guitar-wrap.in .gs1 { animation: pop-low  0.95s ease-out 2.15s 1; }
-.guitar-wrap.in .gs2 { animation: pop-low  0.90s ease-out 2.24s 1; }
-.guitar-wrap.in .gs3 { animation: pop-mid  0.80s ease-out 2.33s 1; }
-.guitar-wrap.in .gs4 { animation: pop-mid  0.74s ease-out 2.42s 1; }
-.guitar-wrap.in .gs5 { animation: pop-high 0.64s ease-out 2.51s 1; }
-.guitar-wrap.in .gs6 { animation: pop-high 0.58s ease-out 2.60s 1; }
-
-.guitar-wrap:hover .gs1 { animation: pop-low  0.95s ease-out 0s 1; }
-.guitar-wrap:hover .gs2 { animation: pop-low  0.90s ease-out 0.06s 1; }
-.guitar-wrap:hover .gs3 { animation: pop-mid  0.80s ease-out 0.12s 1; }
-.guitar-wrap:hover .gs4 { animation: pop-mid  0.74s ease-out 0.18s 1; }
-.guitar-wrap:hover .gs5 { animation: pop-high 0.64s ease-out 0.24s 1; }
-.guitar-wrap:hover .gs6 { animation: pop-high 0.58s ease-out 0.30s 1; }
-
-@keyframes pop-low {
-    0% { transform: translateY(0); } 12% { transform: translateY(-5px); }
-    28% { transform: translateY(3.4px); } 45% { transform: translateY(-2.2px); }
-    62% { transform: translateY(1.3px); } 80% { transform: translateY(-0.6px); }
-    100% { transform: translateY(0); }
-}
-@keyframes pop-mid {
-    0% { transform: translateY(0); } 14% { transform: translateY(-3.4px); }
-    32% { transform: translateY(2.1px); } 52% { transform: translateY(-1.2px); }
-    74% { transform: translateY(0.6px); } 100% { transform: translateY(0); }
-}
-@keyframes pop-high {
-    0% { transform: translateY(0); } 16% { transform: translateY(-2.1px); }
-    38% { transform: translateY(1.2px); } 62% { transform: translateY(-0.6px); }
-    100% { transform: translateY(0); }
-}
+@keyframes pop-low  { 0%{transform:translateX(0)} 12%{transform:translateX(-5px)} 28%{transform:translateX(3.4px)} 45%{transform:translateX(-2.2px)} 62%{transform:translateX(1.3px)} 80%{transform:translateX(-.6px)} 100%{transform:translateX(0)} }
+@keyframes pop-mid  { 0%{transform:translateX(0)} 14%{transform:translateX(-3.4px)} 32%{transform:translateX(2.1px)} 52%{transform:translateX(-1.2px)} 74%{transform:translateX(.6px)} 100%{transform:translateX(0)} }
+@keyframes pop-high { 0%{transform:translateX(0)} 16%{transform:translateX(-2.1px)} 38%{transform:translateX(1.2px)} 62%{transform:translateX(-.6px)} 100%{transform:translateX(0)} }
 
 @media (prefers-reduced-motion: reduce) {
-    .guitar path, .guitar circle {
-        stroke-dashoffset: 0 !important;
-        animation: none !important;
-        transform: none !important;
-    }
+    .gs1, .gs2, .gs3, .gs4, .gs5, .gs6 { animation: none !important; transform: none !important; }
+}
 }
