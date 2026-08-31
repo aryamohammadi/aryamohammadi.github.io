@@ -89,3 +89,52 @@ h1, h2, h3 {
     }
     .dots { opacity: 1 !important; }
 }
+
+/* Project cards: lie flat, stand up on arrival, springy hover after. */
+.cards { perspective: 1400px; }
+
+.yr {
+    font-family: var(--font-head);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+}
+
+.stack {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--soft);
+}
+
+.arrow {
+    display: inline-block;
+    color: var(--accent);
+    transition: transform 0.26s cubic-bezier(.34,1.56,.48,1);
+}
+
+.card.lift {
+    transform-origin: 50% 100%;
+    transform: rotateX(64deg) scale(0.94);
+    opacity: 0.55;
+    will-change: transform;
+    transition: transform 0.95s cubic-bezier(.22,.72,.24,1), opacity 0.7s ease;
+}
+
+.in .card.lift { transform: none; opacity: 1; }
+.in .card.lift:nth-child(2) { transition-delay: 0.12s; }
+.in .card.lift:nth-child(3) { transition-delay: 0.24s; }
+.in .card.lift:nth-child(4) { transition-delay: 0.36s; }
+
+.in .card.lift.up:hover {
+    transform: translateY(-7px) rotate(-1.2deg);
+    transition: transform 0.26s cubic-bezier(.34,1.56,.48,1);
+    box-shadow: 0 13px 0 -4px rgba(28, 27, 25, 0.12);
+}
+
+.in .card.lift.up:hover .arrow { transform: translateX(5px); }
+
+@media (prefers-reduced-motion: reduce) {
+    .card.lift { transform: none !important; opacity: 1 !important; }
+}

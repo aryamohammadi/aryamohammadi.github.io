@@ -285,65 +285,39 @@
 
     
     <!-- My projects section (the important stuff) -->
-    <section id="projects" class="py-12 sm:py-16 bg-[#161b22]">
+    <section id="projects" class="py-14 sm:py-20">
     <div class="container mx-auto px-6">
-        <p class="eyebrow mb-3">Selected work</p>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f0f0f0] mb-6">Projects</h2>
-        <div class="ledger">
-            <article class="ledger-row">
-                <div class="ledger-year">2025</div>
-                <div>
-                    <h3 class="ledger-name">CodeLens</h3>
-                    <p class="ledger-stack mt-2">Next.js · TypeScript · OpenAI API · Zustand</p>
-                </div>
-                <div>
-                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">AI-powered code review tool that detects bugs, suggests optimizations, and analyzes time/space complexity across 8 languages using GPT-4. REST API with structured JSON schema output, validation for malformed responses, and async state management with Zustand.</p>
-                    <div class="mt-4 flex flex-wrap gap-5">
-                        <a href="https://github.com/aryamohammadi/code-analyzer" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
-                    </div>
-                </div>
-            </article>
-            <article class="ledger-row">
-                <div class="ledger-year">2025</div>
-                <div>
-                    <h3 class="ledger-name">AryaElectric.com</h3>
-                    <p class="ledger-stack mt-2">Next.js · Twilio · Playwright</p>
-                </div>
-                <div>
-                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Production site for a licensed contractor serving 400+ customers. Async API routes, Twilio SMS webhooks, server-side caching (90% latency reduction), and 90+ tests.</p>
-                    <div class="mt-4 flex flex-wrap gap-5">
-                        <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">Live site</a>
-                        <a href="https://github.com/aryamohammadi/AryaElectricProject-Demo" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
-                    </div>
-                </div>
-            </article>
-            <article class="ledger-row">
-                <div class="ledger-year">2024</div>
-                <div>
-                    <h3 class="ledger-name">DormDuos</h3>
-                    <p class="ledger-stack mt-2">React · Node.js · MongoDB · Jest</p>
-                </div>
-                <div>
-                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Housing platform for a 500+ member UCR community I co-founded. React frontend, Express API, JWT auth, sub-1ms indexed queries, and 100% branch test coverage.</p>
-                    <div class="mt-4 flex flex-wrap gap-5">
-                        <a href="https://ucr-housing-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">Live site</a>
-                        <a href="https://github.com/aryamohammadi/Dormduos" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
-                    </div>
-                </div>
-            </article>
-            <article class="ledger-row">
-                <div class="ledger-year">2024</div>
-                <div>
-                    <h3 class="ledger-name">Battlestar RPG</h3>
-                    <p class="ledger-stack mt-2">C++ · GoogleTest</p>
-                </div>
-                <div>
-                    <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">3.4k-line RPG engine with 23 classes, built by a 5-person team. MaxHeap-based combat scheduler and a 2.3k-line GoogleTest suite.</p>
-                    <div class="mt-4 flex flex-wrap gap-5">
-                        <a href="https://github.com/aryamohammadi/Battlestar-RPG" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-wider text-primary hover:text-primary-light transition-colors duration-200">View code</a>
-                    </div>
-                </div>
-            </article>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl mb-10">Selected <span class="accent">work</span></h2>
+        <div class="cards grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+            <a href="https://github.com/aryamohammadi/code-analyzer" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group">
+                <p class="yr">2025</p>
+                <h3 class="text-xl mb-2">CodeLens <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                <p class="text-sm text-[#55514B] mb-3">AI code review tool that detects bugs, suggests optimizations, and analyzes complexity across 8 languages using GPT-4.</p>
+                <p class="stack">Next.js &middot; TypeScript &middot; OpenAI API &middot; Zustand</p>
+            </a>
+
+            <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group">
+                <p class="yr">2025</p>
+                <h3 class="text-xl mb-2">AryaElectric.com <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                <p class="text-sm text-[#55514B] mb-3">Production site for a licensed electrical contractor serving 400+ customers. Quote APIs, Twilio SMS, 90+ tests.</p>
+                <p class="stack">Next.js &middot; Twilio &middot; Playwright</p>
+            </a>
+
+            <a href="https://ucr-housing-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group">
+                <p class="yr">2024</p>
+                <h3 class="text-xl mb-2">DormDuos <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                <p class="text-sm text-[#55514B] mb-3">Housing platform for a 500+ member UCR community I co-founded. JWT auth, sub-1ms queries, 100% branch test coverage.</p>
+                <p class="stack">React &middot; Node.js &middot; MongoDB &middot; Jest</p>
+            </a>
+
+            <a href="https://github.com/aryamohammadi/Battlestar-RPG" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group">
+                <p class="yr">2024</p>
+                <h3 class="text-xl mb-2">Battlestar RPG <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                <p class="text-sm text-[#55514B] mb-3">3.4k-line C++ RPG engine with 23 classes, built by a 5-person team. MaxHeap combat scheduler, 2.3k-line test suite.</p>
+                <p class="stack">C++ &middot; GoogleTest</p>
+            </a>
+
         </div>
     </div>
 </section>
