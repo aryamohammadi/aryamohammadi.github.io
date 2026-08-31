@@ -106,3 +106,17 @@ function setupKeyboardNavigation() {
         }
     });
 }
+
+// The guitar draws itself once the About rail is in view.
+(function () {
+    var wrap = document.querySelector('.guitar-wrap');
+    if (!wrap) return;
+
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+    }, { threshold: 0.25 });
+
+    io.observe(wrap);
+})();
