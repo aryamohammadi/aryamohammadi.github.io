@@ -144,141 +144,72 @@
 
     
     <!-- About me section -->
-    <section id="about" class="py-12 sm:py-16 bg-[#0d1117]">
+    <section id="about" class="py-14 sm:py-20 border-t-2 border-[#1C1B19]">
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+
             <div class="lg:col-span-1">
-                <div class="w-40 sm:w-48 mb-8 overflow-hidden rounded-lg border border-[#30363d]">
+                <div class="card tilt-l w-40 sm:w-48 mb-6 overflow-hidden">
                     <picture>
                         <source srcset="images/arya-formal.webp" type="image/webp">
                         <img src="images/arya-formal.jpg" alt="Arya Mohammadi" width="480" height="640"
                              class="w-full h-auto block" loading="lazy" decoding="async">
                     </picture>
                 </div>
-                <p class="eyebrow mb-3">About</p>
-                <h2 class="text-2xl sm:text-3xl font-medium text-[#f0f0f0] mb-6 leading-snug">Hi, my name is Arya Mohammadi. I study Math&nbsp;+&nbsp;CS at UCSD. Currently creating<span class="dots">...</span></h2>
-                <p class="text-[#8b949e] text-sm font-light leading-relaxed mb-6">Computer Science &amp; Mathematics at UC San Diego, currently interning on the watsonx Orchestrate team at IBM.</p>
-                <div class="border-t border-[#30363d] pt-5">
-                    <p class="eyebrow mb-2">Education</p>
-                    <p class="text-[#f0f0f0] text-sm font-medium">University of California, San Diego</p>
-                    <p class="text-[#c9d1d9] text-sm font-light mt-1">B.S. Computer Science and Mathematics</p>
-                    <p class="font-mono text-xs text-[#8b949e] mt-2">Expected 2027 · GPA 3.70/4.00</p>
-                </div>
+                <h2 class="text-2xl sm:text-3xl mb-4">Hi, my name is Arya Mohammadi.</h2>
+                <p class="text-sm text-[#55514B] mb-6">Computer Science &amp; Mathematics at UC San Diego, currently interning on the watsonx Orchestrate team at IBM.</p>
+                <p class="text-sm font-medium">University of California, San Diego</p>
+                <p class="text-sm text-[#55514B]">B.S. Computer Science and Mathematics</p>
+                <p class="text-xs text-[#8A857D] mt-1">Expected 2027 &middot; GPA 3.70/4.00</p>
+            </div>
 
-                <div class="guitar-wrap mt-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" class="guitar" aria-hidden="true">
-                    <g transform="translate(0,300) rotate(-90)">
-  <!-- Dreadnought proportions, scaled from a real instrument:
-       lower bout 15.6" = 200px, upper bout 11.5", waist 11.2" (only
-       slightly narrower than the shoulders - that shallow waist is what
-       separates a dreadnought from a parlor or classical), body 20". -->
-  <g fill="none" stroke="#d4af37" stroke-width="2" stroke-linejoin="round">
-    <!-- body -->
-    <path d="M150 300
-             C 186 300, 218 310, 224 340
-             C 229 366, 224 392, 221 412
-             C 218 434, 231 446, 240 462
-             C 250 480, 252 500, 250 516
-             C 246 552, 205 574, 150 574
-             C 95 574, 54 552, 50 516
-             C 48 500, 50 480, 60 462
-             C 69 446, 82 434, 79 412
-             C 76 392, 71 366, 76 340
-             C 82 310, 114 300, 150 300 Z"/>
-    <!-- sound hole with rosette -->
-    <circle cx="150" cy="372" r="27"/>
-    <circle cx="150" cy="372" r="33" stroke-width="0.9"/>
-    <!-- bridge with saddle -->
-    <path d="M120 470 h60 a4 4 0 0 1 4 4 v13 a4 4 0 0 1 -4 4 h-60 a4 4 0 0 1 -4 -4 v-13 a4 4 0 0 1 4 -4 Z"/>
-    <path d="M124 477 h52" stroke-width="1"/>
-    <!-- neck: 2.1" at the body joint tapering to 1.75" at the nut -->
-    <path d="M136 300 L 139 120"/>
-    <path d="M164 300 L 161 120"/>
-    <path d="M138 120 h24" stroke-width="2.6"/>
-    <!-- headstock -->
-    <path d="M139 120 C 134 112, 131 100, 131 84
-             C 131 62, 136 50, 150 50
-             C 164 50, 169 62, 169 84
-             C 169 100, 166 112, 161 120 Z"/>
-    <!-- frets -->
-    <g stroke-width="0.9">
-      <path d="M137 280 h26"/><path d="M137 262 h26"/><path d="M137.5 245 h25"/>
-      <path d="M137.5 229 h25"/><path d="M138 214 h24"/><path d="M138 200 h24"/>
-      <path d="M138 187 h24"/><path d="M138.5 175 h23"/><path d="M138.5 164 h23"/>
-      <path d="M139 154 h22"/><path d="M139 145 h22"/><path d="M139 136 h22"/>
-    </g>
-    <!-- tuning pegs, 3 a side -->
-    <g stroke-width="1.2">
-      <circle cx="123" cy="72" r="4.5"/><circle cx="123" cy="88" r="4.5"/><circle cx="123" cy="104" r="4.5"/>
-      <circle cx="177" cy="72" r="4.5"/><circle cx="177" cy="88" r="4.5"/><circle cx="177" cy="104" r="4.5"/>
-      <path d="M127 72 h6"/><path d="M127 88 h6"/><path d="M127 104 h6"/>
-      <path d="M167 72 h6"/><path d="M167 88 h6"/><path d="M167 104 h6"/>
-    </g>
-  </g>
-  <!-- strings: low E through high E, gauged, nut to bridge -->
-  <g class="gstrings" stroke="#d4af37" stroke-linecap="round" opacity="0.92">
-    <path class="gs1" d="M139.5 122 L 124 477" stroke-width="1.7"/>
-    <path class="gs2" d="M143.7 122 L 134 477" stroke-width="1.45"/>
-    <path class="gs3" d="M147.9 122 L 144 477" stroke-width="1.2"/>
-    <path class="gs4" d="M152.1 122 L 156 477" stroke-width="1"/>
-    <path class="gs5" d="M156.3 122 L 166 477" stroke-width="0.8"/>
-    <path class="gs6" d="M160.5 122 L 176 477" stroke-width="0.62"/>
-  </g>
-  </g>
-                    </g>
-                    </svg>
-                </div>
-                <div class="hidden">
-                </div>
-            </div>
             <div class="lg:col-span-2">
-                <p class="eyebrow mb-6">Experience</p>
-                <div class="border-t border-[#30363d]">
-                    <div class="py-4 border-b border-[#30363d]">
-                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                            <h3 class="text-lg font-medium text-[#f0f0f0]">Software Engineer Intern</h3>
-                            <p class="font-mono text-xs text-[#8b949e]">June 2026 – September 2026</p>
-                        </div>
-                        <p class="text-primary text-sm mt-1 mb-3">IBM — watsonx Orchestrate</p>
-                        <ul class="space-y-1.5">
-                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Built Bob Brain, an AI platform that auto-captures institutional knowledge into a shared knowledge graph, with a FastAPI vault server and a Model Context Protocol server exposing six agent tools</li>
-                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Developed and tested REST API endpoints with CI/CD pipelines, connecting watsonx Orchestrate agents into coordinated multi-agent workflows</li>
-                        </ul>
+                <h2 class="text-2xl sm:text-3xl mb-6">Experience</h2>
+                <div class="py-4 border-b-2 border-[#1C1B19]/15">
+                    <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <h3 class="text-lg">Software Engineer Intern</h3>
+                        <p class="text-xs text-[#8A857D]">June 2026 – September 2026</p>
                     </div>
-                    <div class="py-4 border-b border-[#30363d]">
-                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                            <h3 class="text-lg font-medium text-[#f0f0f0]">Web &amp; Technical Lead (Contract)</h3>
-                            <p class="font-mono text-xs text-[#8b949e]">June 2025 – Present</p>
-                        </div>
-                        <p class="text-primary text-sm mt-1 mb-3">Arya Electric LLC</p>
-                        <ul class="space-y-1.5">
-                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Own the production Next.js platform for a licensed electrical contractor serving 400+ customers across Southern California</li>
-                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Built quote APIs with Twilio SMS confirmation and email automation; 90+ tests plus Playwright end-to-end flows; shipped a second production site for NOOR Electric Inc.</li>
-                        </ul>
+                    <p class="accent text-sm mb-2">IBM — watsonx Orchestrate</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-sm text-[#55514B]">Built Bob Brain, an AI platform that auto-captures institutional knowledge into a shared knowledge graph, with a FastAPI vault server and a Model Context Protocol server exposing six agent tools</li>
+                        <li class="text-sm text-[#55514B]">Developed and tested REST API endpoints with CI/CD pipelines, connecting watsonx Orchestrate agents into coordinated multi-agent workflows</li>
+                    </ul>
+                </div>
+                <div class="py-4 border-b-2 border-[#1C1B19]/15">
+                    <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <h3 class="text-lg">Web &amp; Technical Lead (Contract)</h3>
+                        <p class="text-xs text-[#8A857D]">June 2025 – Present</p>
                     </div>
-                    <div class="py-4 border-b border-[#30363d]">
-                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                            <h3 class="text-lg font-medium text-[#f0f0f0]">Computer Science and Mathematics Tutor</h3>
-                            <p class="font-mono text-xs text-[#8b949e]">September 2024 – June 2025</p>
-                        </div>
-                        <p class="text-primary text-sm mt-1 mb-3">University of California, Riverside</p>
-                        <ul class="space-y-1.5">
-                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Tutored 400+ students over 600 hours in data structures, algorithms, and systems programming</li>
-                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Debugged 100+ student C++ codebases; authored 50+ practice problems adopted by 3 other tutors</li>
-                        </ul>
+                    <p class="accent text-sm mb-2">Arya Electric LLC</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-sm text-[#55514B]">Own the production Next.js platform for a licensed electrical contractor serving 400+ customers across Southern California</li>
+                        <li class="text-sm text-[#55514B]">Built quote APIs with Twilio SMS confirmation and email automation; 90+ tests plus Playwright end-to-end flows; shipped a second production site for NOOR Electric Inc.</li>
+                    </ul>
+                </div>
+                <div class="py-4 border-b-2 border-[#1C1B19]/15">
+                    <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <h3 class="text-lg">Computer Science and Mathematics Tutor</h3>
+                        <p class="text-xs text-[#8A857D]">September 2024 – June 2025</p>
                     </div>
-                    <div class="py-4 border-b border-[#30363d]">
-                        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                            <h3 class="text-lg font-medium text-[#f0f0f0]">Hardware Intern</h3>
-                            <p class="font-mono text-xs text-[#8b949e]">June 2021 – September 2023</p>
-                        </div>
-                        <p class="text-primary text-sm mt-1 mb-3">ProCustom Group</p>
-                        <ul class="space-y-1.5">
-                            <li class="text-[#c9d1d9] text-sm font-light leading-relaxed">Assembled 250+ rugged laptop systems for Lockheed Martin and Raytheon with 100% on-time delivery</li>
-                        </ul>
+                    <p class="accent text-sm mb-2">University of California, Riverside</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-sm text-[#55514B]">Tutored 400+ students over 600 hours in data structures, algorithms, and systems programming</li>
+                        <li class="text-sm text-[#55514B]">Debugged 100+ student C++ codebases; authored 50+ practice problems adopted by 3 other tutors</li>
+                    </ul>
+                </div>
+                <div class="py-4 border-b-2 border-[#1C1B19]/15">
+                    <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                        <h3 class="text-lg">Hardware Intern</h3>
+                        <p class="text-xs text-[#8A857D]">June 2021 – September 2023</p>
                     </div>
+                    <p class="accent text-sm mb-2">ProCustom Group</p>
+                    <ul class="space-y-1.5">
+                        <li class="text-sm text-[#55514B]">Assembled 250+ rugged laptop systems for Lockheed Martin and Raytheon with 100% on-time delivery</li>
+                    </ul>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -324,27 +255,14 @@
 
     
     <!-- Skills I've learned -->
-    <section id="skills" class="py-12 sm:py-16 bg-[#0d1117]">
+    <section id="skills" class="py-14 sm:py-20 border-t-2 border-[#1C1B19]">
     <div class="container mx-auto px-6">
-        <p class="eyebrow mb-3">What I work with</p>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium text-[#f0f0f0] mb-6">Skills</h2>
-        <div class="border-t border-[#30363d]">
-            <div class="spec-row">
-                <p class="eyebrow">Languages</p>
-                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Python, C++, C, JavaScript, TypeScript, Java, SQL, HTML</p>
-            </div>
-            <div class="spec-row">
-                <p class="eyebrow">Frameworks</p>
-                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Next.js, React.js, Node.js, Express.js, FastAPI, Zustand, Jest, Supertest, Playwright, GoogleTest</p>
-            </div>
-            <div class="spec-row">
-                <p class="eyebrow">Tools</p>
-                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">Git, Linux, MongoDB, Docker, Twilio, Vercel, CMake, gdb, Valgrind</p>
-            </div>
-            <div class="spec-row">
-                <p class="eyebrow">Concepts</p>
-                <p class="text-[#c9d1d9] text-sm font-light leading-relaxed">REST APIs, CI/CD, Unit &amp; E2E Testing, Authentication, AI Integration, Model Context Protocol</p>
-            </div>
+        <h2 class="text-3xl sm:text-4xl mb-8">What I <span class="accent">work with</span></h2>
+        <div class="card p-7 space-y-4">
+            <p class="text-sm"><span class="yr">LANGUAGES</span><br>Python, C++, C, JavaScript, TypeScript, Java, SQL, HTML</p>
+            <p class="text-sm"><span class="yr">FRAMEWORKS</span><br>Next.js, React.js, Node.js, Express.js, FastAPI, Zustand, Jest, Supertest, Playwright, GoogleTest</p>
+            <p class="text-sm"><span class="yr">TOOLS</span><br>Git, Linux, MongoDB, Docker, Twilio, Vercel, CMake, gdb, Valgrind</p>
+            <p class="text-sm"><span class="yr">CONCEPTS</span><br>REST APIs, CI/CD, Unit &amp; E2E Testing, Authentication, AI Integration, Model Context Protocol</p>
         </div>
     </div>
 </section>
