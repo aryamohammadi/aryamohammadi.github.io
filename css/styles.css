@@ -3,9 +3,9 @@
 :root {
     --bg: #FDFBF7;
     --ink: #1C1B19;
-    --accent: #D8542F;
+    --accent: #C04A28;
     --muted: #55514B;
-    --soft: #8A857D;
+    --soft: #6E6960;
     --card-bg: #FFFFFF;
     --font-head: 'Space Grotesk', 'Segoe UI', sans-serif;
     --font-body: 'Inter', -apple-system, sans-serif;
@@ -69,7 +69,7 @@ h1, h2, h3 {
 }
 
 @keyframes dots-breathe {
-    0%, 100% { opacity: 0.35; }
+    0%, 100% { opacity: 0.55; }
     50% { opacity: 1; }
 }
 
