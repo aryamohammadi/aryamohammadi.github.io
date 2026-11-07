@@ -142,6 +142,9 @@ h1, h2, h3 {
 
 .in .card.lift.up:hover .arrow { transform: translateX(5px); }
 
+/* Cards without a link (like Brickt) shouldn't bounce like they're clickable. */
+.in .card.lift.up.no-link:hover { transform: none; box-shadow: none; }
+
 @media (prefers-reduced-motion: reduce) {
     .card.lift { transform: none !important; opacity: 1 !important; }
 }
