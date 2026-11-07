@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arya Mohammadi | Computer Science & Mathematics @ UCSD</title>
-    <meta name="description" content="Arya Mohammadi - Computer Science & Mathematics student at UC San Diego. Previously a Software Engineer Intern at IBM, building full-stack and AI-integrated systems.">
-    <meta name="keywords" content="Arya Mohammadi, UCSD, Computer Science, Mathematics, IBM, watsonx, Technical Lead, Full-Stack Developer, React, Next.js, Node.js, Python, C++, Software Engineer">
+    <meta name="description" content="Arya Mohammadi - Computer Science & Mathematics student at UC San Diego. Previously a Software Developer Intern at IBM, building full-stack and AI-integrated systems.">
+    <meta name="keywords" content="Arya Mohammadi, UCSD, Computer Science, Mathematics, IBM, watsonx, Brickt, Arya Electric, Full-Stack Developer, RAG, React, Next.js, TypeScript, Node.js, Python, Rust, C++, Software Engineer">
     <meta name="author" content="Arya Mohammadi">
     <meta name="theme-color" content="#EAE1D6">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Arya Mohammadi | Computer Science & Mathematics Student">
-    <meta property="og:description" content="Computer Science & Mathematics student at UC San Diego. Previously a Software Engineer Intern at IBM, building full-stack and AI-integrated systems.">
+    <meta property="og:description" content="Computer Science & Mathematics student at UC San Diego. Previously a Software Developer Intern at IBM, building full-stack and AI-integrated systems.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aryamohammadi.github.io">
     <meta property="og:image" content="https://aryamohammadi.github.io/images/arya-og.jpg">
@@ -19,7 +19,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Arya Mohammadi | Computer Science & Mathematics Student">
-    <meta name="twitter:description" content="Computer Science & Mathematics student at UC San Diego. Previously a Software Engineer Intern at IBM, building full-stack and AI-integrated systems.">
+    <meta name="twitter:description" content="Computer Science & Mathematics student at UC San Diego. Previously a Software Developer Intern at IBM, building full-stack and AI-integrated systems.">
     <meta name="twitter:image" content="https://aryamohammadi.github.io/images/arya-og.jpg">
     
     <!-- Little icon for the browser tab -->
@@ -145,11 +145,26 @@
         <h2 class="text-3xl sm:text-4xl lg:text-5xl mb-10">Selected <span class="accent">work</span></h2>
         <div class="cards grid grid-cols-1 sm:grid-cols-2 gap-5">
 
+            <!-- Brickt's repo is private, so this card has no link -->
+            <div class="card lift no-link block p-7">
+                <p class="yr">2026 &middot; CO-FOUNDER</p>
+                <h3 class="text-xl mb-2">Brickt</h3>
+                <p class="text-sm text-[#65564C] mb-3">Construction management web app I co-founded and built from concept to staging in 7 weeks on a 3-person team — including role-based access control that enforces permissions server-side and keeps each subcontractor's bids private.</p>
+                <p class="stack">TypeScript &middot; Next.js &middot; React &middot; PostgreSQL</p>
+            </div>
+
             <a href="https://www.aryaelectric.com" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group">
                 <p class="yr">2025</p>
                 <h3 class="text-xl mb-2">AryaElectric.com <span class="arrow" aria-hidden="true">&rarr;</span></h3>
-                <p class="text-sm text-[#65564C] mb-3">Lead-generation platform for a licensed electrical contractor — $30k+ booked revenue, 15 serverless APIs, Twilio SMS + email quote intake, and a map of completed jobs across 67 cities.</p>
-                <p class="stack">Next.js &middot; React &middot; Twilio &middot; Leaflet</p>
+                <p class="text-sm text-[#65564C] mb-3">Full-stack platform for a licensed electrical contractor — $30K+ in booked jobs, 25% more inbound leads, AI quote intake with Claude Haiku, and an admin dashboard that cut publishing time by 80%.</p>
+                <p class="stack">Next.js &middot; TypeScript &middot; PostgreSQL &middot; Twilio</p>
+            </a>
+
+            <a href="https://github.com/eunomia-bpf/agentsight/pull/149" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group" style="grid-column: 1 / -1;">
+                <p class="yr">2026 &middot; OPEN SOURCE</p>
+                <h3 class="text-xl mb-2">AgentSight <span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                <p class="text-sm text-[#65564C] mb-3">Co-built the first IDE integration for a 700+ star open-source AI-agent observability platform: a read-only SQLite tracing backend that recovers model, latency, and token usage from Cursor's 500 MB database, plus zero-config Cursor session discovery in the published agent-session Rust crate without breaking its API. Merged in PR #149 with 15 new tests and released in v1.0.4.</p>
+                <p class="stack">Rust &middot; SQLite &middot; Python &middot; Merged upstream</p>
             </a>
 
             <a href="https://ucr-housing-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group">
@@ -164,12 +179,6 @@
                 <h3 class="text-xl mb-2">Battlestar RPG <span class="arrow" aria-hidden="true">&rarr;</span></h3>
                 <p class="text-sm text-[#65564C] mb-3">Terminal RPG engine built with a 5-person team: MaxHeap combat scheduler with O(log n) turn updates, inventory and save/load persistence, 2.3k lines of GoogleTest coverage.</p>
                 <p class="stack">C++ &middot; STL &middot; GoogleTest &middot; CMake</p>
-            </a>
-            <a href="https://github.com/eunomia-bpf/agentsight/pull/149" target="_blank" rel="noopener noreferrer" class="card lift block p-7 group" style="grid-column: 1 / -1;">
-                <p class="yr">2026 &middot; OPEN SOURCE</p>
-                <h3 class="text-xl mb-2">AgentSight <span class="arrow" aria-hidden="true">&rarr;</span></h3>
-                <p class="text-sm text-[#65564C] mb-3">Shipped the first IDE integration for a 566-star open-source AI-agent observability platform: reverse-engineered Cursor's undocumented session storage across macOS, Linux, and Windows, and built zero-config session discovery, parsing, and enrichment in Rust. Merged upstream in v1.0.4, released on crates.io and npm.</p>
-                <p class="stack">Rust &middot; SQLite &middot; Python &middot; Merged upstream</p>
             </a>
 
 
@@ -192,10 +201,10 @@
                     </picture>
                 </div>
                 <h2 class="text-2xl sm:text-3xl mb-4">Hi, my name is Arya Mohammadi.</h2>
-                <p class="text-sm text-[#65564C] mb-6">Computer Science &amp; Mathematics at UC San Diego. Previously a software engineer intern on the watsonx Orchestrate team at IBM.</p>
+                <p class="text-sm text-[#65564C] mb-6">Mathematics &amp; Computer Science at UC San Diego. Previously a software developer intern on IBM's watsonx Orchestrate team, and co-founder of Arya Electric and Brickt.</p>
                 <p class="text-sm font-medium">University of California, San Diego</p>
-                <p class="text-sm text-[#65564C]">M.S. Computer Science &middot; B.S. Computer Science &amp; Mathematics</p>
-                <p class="text-xs text-[#6F6055] mt-1">Expected June 2028 &middot; GPA 3.7/4</p>
+                <p class="text-sm text-[#65564C]">B.S. Mathematics &amp; Computer Science</p>
+                <p class="text-xs text-[#6F6055] mt-1">Expected June 2027 &middot; GPA 3.7/4</p>
 
                 <div class="mt-8" id="gwrap">
                     <p class="yr">OFF THE CLOCK</p>
@@ -273,25 +282,28 @@
                 <h2 class="text-2xl sm:text-3xl mb-6">Experience</h2>
                 <div class="py-4 border-b-2 border-[#D6C8B8]">
                     <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-                        <h3 class="text-lg">Software Engineer Intern</h3>
+                        <h3 class="text-lg">Software Developer Intern</h3>
                         <p class="text-xs text-[#6F6055]">June 2026 – September 2026</p>
                     </div>
                     <p class="accent text-sm mb-2">IBM — watsonx Orchestrate</p>
                     <ul class="space-y-1.5">
-                        <li class="text-sm text-[#65564C]">Built the team's first search-accuracy test suite (Python, OpenSearch), uncovering that AI-powered semantic search had been silently broken since launch across 2 IBM products serving 5 AI agents</li>
-                            <li class="text-sm text-[#65564C]">Fixed a ranking bug that let long documents crowd out the best answer by up to ~7x and restored 2 search features that had never worked; merged into production with a 5-test regression suite</li>
-                            <li class="text-sm text-[#65564C]">Audited a 13-agent AI platform maintained by ~20 engineers, documenting 12 verified bugs (3 high severity), including a security flaw that could leak access credentials</li>
+                        <li class="text-sm text-[#65564C]">Raised Recall@3 by 55% in a production RAG pipeline (Python, OpenSearch) by adding score normalization and rolling out vector search safely behind feature flags</li>
+                        <li class="text-sm text-[#65564C]">Built an automated retrieval evaluation pipeline that benchmarks 1,000+ labeled queries with NDCG@10 and MRR, with regression checks in CI that replaced manual ranking checks</li>
+                        <li class="text-sm text-[#65564C]">Built a RAG onboarding agent with watsonx Orchestrate ADK and IBM Granite that guides new hires through setup; adopted by the Orchestrate team, cutting onboarding support requests by 45%</li>
+                        <li class="text-sm text-[#65564C]">Built a reusable Python/pytest testing framework covering 80+ watsonx Orchestrate REST endpoints (authentication, error handling, response schemas), now part of the team's CI/CD</li>
+                        <li class="text-sm text-[#65564C]">Placed 3rd of 184 teams at IBM's internal hackathon with a semantic cache (FastAPI, MCP) for an internal LLM coding assistant: 40% cache hit rate and 37% lower latency</li>
                     </ul>
                 </div>
                 <div class="py-4 border-b-2 border-[#D6C8B8]">
                     <div class="flex flex-wrap items-baseline justify-between gap-x-4">
                         <h3 class="text-lg">Software Engineer &amp; Co-Founder</h3>
-                        <p class="text-xs text-[#6F6055]">June 2025 – June 2026</p>
+                        <p class="text-xs text-[#6F6055]">June 2025 – Present</p>
                     </div>
                     <p class="accent text-sm mb-2">Arya Electric LLC</p>
                     <ul class="space-y-1.5">
-                        <li class="text-sm text-[#65564C]">Drove $30k+ in booked revenue for a licensed electrical contractor with a Next.js/React lead-generation platform: 15 serverless APIs, Twilio SMS + email quote intake, and a map of completed jobs across 67 cities</li>
-                            <li class="text-sm text-[#65564C]">Replaced the CMS with an authenticated owner portal; eliminated silent data loss by redesigning persistence around immutable, versioned index files; extended the platform to a second production site for NOOR Electric Inc.</li>
+                        <li class="text-sm text-[#65564C]">Built and deployed the full-stack platform (Next.js, TypeScript, PostgreSQL, Twilio) with project portfolios, automated quote requests, and SMS/email notifications, bringing in $30K+ in booked jobs and 25% more inbound leads</li>
+                        <li class="text-sm text-[#65564C]">Built an AI quote-intake system with Claude Haiku that pulls scope, budget, and timeline from customer messages, with Zod-validated output; cut intake processing time by 40%</li>
+                        <li class="text-sm text-[#65564C]">Built a Next.js and Firebase admin dashboard with secure sign-in, image compression, and automated photo management; cut publishing time by 80% and removed manual redeploys</li>
                     </ul>
                 </div>
                 <div class="py-4 border-b-2 border-[#D6C8B8]">
@@ -318,8 +330,8 @@
         <h2 class="text-3xl sm:text-4xl mb-8">What I <span class="accent">work with</span></h2>
         <div class="card p-7 space-y-4">
             <p class="text-sm"><span class="yr">LANGUAGES</span><br>Python, C++, C, Rust, Java, JavaScript, TypeScript, SQL, HTML/CSS</p>
-            <p class="text-sm"><span class="yr">FRAMEWORKS</span><br>Next.js, React, Node.js, Express, FastAPI, Tailwind CSS, Leaflet, Jest, Supertest, GoogleTest</p>
-            <p class="text-sm"><span class="yr">TOOLS</span><br>Git, Linux, OpenSearch, MongoDB, SQLite, Docker, bcrypt, Twilio, Vercel, CMake, gdb, Valgrind</p>
+            <p class="text-sm"><span class="yr">FRAMEWORKS</span><br>Next.js, React, Node.js, Express, FastAPI, Tailwind CSS, Leaflet, Jest, pytest, Supertest, GoogleTest</p>
+            <p class="text-sm"><span class="yr">TOOLS</span><br>Git, Linux, OpenSearch, PostgreSQL, MongoDB, SQLite, Firebase, Docker, bcrypt, Twilio, Vercel, CMake, gdb, Valgrind</p>
             <p class="text-sm"><span class="yr">CONCEPTS</span><br>REST APIs, CI/CD, Unit &amp; E2E Testing, Authentication (JWT, HMAC), RAG &amp; Hybrid Retrieval, Model Context Protocol (MCP)</p>
         </div>
     </div>
