@@ -1,17 +1,23 @@
 /* Arya Mohammadi — portfolio styles. Warm, playful, one big animation. */
 
+/* Cortado palette: steamed milk, crema, espresso */
 :root {
-    --bg: #FDFBF7;
-    --ink: #1C1B19;
-    --accent: #C04A28;
-    --muted: #55514B;
-    --soft: #6E6960;
-    --card-bg: #FFFFFF;
+    --bg: #EAE1D6;        /* steamed milk */
+    --card-bg: #F4EEE7;   /* milk foam */
+    --ink: #2E211B;       /* espresso, main text */
+    --button: #3B2A21;    /* espresso roast, filled buttons */
+    --on-button: #F4EEE7;
+    --accent: #84562F;    /* crema, highlights and labels */
+    --line: #D6C8B8;      /* soft borders */
+    --muted: #65564C;
+    --soft: #6F6055;
     --font-head: 'Space Grotesk', 'Segoe UI', sans-serif;
     --font-body: 'Inter', -apple-system, sans-serif;
 }
 
 html { background: var(--bg); scroll-behavior: smooth; }
+
+::selection { background: var(--button); color: var(--on-button); }
 
 body {
     font-family: var(--font-body);
@@ -42,18 +48,18 @@ h1, h2, h3 {
     transition: transform 0.26s cubic-bezier(.34,1.56,.48,1), box-shadow 0.26s ease;
 }
 
-.btn-fill { background: var(--accent); color: #fff; }
+.btn-fill { background: var(--button); color: var(--on-button); }
 .btn-line { color: var(--ink); border: 2px solid var(--ink); }
 
 .btn-fill:hover, .btn-line:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 0 -3px rgba(28, 27, 25, 0.15);
+    box-shadow: 0 8px 0 -3px rgba(46, 33, 27, 0.18);
 }
 
 /* Card */
 .card {
     background: var(--card-bg);
-    border: 2px solid var(--ink);
+    border: 2px solid var(--line);
     border-radius: 20px;
 }
 
@@ -131,7 +137,7 @@ h1, h2, h3 {
 .in .card.lift.up:hover {
     transform: translateY(-7px) rotate(-1.2deg);
     transition: transform 0.26s cubic-bezier(.34,1.56,.48,1);
-    box-shadow: 0 13px 0 -4px rgba(28, 27, 25, 0.12);
+    box-shadow: 0 13px 0 -4px rgba(46, 33, 27, 0.14);
 }
 
 .in .card.lift.up:hover .arrow { transform: translateX(5px); }
